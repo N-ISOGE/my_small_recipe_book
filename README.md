@@ -17,6 +17,7 @@
     # create a new Gatsby site using the minimal TypeScript starter
     npm init gatsby -- -ts
     ```
+  
 
 2.  **Start developing.**
 
