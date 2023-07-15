@@ -1,17 +1,12 @@
 import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
-import { Link } from "gatsby";
+import Layout from "../components/layout";
 
 const MapPage: React.FC<PageProps> = () => {
   return (
-    <main>
-      <Link to="/">대문</Link>
-
-      <h1>개요</h1>
+    <Layout pageTitle="개요">
       <p>뭐 올릴지 정하는 중</p>
-
-      <Link to="/">대문</Link>
-    </main>
+    </Layout>
   );
 };
 
