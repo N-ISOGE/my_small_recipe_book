@@ -4,7 +4,7 @@ import Layout from "../components/layout";
 
 const MapPage: React.FC<PageProps> = () => {
   return (
-    <Layout pageTitle="개요">
+    <Layout pageTitle={"개요"} tag={"map"}>
       <p>뭐 올릴지 정하는 중</p>
     </Layout>
   );

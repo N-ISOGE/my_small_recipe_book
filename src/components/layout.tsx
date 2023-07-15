@@ -3,10 +3,12 @@ import { Link } from "gatsby";
 
 const Layout = ({
   pageTitle,
-  children,
+    tag,
+    children
 }: {
   pageTitle: string;
-  children: React.ReactNode;
+        tag: string;
+        children:React.ReactNode;
 }) => {
   return (
     <div>
@@ -22,7 +24,8 @@ const Layout = ({
       </nav>
       <main>
         <h1>{pageTitle} </h1>
-        {children}
+              {tag}
+              {children}
       </main>
     </div>
   );
