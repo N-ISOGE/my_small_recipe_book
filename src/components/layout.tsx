@@ -4,12 +4,12 @@ import * as postStyles from './post.module.css';
 
 const Layout = ({
   pageTitle,
-    tag,
-    children
+  tag,
+  children,
 }: {
   pageTitle: string;
-        tag: string;
-        children:React.ReactNode;
+  tag: string;
+  children: React.ReactNode;
 }) => {
   return (
     <div>
