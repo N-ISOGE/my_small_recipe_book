@@ -22,7 +22,7 @@ const Layout = ({
             <Link to="/map">map</Link>
           </li>
           <li>
-            <Link to="../blog">blog</Link>
+            <Link to="/blog">blog</Link>
           </li>
         </ul>
       </nav>
