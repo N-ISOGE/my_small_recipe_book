@@ -18,11 +18,16 @@
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
     "gatsby": "^5.11.0",
+    "gatsby-cli": "^5.11.0",
+    "gatsby-plugin-image": "^3.11.0",
     "gatsby-plugin-manifest": "^5.11.0",
     "gatsby-plugin-mdx": "^5.11.0",
+    "gatsby-plugin-page-creator": "^5.11.0",
+    "gatsby-plugin-sharp": "^5.11.0",
     "gatsby-plugin-sitemap": "^6.11.0",
     "gatsby-source-filesystem": "^5.11.0",
     "gatsby-transformer-remark": "^6.11.0",
+    "gatsby-transformer-sharp": "^5.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -30,6 +35,7 @@
     "@types/node": "^20.3.3",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
+    "gatsby-plugin-dts-css-modules": "^3.0.0",
     "typescript": "^5.1.6"
   }
 }

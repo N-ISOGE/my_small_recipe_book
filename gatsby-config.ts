@@ -1,4 +1,5 @@
 import type { GatsbyConfig } from "gatsby";
+import path from "path";
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -17,7 +18,15 @@ const config: GatsbyConfig = {
         icon: "src/images/icon.png",
       },
     },
-    "gatsby-plugin-mdx",
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        defaultLayouts: {
+          default: path.resolve("./src/components/postTemplate.tsx"),
+        },
+        extensions: [".mdx", ".md"],
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -26,7 +35,18 @@ const config: GatsbyConfig = {
       },
       __key: "pages",
     },
-    "gatsby-transformer-remark",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "blog",
+        path: "./src/blog/",
+      },
+      __key: "blog",
+    },
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-dts-css-modules",
   ],
 };
 
