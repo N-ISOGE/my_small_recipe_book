@@ -18,6 +18,7 @@ const config: GatsbyConfig = {
         icon: "src/images/icon.png",
       },
     },
+    "gatsby-plugin-styled-components",
     {
       resolve: "gatsby-plugin-mdx",
       options: {
@@ -35,18 +36,11 @@ const config: GatsbyConfig = {
       },
       __key: "pages",
     },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "blog",
-        path: "./src/blog/",
-      },
-      __key: "blog",
-    },
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-dts-css-modules",
+    "gatsby-plugin-sass",
   ],
 };
 
