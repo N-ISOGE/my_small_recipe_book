@@ -1,6 +1,7 @@
 import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 import Layout from "../components/layout";
 
 const Greeting = (props: { name: string }) => {
@@ -33,6 +34,11 @@ const IndexPage: React.FC<PageProps> = () => {
       <p>
         <Link to="/page_test">test</Link>
       </p>
+
+      <StaticImage
+        alt="avatar"
+        src="https://avatars.githubusercontent.com/u/7279031?v=4"
+      />
     </Layout>
   );
 };
