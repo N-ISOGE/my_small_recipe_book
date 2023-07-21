@@ -1,9 +1,9 @@
 import type { GatsbyConfig } from "gatsby";
-import path from "path";
+// import path from "path";
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `My small recipe book`,
+    title: "My small recipe book",
     siteUrl: `https://www.yourdomain.tld`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
@@ -12,6 +12,7 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     "gatsby-plugin-sitemap",
+    "gatsby-plugin-tsconfig-paths",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -19,15 +20,7 @@ const config: GatsbyConfig = {
       },
     },
     "gatsby-plugin-styled-components",
-    {
-      resolve: "gatsby-plugin-mdx",
-      options: {
-        defaultLayouts: {
-          default: path.resolve("./src/components/postTemplate.tsx"),
-        },
-        extensions: [".mdx", ".md"],
-      },
-    },
+
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -35,6 +28,22 @@ const config: GatsbyConfig = {
         path: "./src/pages/",
       },
       __key: "pages",
+    },
+    {
+      resolve: "gatsby-plugin-page-creator",
+      options: {
+        path: "./src/pages/",
+      },
+      __key: "pages",
+    },
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        defaultLayouts: {
+          default: "./src/components/postTemplate.tsx",
+        },
+        extensions: [".mdx", ".md"],
+      },
     },
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",

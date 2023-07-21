@@ -8,7 +8,14 @@ interface PostTemplateProps {
 const Container = styled.section``;
 
 function PostTemplate({ children }: PostTemplateProps) {
-  return <Container>{children}</Container>;
+  return (
+    <Container>
+      <div>
+        <h1>layout</h1>
+        {children}
+      </div>
+    </Container>
+  );
 }
 
 export default PostTemplate;
