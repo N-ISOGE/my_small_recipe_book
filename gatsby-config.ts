@@ -1,5 +1,5 @@
 import type { GatsbyConfig } from "gatsby";
-// import path from "path";
+import path from "path";
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -43,6 +43,14 @@ const config: GatsbyConfig = {
           default: "./src/components/postTemplate.tsx",
         },
         extensions: [".mdx", ".md"],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-root-import",
+      options: {
+        "@components": path.join(__dirname, "src/components"),
+        "@pages": path.join(__dirname, "src/pages"),
+        "@images": path.join(__dirname, "src/images"),
       },
     },
     "gatsby-plugin-image",
