@@ -39,9 +39,6 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-plugin-mdx",
       options: {
-        defaultLayouts: {
-          default: "./src/components/postTemplate.tsx",
-        },
         extensions: [".mdx", ".md"],
       },
     },

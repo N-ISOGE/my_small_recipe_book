@@ -4,6 +4,8 @@ slug: \testtesttest
 date: "2023-07-15"
 ---
 
+import Layout from "@components/layout";
+
 export const Highlight = ({children, color}) => (
   <span
     style={{
@@ -16,10 +18,14 @@ export const Highlight = ({children, color}) => (
   </span>
 );
 
-<Highlight color="#25c2a0">Docusaurus green</Highlight> and <Highlight color="#1877F2">Facebook blue</Highlight> are my favorite colors.
+<Layout>
 
 # Test!
+
+<Highlight color="#25c2a0">Docusaurus green</Highlight> and <Highlight color="#1877F2">Facebook blue</Highlight> are my favorite colors.
 
 <Highlight color= "#aa3030"> wow </Highlight>
 
 <Highlight color= "#30aa30"> such amaze </Highlight>
+
+</Layout>

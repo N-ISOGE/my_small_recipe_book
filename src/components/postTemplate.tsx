@@ -7,7 +7,7 @@ interface PostTemplateProps {
 
 const Container = styled.section``;
 
-function PostTemplate({ children }: PostTemplateProps) {
+function PostTemplate({children }: PostTemplateProps) {
   return (
     <Container>
       <div>
