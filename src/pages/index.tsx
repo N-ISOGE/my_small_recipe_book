@@ -29,12 +29,6 @@ const IndexPage: React.FC<PageProps> = () => {
   return (
     <Layout pageTitle={"home"} tag={"대문"}>
       <p>레이아웃 함수 만들어 봄</p>
-      <p>
-        <Link to="/blog/test_copy/">test cp</Link>
-      </p>
-      <p>
-        <Link to="/page_test">test</Link>
-      </p>
 
       <StaticImage
         alt="avatar"
