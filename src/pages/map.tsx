@@ -1,8 +1,8 @@
 import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
-import Layout from "../components/layout";
-import Seo from "../components/seo";
-import PostTemplate from "../components/postTemplate";
+import Layout from "@components/layout";
+import Seo from "@components/seo";
+import PostTemplate from "@components/postTemplate";
 
 const MapPage: React.FC<PageProps> = () => {
   return (
