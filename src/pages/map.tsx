@@ -7,9 +7,7 @@ import PostTemplate from "@components/postTemplate";
 const MapPage: React.FC<PageProps> = () => {
   return (
     <Layout pageTitle={"개요"} tag={"map"}>
-      <PostTemplate>
-        <p>뭐 올릴지 정하는 중</p>
-      </PostTemplate>
+      <p>뭐 올릴지 정하는 중</p>
     </Layout>
   );
 };
