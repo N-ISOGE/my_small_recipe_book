@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
-import * as postStyles from "./post.module.css";
+import * as postStyles from "@components/post.module.css";
 
 const Layout = ({
   pageTitle,
