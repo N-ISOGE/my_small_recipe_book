@@ -20,7 +20,6 @@ const config: GatsbyConfig = {
       },
     },
     "gatsby-plugin-styled-components",
-
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -35,6 +34,21 @@ const config: GatsbyConfig = {
         path: "./src/pages/",
       },
       __key: "pages",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "blog",
+        path: "./blog/",
+      },
+      __key: "blog",
+    },
+    {
+      resolve: "gatsby-plugin-page-creator",
+      options: {
+        path: "./blog/",
+      },
+      __key: "blog",
     },
     {
       resolve: "gatsby-plugin-mdx",
@@ -55,6 +69,7 @@ const config: GatsbyConfig = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-dts-css-modules",
     "gatsby-plugin-sass",
+    
   ],
 };
 
