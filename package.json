@@ -1,6 +1,6 @@
 {
   "name": "my-small-recipe-book",
-  "version": "1.0.0",
+  "version": "0.0.4",
   "private": true,
   "description": "my-small-recipe-book",
   "author": "sang hyeon, son",
@@ -18,6 +18,7 @@
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
     "gatsby": "^5.11.0",
+    "gatsby-adapter-netlify": "^1.1.1",
     "gatsby-cli": "^5.11.0",
     "gatsby-plugin-image": "^3.11.0",
     "gatsby-plugin-manifest": "^5.11.0",
@@ -38,7 +39,11 @@
     "@types/node": "^20.3.3",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
+    "eslint-import-resolver-alias": "^1.1.2",
     "gatsby-plugin-dts-css-modules": "^3.0.0",
+    "gatsby-plugin-root-import": "^2.0.9",
+    "gatsby-plugin-tsconfig-paths": "^1.0.6",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.1.6"
   }
 }
