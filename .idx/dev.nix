@@ -1,11 +1,11 @@
 { pkgs, ... }: {
 
   # Which nixpkgs channel to use.
-  channel = "stable-23.05"; # or "unstable"
+  channel = "unstable"; # or "stable-23.05"
 
   # Use https://search.nixos.org/packages to find packages
   packages = [
-    pkgs.nodejs_18
+    pkgs.nodejs_21
   ];
 
   # Sets environment variables in the workspace
