@@ -1,6 +1,14 @@
 import type { GatsbyConfig } from "gatsby";
 import path from "path";
 
+const adapter = require("gatsby-adapter-netlify");
+
+module.exports = {
+  adapter: adapter({
+    excludeDatastoreFromEngineFunction: false,
+  }),
+};
+
 const config: GatsbyConfig = {
   siteMetadata: {
     title: "My small recipe book",
@@ -72,5 +80,7 @@ const config: GatsbyConfig = {
     
   ],
 };
+
+
 
 export default config;
