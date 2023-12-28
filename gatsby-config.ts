@@ -1,7 +1,6 @@
 import type { GatsbyConfig } from "gatsby";
+import adapter from "gatsby-adapter-netlify";
 import path from "path";
-
-const adapter = require("gatsby-adapter-netlify");
 
 module.exports = {
   adapter: adapter({
