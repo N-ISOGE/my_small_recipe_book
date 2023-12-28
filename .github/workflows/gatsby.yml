@@ -37,7 +37,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: enriikke/gatsby-gh-pages-action@v2
         with:
-          access-token: ${{ secrets.GH_ACCESS_TOKEN }}
+          access-token: ${{ secrets.GP_ACCESS_TOKEN }}
             
       # - name: Checkout
       #   uses: actions/checkout@v3
