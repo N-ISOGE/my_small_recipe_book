@@ -28,5 +28,18 @@
   ];
 
   # Enable previews and customize configuration
-  idx.previews = { };
+  idx.previews = {
+    enable = true;
+    previews = [    
+      # The following object sets web previews
+    {
+      command = [
+        "gatsby"
+        "develop"
+      ];
+      id = "web";
+      manager = "web";
+    }
+    ];
+   };
 }
