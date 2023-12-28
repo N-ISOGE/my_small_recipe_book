@@ -1,7 +1,9 @@
 import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { Link } from "gatsby";
-import Layout from "../components/layout";
+import { StaticImage } from "gatsby-plugin-image";
+import Layout from "@components/layout";
+import Seo from "@components/seo";
 
 const Greeting = (props: { name: string }) => {
   return <p> Hi {props.name}!</p>;
@@ -27,16 +29,15 @@ const IndexPage: React.FC<PageProps> = () => {
   return (
     <Layout pageTitle={"home"} tag={"대문"}>
       <p>레이아웃 함수 만들어 봄</p>
-      <p>
-        <Link to="../blog/test/">test</Link>
-      </p>
-      <p>
-        <Link to="/page_test">test</Link>
-      </p>
+
+      <StaticImage
+        alt="avatar"
+        src="https://avatars.githubusercontent.com/u/7279031?v=4"
+      />
     </Layout>
   );
 };
 
-export const Head: HeadFC = () => <title>Home Page</title>;
+export const Head: HeadFC = () => <Seo title="Home Page"></Seo>;
 
 export default IndexPage;
