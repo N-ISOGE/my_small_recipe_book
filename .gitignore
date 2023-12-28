@@ -49,4 +49,4 @@ src/gatsby-types.d.ts
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,gatsby,remix+netlify,git
 
 ### IDX ###
-.idx/
+# .idx/
