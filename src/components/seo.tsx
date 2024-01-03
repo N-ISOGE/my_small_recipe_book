@@ -16,9 +16,10 @@ type SeoProps = {
 };
 
 const Seo = ({ title }: SeoProps) => {
+
   return (
     <title>
-      {title} | {data.site.siteMetadata.title}
+      {title} | {data.site.siteMetadata.title || "empty title"}
     </title>
   );
 };

@@ -2,11 +2,7 @@ import * as React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import * as postStyles from "@components/post.module.css";
 
-const Layout = ({
-  pageTitle,
-  tag,
-  children,
-}: {
+const Layout = ({ pageTitle, tag, children }: {
   pageTitle: string;
   tag: string;
   children: React.ReactNode;
@@ -36,6 +32,9 @@ const Layout = ({
           </li>
           <li className={postStyles.navLinkItem}>
             <Link to="/blog">blog</Link>
+          </li>          
+          <li className={postStyles.navLinkItem}>
+            <Link to="/empty">empty</Link>
           </li>
         </ul>
       </nav>
