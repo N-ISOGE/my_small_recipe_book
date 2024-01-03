@@ -1,3 +1,4 @@
+import type { GatsbyNode } from "gatsby";
 import TsconfigPathPlugin from "tsconfig-paths-webpack-plugin";
 
 exports.onCreateWebpackConfig = ({ actions }: any) => {
