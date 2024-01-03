@@ -26,6 +26,6 @@ const BlogPage = () => {
   );
 };
 
-export const Head = () => <Seo title="Blog posts" />;
+export const Head = () => <Seo title="Blog posts"></Seo>;
 
 export default BlogPage;
