@@ -1,0 +1,109 @@
+
+# gatsby-adapter-netlify start
+/my_small_recipe_book/*
+  x-xss-protection: 1; mode=block
+  x-content-type-options: nosniff
+  referrer-policy: same-origin
+  x-frame-options: DENY
+/my_small_recipe_book/static/*
+  cache-control: public, max-age=31536000, immutable
+/my_small_recipe_book/404/
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/page-data/404/page-data.json
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/404.html
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/page-data/404.html/page-data.json
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/blog/
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/page-data/blog/page-data.json
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/page-data/index/page-data.json
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/map/
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/page-data/map/page-data.json
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/page-data/sq/d/3159585216.json
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/page-data/sq/d/2575033126.json
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/page-data/app-data.json
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/framework-f85c803aa544ea279ad8.js
+  cache-control: public, max-age=31536000, immutable
+/my_small_recipe_book/framework-f85c803aa544ea279ad8.js.LICENSE.txt
+  cache-control: public, max-age=31536000, immutable
+/my_small_recipe_book/framework-f85c803aa544ea279ad8.js.map
+  cache-control: public, max-age=31536000, immutable
+/my_small_recipe_book/731-7bd73c3138fef97fd645.js
+  cache-control: public, max-age=31536000, immutable
+/my_small_recipe_book/731-7bd73c3138fef97fd645.js.LICENSE.txt
+  cache-control: public, max-age=31536000, immutable
+/my_small_recipe_book/731-7bd73c3138fef97fd645.js.map
+  cache-control: public, max-age=31536000, immutable
+/my_small_recipe_book/app-057c5ebeb0e958c9e6a7.js
+  cache-control: public, max-age=31536000, immutable
+/my_small_recipe_book/app-057c5ebeb0e958c9e6a7.js.LICENSE.txt
+  cache-control: public, max-age=31536000, immutable
+/my_small_recipe_book/app-057c5ebeb0e958c9e6a7.js.map
+  cache-control: public, max-age=31536000, immutable
+/my_small_recipe_book/component---src-pages-index-tsx-ad000d1fa3cf94597377.js
+  cache-control: public, max-age=31536000, immutable
+/my_small_recipe_book/component---src-pages-index-tsx-ad000d1fa3cf94597377.js.map
+  cache-control: public, max-age=31536000, immutable
+/my_small_recipe_book/webpack-runtime-e0c44f748404ac0f43ca.js
+  cache-control: public, max-age=31536000, immutable
+/my_small_recipe_book/webpack-runtime-e0c44f748404ac0f43ca.js.map
+  cache-control: public, max-age=31536000, immutable
+/my_small_recipe_book/843-779c20015a52cc9e1425.js
+  cache-control: public, max-age=31536000, immutable
+/my_small_recipe_book/843-779c20015a52cc9e1425.js.map
+  cache-control: public, max-age=31536000, immutable
+/my_small_recipe_book/component---src-pages-blog-tsx-64b3440ac44ed5f4fc26.js
+  cache-control: public, max-age=31536000, immutable
+/my_small_recipe_book/component---src-pages-blog-tsx-64b3440ac44ed5f4fc26.js.map
+  cache-control: public, max-age=31536000, immutable
+/my_small_recipe_book/component---src-pages-map-tsx-e860e12132125ec34c4c.js
+  cache-control: public, max-age=31536000, immutable
+/my_small_recipe_book/component---src-pages-map-tsx-e860e12132125ec34c4c.js.map
+  cache-control: public, max-age=31536000, immutable
+/my_small_recipe_book/component---src-pages-404-tsx-32b03c8141a619e1dc01.js
+  cache-control: public, max-age=31536000, immutable
+/my_small_recipe_book/component---src-pages-404-tsx-32b03c8141a619e1dc01.js.map
+  cache-control: public, max-age=31536000, immutable
+/my_small_recipe_book/styles.5032b8f76edf55799e46.css/
+  cache-control: public, max-age=31536000, immutable
+/my_small_recipe_book/chunk-map.json
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/webpack.stats.json
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/_gatsby/slices/_gatsby-scripts-1.html
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/~partytown/debug/partytown-atomics.js
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/~partytown/debug/partytown-media.js
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/~partytown/debug/partytown-sandbox-sw.js
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/~partytown/debug/partytown-sw.js
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/~partytown/debug/partytown-ww-atomics.js
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/~partytown/debug/partytown-ww-sw.js
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/~partytown/debug/partytown.js
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/~partytown/partytown-atomics.js
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/~partytown/partytown-media.js
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/~partytown/partytown-sw.js
+  cache-control: public, max-age=0, must-revalidate
+/my_small_recipe_book/~partytown/partytown.js
+  cache-control: public, max-age=0, must-revalidate
+
+# gatsby-adapter-netlify end
