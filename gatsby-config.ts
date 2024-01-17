@@ -4,10 +4,10 @@ import path from "path";
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    siteUrl:"https://n-isoge.github.io",
+    siteUrl:"https://n-isoge.github.io/my_small_recipe_book",
     title: "My small recipe book",
   },
-  pathPrefix: `/my_small_recipe_book`,
+  // pathPrefix: `/my_small_recipe_book`,
   adapter: adapter({
     excludeDatastoreFromEngineFunction: false,
   }) ,
