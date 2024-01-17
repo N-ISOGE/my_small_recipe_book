@@ -32,6 +32,7 @@ const config: GatsbyConfig = {
       resolve: "gatsby-plugin-manifest",
       options: {
         name: "My small recipe book",
+        base_url:"/my_small_recipe_book",
         short_name: "N.ISOGE recipes",
         icon: "src/images/icon.png",
       },
