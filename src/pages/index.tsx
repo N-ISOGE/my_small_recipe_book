@@ -25,7 +25,8 @@ const Greeting = (props: { name: string }) => {
 //   );
 // };
 
-const IndexPage: React.FC<PageProps> = () => {
+// React.FC<PageProps>?
+const IndexPage = () => {
   return (
     <Layout pageTitle={"home"} tag={"대문"}>
       <p>레이아웃 함수 만들어 봄</p>
@@ -33,6 +34,9 @@ const IndexPage: React.FC<PageProps> = () => {
       <StaticImage
         alt="avatar"
         src="https://avatars.githubusercontent.com/u/7279031?v=4"
+        layout="fixed"
+        width={400}
+        height={400}
       />
     </Layout>
   );

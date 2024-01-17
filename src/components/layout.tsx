@@ -1,11 +1,11 @@
 import * as React from "react";
-import { Link, useStaticQuery, graphql } from "gatsby";
+import { Link, useStaticQuery, graphql,PageProps } from "gatsby";
 import * as postStyles from "@components/post.module.css";
 
 const Layout = ({ pageTitle, tag, children }: {
   pageTitle: string;
   tag: string;
-  children: React.ReactNode;
+  children: any;//React.ReactElement?
 }) => {
   const data = useStaticQuery(graphql`
     query {
