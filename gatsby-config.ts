@@ -7,7 +7,7 @@ const config: GatsbyConfig = {
     siteUrl:"https://n-isoge.github.io",
     title: "My small recipe book",
   },
-  // pathPrefix: "/my_small_recipe_book",
+  pathPrefix: "/my_small_recipe_book",
   adapter: adapter({
     excludeDatastoreFromEngineFunction: false,
   }) ,
@@ -52,6 +52,21 @@ const config: GatsbyConfig = {
       },
     },
     //
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "main",
+        path: "./index.tsx",
+      },
+      __key: "main",
+    },
+    {
+      resolve: "gatsby-plugin-page-creator",
+      options: {
+        path: "./index.tsx",
+      },
+      __key: "main",
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
