@@ -23,16 +23,18 @@ const config: GatsbyConfig = {
     "gatsby-plugin-styled-components",
     // "gatsby-plugin-typescript",
     "gatsby-plugin-tsconfig-paths",
-    //
+    // image
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    //
     "gatsby-plugin-dts-css-modules",
     "gatsby-plugin-sass",
     //
     {
       resolve: "gatsby-plugin-manifest",
       options: {
+        start_url:"/my_small_recipe_book/",
         icon: "src/images/icon.png",
       },
     },
