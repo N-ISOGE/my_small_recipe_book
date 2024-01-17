@@ -7,7 +7,7 @@ const config: GatsbyConfig = {
     siteUrl:"https://n-isoge.github.io",
     title: "My small recipe book",
   },
-  pathPrefix: "/my_small_recipe_book",
+  pathPrefix: `/my_small_recipe_book`,
   adapter: adapter({
     excludeDatastoreFromEngineFunction: false,
   }) ,
@@ -24,7 +24,7 @@ const config: GatsbyConfig = {
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
-    //
+    // css
     "gatsby-plugin-dts-css-modules",
     "gatsby-plugin-sass",
     //
