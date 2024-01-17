@@ -7,7 +7,7 @@ const config: GatsbyConfig = {
     siteUrl:`https://n-isoge.github.io/my_small_recipe_book/`,
     title: "My small recipe book",
   },
-  pathPrefix: "/my_small_recipe_book",
+  // pathPrefix: "/my_small_recipe_book",
   adapter: adapter({
     excludeDatastoreFromEngineFunction: false,
   }) ,
@@ -32,8 +32,8 @@ const config: GatsbyConfig = {
       resolve: "gatsby-plugin-manifest",
       options: {
         name: "My small recipe book",
-        base_url:"/my_small_recipe_book",
         short_name: "N.ISOGE recipes",
+        start_url: "/my_small_recipe_book",
         icon: "src/images/icon.png",
       },
     },
