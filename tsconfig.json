@@ -102,6 +102,6 @@
     "./gatsby-node.ts",
     "./gatsby-config.ts",
     "./plugins/**/*",
-    "index.tsx"
+    "src/pages/index.tsx/index.tsx"
   ]
 }
