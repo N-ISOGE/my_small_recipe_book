@@ -2,18 +2,15 @@ import type { GatsbyConfig } from "gatsby";
 import adapter from "gatsby-adapter-netlify";
 import path from "path";
 
-module.exports = {
-  adapter: adapter({
-    excludeDatastoreFromEngineFunction: false,
-  }),
-  pathPrefix: "/my_small_recipe_book",
-};
-
 const config: GatsbyConfig = {
   siteMetadata: {
     siteUrl:"https://n-isoge.github.io",
     title: "My small recipe book",
   },
+  pathPrefix: "/my_small_recipe_book",
+  adapter: adapter({
+    excludeDatastoreFromEngineFunction: false,
+  }) ,
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
   // Learn more at: https://gatsby.dev/graphql-typegen
