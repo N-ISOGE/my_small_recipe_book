@@ -56,14 +56,14 @@ const config: GatsbyConfig = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "main",
-        path: "./index.tsx",
+        path: "./",
       },
       __key: "main",
     },
     {
       resolve: "gatsby-plugin-page-creator",
       options: {
-        path: "./index.tsx",
+        path: "./",
       },
       __key: "main",
     },
