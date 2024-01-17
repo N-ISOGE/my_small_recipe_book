@@ -34,7 +34,7 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        start_url:"/my_small_recipe_book/",
+        start_url:"/",
         icon: "src/images/icon.png",
       },
     },
