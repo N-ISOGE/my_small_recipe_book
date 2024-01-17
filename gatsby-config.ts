@@ -1,16 +1,14 @@
 import type { GatsbyConfig } from "gatsby";
 import adapter from "gatsby-adapter-netlify";
 import path from "path";
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    siteUrl:`https://n-isoge.github.io/my_small_recipe_book/`,
+    siteUrl:"https://n-isoge.github.io/my_small_recipe_book",
     title: "My small recipe book",
   },
-  pathPrefix: process.env.PATH_PREFIX || "/",
+  // pathPrefix: "/my_small_recipe_book",
   adapter: adapter({
     excludeDatastoreFromEngineFunction: false,
   }) ,
