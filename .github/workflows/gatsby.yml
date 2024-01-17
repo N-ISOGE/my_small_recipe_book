@@ -88,7 +88,6 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      baseurl: /my_small_recipe_book
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
