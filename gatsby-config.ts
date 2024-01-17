@@ -11,7 +11,7 @@ module.exports = {
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    siteUrl:"https://n-isoge.github.io/my_small_recipe_book/",
+    siteUrl:"https://n-isoge.github.io",
     title: "My small recipe book",
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
