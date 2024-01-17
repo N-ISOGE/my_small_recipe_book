@@ -5,8 +5,7 @@ import path from "path";
 module.exports = {
   adapter: adapter({
     excludeDatastoreFromEngineFunction: false,
-  }),
-  pathPrefix: "/my_small_recipe_book",
+  })
 };
 
 const config: GatsbyConfig = {
