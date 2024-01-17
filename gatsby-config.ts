@@ -52,21 +52,6 @@ const config: GatsbyConfig = {
       },
     },
     //
-    // {
-    //   resolve: "gatsby-source-filesystem",
-    //   options: {
-    //     name: "main",
-    //     path: "./",
-    //   },
-    //   __key: "main",
-    // },
-    // {
-    //   resolve: "gatsby-plugin-page-creator",
-    //   options: {
-    //     path: "./",
-    //   },
-    //   __key: "main",
-    // },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -86,14 +71,14 @@ const config: GatsbyConfig = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "blog",
-        path: "blog/",
+        path: "./src/blog/",
       },
       __key: "blog",
     },
     {
       resolve: "gatsby-plugin-page-creator",
       options: {
-        path: "blog/",
+        path: "./src/blog/",
       },
       __key: "blog",
     },
