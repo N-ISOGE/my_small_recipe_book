@@ -1,0 +1,33 @@
+---
+title: "주소에서 접미사가 중복됨"
+date: "2024-01-18"
+tags: ["gatsby","github"]
+---
+
+import Layout from "@components/layout";
+
+<Layout pageTitle={props.pageContext.frontmatter.title}>
+
+#### 문제
+- url, 주소가 문제가 생김
+    - 저장소 이름으로 서브도메인이 붙는데 사이트 설정에서 pathPrefix 중복되서 붙음
+- 단서
+    - gatsby에서 pathPrefix에 `/{저장소 이름}`을 붙였다
+    - github pages에서 기본 주소가 `{깃헙 주소}/{저장소 주소}`로 제공
+    - 이 둘을 적용하니깐 결과가 `{깃헙 주소}/{저장소 주소}/{저장소 주소}`, 페이지 주소는 중복됨 
+    - 근데 pathPrefix를 빼면 `{깃헙 주소}`를 기본 주소로 삼아서 사이트가 만들어짐
+        - 링크에서 서브도메인이 무시됨.
+- 원하는 결과
+    - 페이지 주소는 건드리지 않고 링크가 가리키는 주소에 `/{저장소 주소}`만 추가하고 싶다
+#### 해볼 것
+- gatsbyConfig
+    - pathPrefix 지우기 
+        - -> 페이지는 정상적으로 생성, 주소 연결되는데 링크에서 서브도메인이 빠짐
+    - dotenv, 환경변수에서 pathPrefix 가져와서 gatsbyConfig.pathprefix 설정
+        - 환경변수에 pathprefix 없다 
+    - plugin.gatsby-plugin-manifest.options.start_url 작성?
+        - 사이트 정보만 바꾸고 페이지 생성에는 영향없음
+- github action
+    - PREFIX_PATHS false -> 단순히 pathPrefix 설정만 끄는 것 
+
+</Layout>
