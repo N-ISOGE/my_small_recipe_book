@@ -73,14 +73,14 @@ const config: GatsbyConfig = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "blog",
-        path: "./src/blog/",
+        path: "./blog/",
       },
       __key: "blog",
     },
     {
       resolve: "gatsby-plugin-page-creator",
       options: {
-        path: "./src/blog/",
+        path: "./blog/",
       },
       __key: "blog",
     },
