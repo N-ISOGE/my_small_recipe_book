@@ -14,4 +14,3 @@ jobs:
         with:
           access-token: ${{ secrets.GP_ACCESS_TOKEN }}
           deploy-branch: public-gh-pages
-          gatsby-args: --prefix-paths
