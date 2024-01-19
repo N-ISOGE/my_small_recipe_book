@@ -1,14 +1,14 @@
 ---
-title: 주소에서 접미사가 중복됨
-date: 2024-01-18
-tags: gatsby, github
+title: "주소에서 접미사가 중복됨"
+publishDate: "2024-01-18"
+description: "gatsby를 github pages에서 배포할 때 문제, 주소에서 접미사가 중복됨, 해결책은 못 찾고 대신 차선책으로 astro로 옮기게 됨"
+tags: 
+  - gatsby
+  - github
 ---
 
-import Layout from "@components/layout";
 
-<Layout pageTitle={props.pageContext.frontmatter.title}>
-
-#### 문제
+#  문제
 - url, 주소가 문제가 생김
     - 저장소 이름으로 서브도메인이 붙는데 사이트 설정에서 pathPrefix 중복되서 붙음
 - 단서
@@ -19,7 +19,7 @@ import Layout from "@components/layout";
         - 링크에서 서브도메인이 무시됨.
 - 원하는 결과
     - 페이지 주소는 건드리지 않고 링크가 가리키는 주소에 `/{저장소 주소}`만 추가하고 싶다
-#### 해볼 것
+#  해볼 것
 - gatsbyConfig
     - pathPrefix 지우기 
         - -> 페이지는 정상적으로 생성, 주소 연결되는데 링크에서 서브도메인이 빠짐
@@ -29,5 +29,10 @@ import Layout from "@components/layout";
         - 사이트 정보만 바꾸고 페이지 생성에는 영향없음
 - github action
     - PREFIX_PATHS false -> 단순히 pathPrefix 설정만 끄는 것 
-
-</Layout>
+- 폴더 구조 변경
+    - 결국 사이트의 폴더 구조 이전의 부분 문제 
+    - `{이곳 문제}/*{여기를 바꾸는 일}`
+- 그냥 다른 프레임워크를 시도하자
+    - 만든건 없는데 대책이 안보이는 설정 문제를 가지고 있는 걸 고집할 이유가 있나?
+    - 그냥 다시 만드는게 빠르겠다.
+    - 내일 설명서 다 따라해보자.
