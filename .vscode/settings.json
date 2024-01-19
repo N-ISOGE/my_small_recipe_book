@@ -1,3 +1,18 @@
 {
-    "IDX.aI.enableInlineCompletion": true
+	"editor.formatOnSave": true,
+	"[markdown]": {
+		"editor.wordWrap": "on",
+		"editor.codeActionsOnSave": {
+			"source.fixAll.markdownlint": "explicit"
+		}
+	},
+	"prettier.documentSelectors": ["**/*.astro"],
+	"eslint.validate": [
+		"javascript",
+		"javascriptreact",
+		"astro", // Enable .astro
+		"typescript", // Enable .ts
+		"typescriptreact"
+	],
+	"IDX.aI.enableInlineCompletion": true
 }
