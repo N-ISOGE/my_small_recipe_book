@@ -1,6 +1,8 @@
 {
 	"name": "my-small-recipe-book",
 	"version": "3.6.1",
+	"description": "my small recipe book",
+	"author": "sang hyeon, son",
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",

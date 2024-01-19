@@ -5,7 +5,7 @@
 
   # Use https://search.nixos.org/packages to find packages
   packages = [
-    pkgs.nodejs_21
+    pkgs.corepack_21
   ];
 
   # Sets environment variables in the workspace
