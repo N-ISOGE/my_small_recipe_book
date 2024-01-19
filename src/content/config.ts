@@ -6,7 +6,12 @@ function removeDupsAndLowerCase(array: string[]) {
 	const distinctItems = new Set(lowercaseItems);
 	return Array.from(distinctItems);
 }
-
+/*
+title:
+description:
+publishDate:
+tags:
+*/
 const post = defineCollection({
 	type: "content",
 	schema: ({ image }) =>
