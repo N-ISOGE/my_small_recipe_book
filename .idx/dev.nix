@@ -5,6 +5,7 @@
 
   # Use https://search.nixos.org/packages to find packages
   packages = [
+    pkgs.nodejs_21
     pkgs.corepack_21
   ];
 
