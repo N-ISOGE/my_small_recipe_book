@@ -1,21 +1,21 @@
 {
-	"name": "Astro Theme Cactus Demo",
-	"short_name": "Astro_Cactus",
-	"description": "Starter blog site for Astro",
+	"name": "my small recipe book",
+	"short_name": "n1soge_repo",
+	"description": "blog",
 	"icons": [
 		{
-			"src": "/192x192.png",
+			"src": "/192x192_sky_0000.png",
 			"sizes": "192x192",
 			"type": "image/png"
 		},
 		{
-			"src": "/512x512.png",
+			"src": "/512x512_sky_0000.png",
 			"sizes": "512x512",
 			"type": "image/png"
 		}
 	],
 	"start_url": "/",
-	"background_color": "#1d1f21",
-	"theme_color": "#2bbc8a",
+	"background_color": "#5b9bb3",
+	"theme_color": "#1c1410",
 	"display": "standalone"
 }
