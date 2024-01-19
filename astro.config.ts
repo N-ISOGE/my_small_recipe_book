@@ -9,8 +9,10 @@ import { remarkReadingTime } from "./src/utils/remark-reading-time";
 
 // https://astro.build/config
 export default defineConfig({
-	// ! Please remember to replace the following site property with your own domain
-	site: "https://astro-cactus.chriswilliams.dev/",
+	// Please remember to replace the following site property with your own domain
+	site: "https://n-isoge.github.io",
+	base: "/my_small_recipe_book",
+	// done
 	markdown: {
 		remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
 		rehypePlugins: [
