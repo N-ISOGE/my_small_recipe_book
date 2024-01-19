@@ -15,6 +15,7 @@ const socialLinks: Array<{
 		name: "mdi:github",
 		friendlyName: "Github",
 		link: "https://github.com/N-ISOGE",
+		isWebmention: true,
 	},
 	{
 		name: "mdi:mastodon",
@@ -30,13 +31,12 @@ const socialLinks: Array<{
 		name: "mdi:email",
 		friendlyName: "email",
 		link: "mailto:daseeni@gmail.com",
-		isWebmention: true,
 	},
 ];
 ---
 
 <div class="flex flex-wrap items-end gap-x-4">
-	<p>Find me on</p>
+	<p>ref :</p>
 	<ul class="flex flex-1 items-center gap-x-2 sm:flex-initial">
 		{
 			socialLinks.map(({ link, name, friendlyName, isWebmention }) => (
