@@ -1,6 +1,6 @@
 {
 	"name": "my-small-recipe-book",
-	"version": "0.0.1",
+	"version": "0.2.2",
 	"description": "my small recipe book",
 	"author": "sang hyeon, son",
 	"scripts": {
@@ -15,7 +15,7 @@
 	"dependencies": {
 		"@astrojs/markdown-remark": "^4.1.0",
 		"@astrojs/mdx": "2.0.5",
-		"@astrojs/rss": "4.0.1",
+		"@astrojs/rss": "4.0.2",
 		"@astrojs/sitemap": "3.0.3",
 		"@astrojs/tailwind": "5.0.3",
 		"@astrojs/ts-plugin": "^1.4.0",
