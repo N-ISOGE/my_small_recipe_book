@@ -7,8 +7,6 @@ import remarkUnwrapImages from "remark-unwrap-images";
 import rehypeExternalLinks from "rehype-external-links";
 import { remarkReadingTime } from "./src/utils/remark-reading-time";
 
-import netlify from "@astrojs/netlify";
-
 // https://astro.build/config
 export default defineConfig({
 	// Please remember to replace the following site property with your own domain
@@ -54,8 +52,6 @@ export default defineConfig({
 			exclude: ["@resvg/resvg-js"],
 		},
 	},
-	output: "server",
-	adapter: netlify(),
 });
 function rawFonts(ext: Array<string>) {
 	return {
