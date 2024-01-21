@@ -4,17 +4,18 @@ description: astro, chrismwilliams/astro-theme-cactus 테마 사용하면서 바
 publishDate: 2024-01-20
 tags:
   - javascript
+  - typescript
   - astro
 ---
 
 # 이거랑 이거는 어떤 차이가 있나?
 ```javascript
 	// 후
-//    <a href=`./posts/${post.slug}/` class="cactus-link" data-astro-prefetch>
-//		{post.data.title}
-//	</a>
+    <a href=`./posts/${post.slug}/` class="cactus-link" data-astro-prefetch>
+		{post.data.title}
+	</a>
     // 전
-//    <a href={`./posts/${post.slug}/`} class="cactus-link" data-astro-prefetch>
-//		{post.data.title}
-//	</a>
+    <a href={`./posts/${post.slug}/`} class="cactus-link" data-astro-prefetch>
+		{post.data.title}
+	</a>
 ```
