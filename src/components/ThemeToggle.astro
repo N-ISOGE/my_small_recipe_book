@@ -57,7 +57,7 @@
 </theme-toggle>
 
 <script>
-  import {rootHasDarkClass} from "@/utils";
+  import { rootHasDarkClass } from "@/utils";
 
   class ThemeToggle extends HTMLElement {
     private button: HTMLButtonElement;
@@ -87,7 +87,7 @@
           }
         }
       });
-      this.observer.observe(root, {attributeFilter: ["class"]});
+      this.observer.observe(root, { attributeFilter: ["class"] });
     }
 
     disconnectedCallback() {

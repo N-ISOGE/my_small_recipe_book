@@ -35,20 +35,19 @@ import "@pagefind/default-ui/css/ui.css";
       <button
         data-close-modal
         class="ms-auto cursor-pointer rounded-md bg-zinc-200 p-2 font-semibold dark:bg-zinc-700"
-      >Close
-      </button
-      >
+        >Close
+      </button>
       {
         import.meta.env.DEV ? (
           <div class="mx-auto text-center">
             <p>
-              Search is only available in production builds. <br/>
+              Search is only available in production builds. <br />
               Try building and previewing the site to test it out locally.
             </p>
           </div>
         ) : (
           <div class="search-container">
-            <div id="cactus__search"/>
+            <div id="cactus__search" />
           </div>
         )
       }
@@ -83,7 +82,7 @@ import "@pagefind/default-ui/css/ui.css";
       if (import.meta.env.DEV) return;
       const onIdle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1));
       onIdle(async () => {
-        const {PagefindUI} = await import("@pagefind/default-ui");
+        const { PagefindUI } = await import("@pagefind/default-ui");
         new PagefindUI({
           element: "#cactus__search",
           baseUrl: import.meta.env.BASE_URL,
@@ -154,8 +153,10 @@ import "@pagefind/default-ui/css/ui.css";
 
   #cactus__search .pagefind-ui__search-clear::before {
     content: "";
-    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' %3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M6 18L18 6M6 6l12 12'%3E%3C/path%3E%3C/svg%3E") center / 60% no-repeat;
-    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' %3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M6 18L18 6M6 6l12 12'%3E%3C/path%3E%3C/svg%3E") center / 60% no-repeat;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' %3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M6 18L18 6M6 6l12 12'%3E%3C/path%3E%3C/svg%3E")
+      center / 60% no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor' %3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M6 18L18 6M6 6l12 12'%3E%3C/path%3E%3C/svg%3E")
+      center / 60% no-repeat;
     background-color: theme("colors.accent");
     display: block;
     width: 100%;
