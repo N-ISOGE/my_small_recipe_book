@@ -60,6 +60,9 @@ const cactusTech: Array<{ title: string; desc: string; href: string }> = [
 			blog. If you want to know more about how you can customise me, add more posts, and make it
 			your own, click on the github icon link below and it will take you to my repo.
 		</p>
+		<h1>The current URL is: {Astro.url}</h1>
+		<h1>The current URL pathname is: {Astro.url.pathname}</h1>
+		<h1>The current URL origin is: {Astro.url.origin}</h1>
 		<SocialList />
 	</section>
 	<section aria-label="Blog post list" class="mt-16">
