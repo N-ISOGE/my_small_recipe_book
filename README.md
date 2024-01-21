@@ -17,7 +17,9 @@ website.
 5. [Commands](#commands)
 6. [Configure](#configure)
 7. [Adding Posts](#adding-posts)
-  - [Frontmatter](#frontmatter)
+
+- [Frontmatter](#frontmatter)
+
 8. [Pagefind search](#pagefind-search)
 9. [Analytics](#analytics)
 10. [Deploy](#deploy)

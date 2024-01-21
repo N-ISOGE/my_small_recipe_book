@@ -2,7 +2,7 @@
 title: "주소에서 접미사가 중복됨"
 publishDate: "2024-01-18"
 description: "gatsby를 github pages에서 배포할 때 문제, 주소에서 접미사가 중복됨, 해결책은 못 찾고 대신 차선책으로 astro로 옮기게 됨"
-tags: 
+tags:
   - gatsby
   - github
 ---
@@ -10,29 +10,29 @@ tags:
 
 #  문제
 - url, 주소가 문제가 생김
-    - 저장소 이름으로 서브도메인이 붙는데 사이트 설정에서 pathPrefix 중복되서 붙음
+  - 저장소 이름으로 서브도메인이 붙는데 사이트 설정에서 pathPrefix 중복되서 붙음
 - 단서
-    - gatsby에서 pathPrefix에 `/{저장소 이름}`을 붙였다
-    - github pages에서 기본 주소가 `{깃헙 주소}/{저장소 주소}`로 제공
-    - 이 둘을 적용하니깐 결과가 `{깃헙 주소}/{저장소 주소}/{저장소 주소}`, 페이지 주소는 중복됨 
-    - 근데 pathPrefix를 빼면 `{깃헙 주소}`를 기본 주소로 삼아서 사이트가 만들어짐
-        - 링크에서 서브도메인이 무시됨.
+  - gatsby에서 pathPrefix에 `/{저장소 이름}`을 붙였다
+  - github pages에서 기본 주소가 `{깃헙 주소}/{저장소 주소}`로 제공
+  - 이 둘을 적용하니깐 결과가 `{깃헙 주소}/{저장소 주소}/{저장소 주소}`, 페이지 주소는 중복됨
+  - 근데 pathPrefix를 빼면 `{깃헙 주소}`를 기본 주소로 삼아서 사이트가 만들어짐
+  - 링크에서 서브도메인이 무시됨.
 - 원하는 결과
-    - 페이지 주소는 건드리지 않고 링크가 가리키는 주소에 `/{저장소 주소}`만 추가하고 싶다
+  - 페이지 주소는 건드리지 않고 링크가 가리키는 주소에 `/{저장소 주소}`만 추가하고 싶다
 #  해볼 것
 - gatsbyConfig
-    - pathPrefix 지우기 
-        - -> 페이지는 정상적으로 생성, 주소 연결되는데 링크에서 서브도메인이 빠짐
-    - dotenv, 환경변수에서 pathPrefix 가져와서 gatsbyConfig.pathprefix 설정
-        - 환경변수에 pathprefix 없다 
-    - plugin.gatsby-plugin-manifest.options.start_url 작성?
-        - 사이트 정보만 바꾸고 페이지 생성에는 영향없음
+  - pathPrefix 지우기
+  - -> 페이지는 정상적으로 생성, 주소 연결되는데 링크에서 서브도메인이 빠짐
+  - dotenv, 환경변수에서 pathPrefix 가져와서 gatsbyConfig.pathprefix 설정
+  - 환경변수에 pathprefix 없다
+  - plugin.gatsby-plugin-manifest.options.start_url 작성?
+  - 사이트 정보만 바꾸고 페이지 생성에는 영향없음
 - github action
-    - PREFIX_PATHS false -> 단순히 pathPrefix 설정만 끄는 것 
+  - PREFIX_PATHS false -> 단순히 pathPrefix 설정만 끄는 것
 - 폴더 구조 변경
-    - 결국 사이트의 폴더 구조 이전의 부분 문제 
-    - `{이곳 문제}/*{여기를 바꾸는 일}`
+  - 결국 사이트의 폴더 구조 이전의 부분 문제
+  - `{이곳 문제}/*{여기를 바꾸는 일}`
 - 그냥 다른 프레임워크를 시도하자
-    - 만든건 없는데 대책이 안보이는 설정 문제를 가지고 있는 걸 고집할 이유가 있나?
-    - 그냥 다시 만드는게 빠르겠다.
-    - 내일 설명서 다 따라해보자.
+  - 만든건 없는데 대책이 안보이는 설정 문제를 가지고 있는 걸 고집할 이유가 있나?
+  - 그냥 다시 만드는게 빠르겠다.
+  - 내일 설명서 다 따라해보자.
