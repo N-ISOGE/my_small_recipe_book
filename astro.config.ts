@@ -50,6 +50,9 @@ export default defineConfig({
   prefetch: true,
   vite: {
     plugins: [rawFonts([".ttf"])],
+    ssr: {
+      external: ["@resvg/resvg-js"],
+    },
     optimizeDeps: {
       exclude: ["@resvg/resvg-js"],
     },
