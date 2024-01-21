@@ -7,6 +7,7 @@ const url = new URL(Astro.request.url);
 ---
 
 <header id="main-header" class="group relative mb-28 flex items-center sm:ps-[4.5rem]">
+	<base href="{import.meta.env.BASE_URL}" />
 	<div class="flex sm:flex-col">
 		<a
 			href="/"
@@ -98,7 +99,7 @@ const url = new URL(Astro.request.url);
 			{
 				menuLinks.map((link) => (
 					<a
-						href={`${link.path}`}
+						href={link.path}
 						class="px-4 py-4 sm:py-0 sm:hover:underline"
 						aria-current={url.pathname === link.path ? "page" : false}
 						data-astro-prefetch
