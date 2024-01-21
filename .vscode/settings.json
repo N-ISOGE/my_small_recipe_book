@@ -1,19 +1,21 @@
 {
-  "editor.formatOnSave": true,
+  "IDX.aI.enableInlineCompletion": true,
   "[markdown]": {
     "editor.wordWrap": "on",
     "editor.codeActionsOnSave": {
       "source.fixAll.markdownlint": "explicit"
     }
   },
-  "prettier.documentSelectors": ["**/*.astro"],
+  "editor.formatOnSave": true,
   "eslint.validate": [
     "javascript",
     "javascriptreact",
-    "astro", // Enable .astro
-    "typescript", // Enable .ts
+    "astro",
+    "typescript",
     "typescriptreact"
   ],
-  "IDX.aI.enableInlineCompletion": true,
+  "prettier.documentSelectors": [
+    "**/*.astro"
+  ],
   "typescript.tsdk": "node_modules/typescript/lib"
 }

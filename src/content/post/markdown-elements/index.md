@@ -50,7 +50,9 @@ Second example containing a reference[^2] with a link to the source.
 [^1]: Reference first footnote with a return to content link.
 [^2]: Second reference with a link.
 
-If you check out this example in `src/content/post/markdown-elements/index.md`, you'll notice that the references and the heading "Footnotes" are added to the bottom of the page via the [remark-rehype](https://github.com/remarkjs/remark-rehype#options) plugin.
+If you check out this example in `src/content/post/markdown-elements/index.md`, you'll notice that the references and
+the heading "Footnotes" are added to the bottom of the page via
+the [remark-rehype](https://github.com/remarkjs/remark-rehype#options) plugin.
 
 ## Lists
 
@@ -108,7 +110,7 @@ console.log(foo(5));
 ## Tables
 
 | Option | Description                                                               |
-| ------ | ------------------------------------------------------------------------- |
+|--------|---------------------------------------------------------------------------|
 | data   | path to data files to supply the data that will be passed into templates. |
 | engine | engine to be used for processing templates. Handlebars is the default.    |
 | ext    | extension to be used for dest files.                                      |
@@ -116,7 +118,7 @@ console.log(foo(5));
 Right aligned columns
 
 | Option |                                                               Description |
-| -----: | ------------------------------------------------------------------------: |
+|-------:|--------------------------------------------------------------------------:|
 |   data | path to data files to supply the data that will be passed into templates. |
 | engine |    engine to be used for processing templates. Handlebars is the default. |
 |    ext |                                      extension to be used for dest files. |
