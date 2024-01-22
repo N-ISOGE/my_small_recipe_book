@@ -7,19 +7,28 @@ interface Props {
 }
 
 const { prevUrl, nextUrl } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 {
 	(prevUrl || nextUrl) && (
 		<nav class="mt-8 flex items-center gap-x-4">
 			{prevUrl && (
-				<a class="me-auto py-2 sm:hover:text-accent" href={prevUrl.url} data-astro-prefetch>
+				<a
+					class="me-auto py-2 sm:hover:text-accent"
+					href={`${baseUrl}/${prevUrl.url}`}
+					data-astro-prefetch
+				>
 					{prevUrl.srLabel && <span class="sr-only">{prevUrl.srLabel}</span>}
 					{prevUrl.text ? prevUrl.text : "Previous"}
 				</a>
 			)}
 			{nextUrl && (
-				<a class="ms-auto py-2 sm:hover:text-accent" href={nextUrl.url} data-astro-prefetch>
+				<a
+					class="ms-auto py-2 sm:hover:text-accent"
+					href={`${baseUrl}/{nextUrl.url}`}
+					data-astro-prefetch
+				>
 					{nextUrl.srLabel && <span class="sr-only">{nextUrl.srLabel}</span>}
 					{nextUrl.text ? nextUrl.text : "Next"}
 				</a>

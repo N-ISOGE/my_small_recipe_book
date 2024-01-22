@@ -10,7 +10,7 @@ Astro Cactus is a simple opinionated starter built with the Astro framework.
 Use it to create an easy-to-use blog or website.  
 
 ## 목록
-- 상대 경로 수정
+- [ ] 상대 경로 수정
 
 ## Table Of Contents
 
