@@ -9,14 +9,14 @@ type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
 };
 
 const { post, as: Tag = "div", withDesc = false } = Astro.props;
-// const postUrl = new URL(`${Astro.base}/posts/${post.slug}/`, Astro.site);
+const baseUrl = import.meta.env.BASE_URL;
 const postDate = post.data.updatedDate ?? post.data.publishDate;
 ---
 
 <FormattedDate date={postDate} class="min-w-[120px] text-gray-600 dark:text-gray-400" />
 <Tag>
 	{post.data.draft && <span class="text-red-500">(Draft) </span>}
-	<a href={`${Astro.url.pathname}/posts/${post.slug}/`} class="cactus-link" data-astro-prefetch>
+	<a href={`${baseUrl}/posts/${post.slug}/`} class="cactus-link" data-astro-prefetch>
 		{post.data.title}
 	</a>
 </Tag>
