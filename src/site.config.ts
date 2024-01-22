@@ -16,8 +16,8 @@ export const siteConfig: SiteConfig = {
 	date: {
 		locale: "ko-KR",
 		options: {
-			day: "numeric",
-			month: "short",
+			day: "2-digit",
+			month: "2-digit",
 			year: "numeric",
 		},
 	},
