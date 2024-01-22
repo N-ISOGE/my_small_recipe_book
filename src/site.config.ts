@@ -33,10 +33,10 @@ export const menuLinks: Array<{ title: string; path: string }> = [
 	},
 	{
 		title: "About",
-		path: "/about/",
+		path: "about/",
 	},
 	{
 		title: "Blog",
-		path: "/posts/",
+		path: "posts/",
 	},
 ];
