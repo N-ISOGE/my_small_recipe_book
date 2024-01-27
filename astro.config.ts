@@ -8,6 +8,8 @@ import rehypeExternalLinks from "rehype-external-links";
 import { remarkReadingTime } from "./src/utils/remark-reading-time";
 import icon from "astro-icon";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
 	site: "https://n-isoge.github.io",
@@ -15,9 +17,19 @@ export default defineConfig({
 	markdown: {
 		remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
 		rehypePlugins: [
-			[rehypeExternalLinks, { target: "_blank", rel: ["nofollow, noopener, noreferrer"] }],
+			[
+				rehypeExternalLinks,
+				{
+					target: "_blank",
+					rel: ["nofollow, noopener, noreferrer"],
+				},
+			],
 		],
-		remarkRehype: { footnoteLabelProperties: { className: [""] } },
+		remarkRehype: {
+			footnoteLabelProperties: {
+				className: [""],
+			},
+		},
 		shikiConfig: {
 			theme: "dracula",
 			wrap: true,
@@ -42,8 +54,9 @@ export default defineConfig({
 			exclude: ["@resvg/resvg-js"],
 		},
 	},
+	output: "hybrid",
+	adapter: cloudflare(),
 });
-
 function rawFonts(ext: Array<string>) {
 	return {
 		name: "vite-plugin-raw-fonts",
