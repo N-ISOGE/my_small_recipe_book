@@ -54,7 +54,7 @@ export default defineConfig({
 			exclude: ["@resvg/resvg-js"],
 		},
 	},
-	output: "server",
+	output: "hybrid",
 	adapter: cloudflare(),
 });
 function rawFonts(ext: Array<string>) {
