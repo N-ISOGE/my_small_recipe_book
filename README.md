@@ -6,9 +6,6 @@
   Astro Cactus 적용중
 </h1>
 
-Astro Cactus is a simple opinionated starter built with the Astro framework.  
-Use it to create an easy-to-use blog or website.  
-
 ## 목록
 - [x] 상대 경로 수정
 
@@ -40,26 +37,6 @@ Use it to create an easy-to-use blog or website.
 - Auto-generated [sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/)
 - [Pagefind](https://pagefind.app/) static search library integration
 - [Astro Icon](https://github.com/natemoo-re/astro-icon) svg icon component
-
-
-## Configure
-
-- Edit the config file `src/site.config.ts` for basic site meta data
-  - Read [this post](http://astro-cactus.chriswilliams.dev/posts/webmentions/) for adding webmentions to your site, otherwise set `siteConfig.webmentions.link` to empty value.
-- Update file `astro.config.ts` site property with your own domain
-- Replace & update files within the `/public` folder:
-  - favicon.ico & other social icons
-  - robots.txt - update the Sitemap url to your own domain
-  - manifest.webmanifest
-- Modify file `src/styles/global.css` with your own light and dark styles
-- Edit social links in `src/components/SocialList.astro` to add/replace your media profile. Icons can be found @ [icones.js.org](https://icones.js.org/)
-- Create / edit posts for your blog within `src/content/post/` with .md/mdx file(s). See [below](#adding-posts) for more details.
-- OG Image:
-  - If you would like to change the style of the generated image the Satori library creates, open up `src/pages/og-image/[slug].png.ts` to the markup function where you can edit the html/tailwind-classes as necessary. You can also use this [satori playground](https://og-playground.vercel.app/) to aid your design.
-  - If you would like to generate svg og images rather than the default .png ones, you will need to remove the @resvg/resvg-js library, and return the svg within the body of the get function from the file `src/pages/og-image/[slug].png.ts`.
-  - You can also create your own og images and skip satori generating if for you by adding an ogImage property in the frontmatter with a link to the asset, an example can be found in `src/content/post/social-image.md`. More info on frontmatter can be found [here](#frontmatter)
-- Optional:
-  - Fonts: This theme sets the body element to the font family `font-mono`, located in the global css file `src/styles/global.css`. You can change fonts by removing the variant `font-mono`, after which TailwindCSS will default to the `font-sans` [font family stack](https://tailwindcss.com/docs/font-family).
 
 ## Adding posts
 
