@@ -6,6 +6,8 @@ import PostPreview from "@/components/blog/PostPreview";
 import Pagination from "@/components/Paginator";
 import { getAllPosts, getUniqueTags, sortMDByDate } from "@/utils";
 const baseUrl = import.meta.env.BASE_URL;
+//
+export const prerender = true;
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const allPosts = await getAllPosts();

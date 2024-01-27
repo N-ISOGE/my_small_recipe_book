@@ -8,6 +8,8 @@ import { getAllPosts, getFormattedDate } from "@/utils";
 
 import RobotoMono from "@/assets/roboto-mono-regular.ttf";
 import RobotoMonoBold from "@/assets/roboto-mono-700.ttf";
+//
+export const prerender = true;
 
 const ogOptions: SatoriOptions = {
 	width: 1200,
