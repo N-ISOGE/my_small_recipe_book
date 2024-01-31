@@ -1,5 +1,4 @@
 <div align="center">
-  <img alt="Astro Cactus logo" src="https://github.com/chrismwilliams/astro-theme-cactus/assets/12715988/85aa0d3c-ef6a-44e2-954d-ef035b4f4315" width="70" />
   <img alt="logo" src="https://github.com/N-ISOGE/my_small_recipe_book/blob/e39325dbfd03130e18c609d336cef79ecfd355ac/public/512x512.png/?raw=true" width="70" />
 </div>
 <h1 align="center">
@@ -20,23 +19,23 @@
 10. [Deploy](#deploy)
 11. [Acknowledgment](#acknowledgment)
 
-## Key Features
+## Key Features check list
 
-- Astro v4 Fast 🚀
-- TailwindCSS Utility classes
-- Accessible, semantic HTML markup
-- Responsive & SEO-friendly
-- Dark / Light mode, using Tailwind and CSS variables
-- [Astro Assets Integration](https://docs.astro.build/en/guides/assets/) for optimised images
-- MD & [MDX](https://docs.astro.build/en/guides/markdown-content/#mdx-only-features) posts
-- [Satori](https://github.com/vercel/satori) for creating open graph png images
-- Pagination
-- [Automatic RSS feed](https://docs.astro.build/en/guides/rss)
-- [Webmentions](https://webmention.io/)
-- Shiki code syntax styling
-- Auto-generated [sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/)
-- [Pagefind](https://pagefind.app/) static search library integration
-- [Astro Icon](https://github.com/natemoo-re/astro-icon) svg icon component
+- [ ] Astro v4 Fast 🚀
+- [ ] TailwindCSS Utility classes
+- [ ] Accessible, semantic HTML markup
+- [ ] Responsive & SEO-friendly
+- [ ] Dark / Light mode, using Tailwind and CSS variables
+- [ ] [Astro Assets Integration](https://docs.astro.build/en/guides/assets/) for optimised images
+- [ ] MD & [MDX](https://docs.astro.build/en/guides/markdown-content/#mdx-only-features) posts
+- [ ] [Satori](https://github.com/vercel/satori) for creating open graph png images
+- [ ] Pagination
+- [ ] [Automatic RSS feed](https://docs.astro.build/en/guides/rss)
+- [ ] [Webmentions](https://webmention.io/)
+- [ ] Shiki code syntax styling
+- [ ] Auto-generated [sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/)
+- [ ] [Pagefind](https://pagefind.app/) static search library integration
+- [ ] [Astro Icon](https://github.com/natemoo-re/astro-icon) svg icon component
 
 ## Adding posts
 
@@ -79,24 +78,6 @@ You may be asked to included a snippet inside the **HEAD** tag of your website w
 
 Another popular provider is google analytics which you could integrate via the above method, or, for example adding [astro-google-analytics](https://www.npmjs.com/package/astro-google-analytics)
 
-```bash
-pnpm install astro-google-analytics
-```
-
-Edit `src/layouts/Base.astro`, and add:
-
-```astro
----
-import { GoogleAnalytics } from "astro-google-analytics";
-// ...other imports
----
-
-<head>
-	<!-- Replace id with your own Google Analytics ID -->
-	<GoogleAnalytics id="G-XXXXXXXXXX" />
-</head>
-```
-
 ## Deploy
 
 [Astro docs](https://docs.astro.build/en/guides/deploy/) has a great section and breakdown of how to deploy your own Astro site on various platforms and their idiosyncrasies.
@@ -109,4 +90,13 @@ This theme was inspired by [Hexo Theme Cactus](https://github.com/probberechts/h
 
 ## License
 
-MIT
+Shield: [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
+
+This work is licensed under a
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
+
+[![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]
+
+[cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
+[cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
+[cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg

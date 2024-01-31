@@ -2,8 +2,9 @@ import type { SiteConfig } from "@/types";
 const baseUrl = import.meta.env.BASE_URL;
 
 export const siteConfig: SiteConfig = {
+	referance: "@chrismwilliams/astro-theme-cactus 3.6.1",
 	// Used as both a meta property (src/components/BaseHead.astro L:31 + L:49) & the generated satori png (src/pages/og-image/[slug].png.ts)
-	author: "sang hyeon, son. \n\nimport @chrismwilliams/astro-theme-cactus",
+	author: "sang hyeon, son.",
 	// Meta property used to construct the meta title property, found in src/components/BaseHead.astro L:11
 	title: "my small recipe book",
 	// Meta property used as the default description meta property
