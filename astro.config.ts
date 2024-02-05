@@ -14,7 +14,7 @@ const owner = import.meta.env.VITE_GITHUB_REPOSITORY_OWNER;
 const repoName = import.meta.env.VITE_GITHUB_REPOSITORY ;
 const baseUrl = typeof repoName === "string" ? repoName.substring(owner.length) : "";
 
-console.log("%s \n %s \m %s \n %d \n",owner,repoName,baseUrl,owner.length)
+console.log("%s \n %s \m %s \n",owner,repoName,baseUrl);
 
 // https://astro.build/config
 export default defineConfig({
