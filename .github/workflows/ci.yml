@@ -52,7 +52,7 @@ jobs:
         # use astro check for issues
       - name: Run check
         run: |
-          echo "$GITHUB_REPOSITORY"
+          cat .env
           pnpm astro check
 
         # ensure build works
