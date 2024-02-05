@@ -20,13 +20,15 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v3
+
       - name: Use environment variables
         run: |
           echo "GITHUB_REPOSITORY_OWNER=$GITHUB_REPOSITORY_OWNER" >> .env
           echo "GITHUB_REPOSITORY=$GITHUB_REPOSITORY" >> .env
         env: 
-          GITHUB_REPOSITORY: ${{github.GITHUB_REPOSITORY}}
-          GITHUB_REPOSITORY_OWNER: ${{github.GITHUB_REPOSITORY_OWNER}}
+          GITHUB_REPOSITORY: ${{github.repository}}
+          GITHUB_REPOSITORY_OWNER: ${{github.repository_owner}}
+
       - name: Install, build, and upload your site
         uses: withastro/action@v1
         with:
