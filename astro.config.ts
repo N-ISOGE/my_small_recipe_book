@@ -9,12 +9,10 @@ import { remarkReadingTime } from "./src/utils/remark-reading-time";
 import icon from "astro-icon";
 //
 import cloudflare from "@astrojs/cloudflare";
-//
-const owner= import.meta.env.VITE_GITHUB_REPOSITORY_OWNER;
+
+// env vars for github pages 
+const owner = import.meta.env.VITE_GITHUB_REPOSITORY_OWNER;
 const repoName  = import.meta.env.VITE_GITHUB_REPOSITORY ;
-
-
-
 
 // https://astro.build/config
 export default defineConfig({
@@ -63,6 +61,7 @@ export default defineConfig({
 	output: "hybrid",
 	adapter: cloudflare(),
 });
+
 function rawFonts(ext: Array<string>) {
 	return {
 		name: "vite-plugin-raw-fonts",
