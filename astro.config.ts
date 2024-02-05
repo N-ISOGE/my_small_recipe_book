@@ -12,15 +12,14 @@ import cloudflare from "@astrojs/cloudflare";
 //
 const owner = import.meta.env.VITE_GITHUB_REPOSITORY_OWNER;
 const repoName= import.meta.env.VITE_GITHUB_REPOSITORY;
-const baseUrl = repoName.substring(owner.length + 1);
+const baseUrl = repoName.substring(owner.length);
 
-console.log(baseUrl);
 
 
 // https://astro.build/config
 export default defineConfig({
 	site: "https://n-isoge.github.io",
-	base: "/my_small_recipe_book",
+	base: baseUrl,
 	markdown: {
 		remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
 		rehypePlugins: [
