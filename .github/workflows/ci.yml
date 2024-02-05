@@ -43,17 +43,15 @@ jobs:
 
       - name: Use environment variables
         run: |
-          echo "GITHUB_REPOSITORY_OWNER=$GITHUB_REPOSITORY_OWNER" >> .env
-          echo "GITHUB_REPOSITORY=$GITHUB_REPOSITORY" >> .env
+          echo "VITE_GITHUB_REPOSITORY_OWNER=$GITHUB_REPOSITORY_OWNER" >> .env
+          echo "VITE_GITHUB_REPOSITORY=$GITHUB_REPOSITORY" >> .env
         env: 
           GITHUB_REPOSITORY: ${{github.repository}}
           GITHUB_REPOSITORY_OWNER: ${{github.repository_owner}}
 
         # use astro check for issues
       - name: Run check
-        run: |
-          cat .env
-          pnpm astro check
+        run: pnpm astro check
 
         # ensure build works
       - name: Run build

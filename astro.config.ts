@@ -10,8 +10,8 @@ import icon from "astro-icon";
 //
 import cloudflare from "@astrojs/cloudflare";
 //
-const owner = import.meta.env.GITHUB_REPOSITORY_OWNER;
-const repoName= import.meta.env.GITHUB_REPOSITORY;
+const owner = import.meta.env.VITE_GITHUB_REPOSITORY_OWNER;
+const repoName= import.meta.env.VITE_GITHUB_REPOSITORY;
 
 console.log("own %s, name %s",owner, repoName);
 
