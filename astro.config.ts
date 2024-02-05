@@ -13,7 +13,7 @@ import cloudflare from "@astrojs/cloudflare";
 const owner = import.meta.env.GITHUB_REPOSITORY_OWNER;
 const repoName= import.meta.env.GITHUB_REPOSITORY;
 
-console.log(owner, repoName);
+console.log("own %s, name %s",owner, repoName);
 
 // https://astro.build/config
 export default defineConfig({
