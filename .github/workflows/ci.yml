@@ -14,14 +14,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - name: Use environment variables
-        run: |
-          echo "GITHUB_REPOSITORY_OWNER=$GITHUB_REPOSITORY_OWNER" >> .env
-          echo "GITHUB_REPOSITORY=$GITHUB_REPOSITORY" >> .env
-        env: 
-          GITHUB_REPOSITORY: ${{github.repository}}
-          GITHUB_REPOSITORY_OWNER: ${{github.repository_owner}}
-
       - name: install node
         uses: actions/setup-node@v3
         with:
@@ -48,6 +40,14 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Use environment variables
+        run: |
+          echo "GITHUB_REPOSITORY_OWNER=$GITHUB_REPOSITORY_OWNER" >> .env
+          echo "GITHUB_REPOSITORY=$GITHUB_REPOSITORY" >> .env
+        env: 
+          GITHUB_REPOSITORY: ${{github.repository}}
+          GITHUB_REPOSITORY_OWNER: ${{github.repository_owner}}
 
         # use astro check for issues
       - name: Run check
