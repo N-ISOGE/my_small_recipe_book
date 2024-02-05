@@ -7,8 +7,13 @@ import remarkUnwrapImages from "remark-unwrap-images";
 import rehypeExternalLinks from "rehype-external-links";
 import { remarkReadingTime } from "./src/utils/remark-reading-time";
 import icon from "astro-icon";
-
+//
 import cloudflare from "@astrojs/cloudflare";
+//
+const owner = import.meta.env.GITHUB_REPOSITORY_OWNER;
+const repoName= import.meta.env.GITHUB_REPOSITORY;
+
+console.log(typeof(owner));
 
 // https://astro.build/config
 export default defineConfig({
