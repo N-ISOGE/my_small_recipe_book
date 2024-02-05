@@ -81,7 +81,7 @@ function rawFonts(ext: Array<string>) {
 }
 
 function getBaseUrl(){
-	if(typeof owner == "string" && typeof repoName == "string"){
+	if(typeof owner === "string" && typeof repoName === "string"){
 		return repoName.substring(owner.length);
 	}
 	return "";
