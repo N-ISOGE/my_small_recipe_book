@@ -84,5 +84,5 @@ function getBaseUrl(){
 	if(typeof owner === "string" && typeof repoName === "string"){
 		return repoName.substring(owner.length);
 	}
-	return "./";
+	return ".";
 }
