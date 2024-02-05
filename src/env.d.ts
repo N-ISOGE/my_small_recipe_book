@@ -10,6 +10,8 @@ declare module "@pagefind/default-ui" {
 
 interface ImportMetaEnv {
 	readonly WEBMENTION_API_KEY: string;
+	readonly GITHUB_REPOSITORY_OWNER: string;
+	readonly GITHUB_REPOSITORY: string;
 }
 
 interface ImportMeta {
