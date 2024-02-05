@@ -14,6 +14,14 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
+      - name: Use environment variables
+        run: |
+          echo "GITHUB_REPOSITORY_OWNER=$GITHUB_REPOSITORY_OWNER" >> .env
+          echo "GITHUB_REPOSITORY=$GITHUB_REPOSITORY" >> .env
+        env: 
+          GITHUB_REPOSITORY: ${{github.GITHUB_REPOSITORY}}
+          GITHUB_REPOSITORY_OWNER: ${{github.GITHUB_REPOSITORY_OWNER}}
+
       - name: install node
         uses: actions/setup-node@v3
         with:
