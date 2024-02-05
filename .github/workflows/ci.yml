@@ -19,8 +19,8 @@ jobs:
           echo "GITHUB_REPOSITORY_OWNER=$GITHUB_REPOSITORY_OWNER" >> .env
           echo "GITHUB_REPOSITORY=$GITHUB_REPOSITORY" >> .env
         env: 
-          GITHUB_REPOSITORY: ${{github.GITHUB_REPOSITORY}}
-          GITHUB_REPOSITORY_OWNER: ${{github.GITHUB_REPOSITORY_OWNER}}
+          GITHUB_REPOSITORY: ${{github.repository}}
+          GITHUB_REPOSITORY_OWNER: ${{github.repository_owner}}
 
       - name: install node
         uses: actions/setup-node@v3
