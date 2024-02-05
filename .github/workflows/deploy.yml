@@ -23,8 +23,8 @@ jobs:
 
       - name: Use environment variables
         run: |
-          echo "GITHUB_REPOSITORY_OWNER=$GITHUB_REPOSITORY_OWNER" >> .env
-          echo "GITHUB_REPOSITORY=$GITHUB_REPOSITORY" >> .env
+          echo "VITE_GITHUB_REPOSITORY_OWNER=$GITHUB_REPOSITORY_OWNER" >> .env
+          echo "VITE_GITHUB_REPOSITORY=$GITHUB_REPOSITORY" >> .env
         env: 
           GITHUB_REPOSITORY: ${{github.repository}}
           GITHUB_REPOSITORY_OWNER: ${{github.repository_owner}}
