@@ -14,14 +14,14 @@
 	},
 	"dependencies": {
 		"@astrojs/cloudflare": "^9.0.0",
-		"@astrojs/mdx": "2.0.5",
+		"@astrojs/mdx": "2.1.1",
 		"@astrojs/rss": "4.0.4",
 		"@astrojs/sitemap": "3.0.5",
 		"@astrojs/tailwind": "5.1.0",
 		"astro": "4.3.2",
 		"astro-icon": "^1.1.0",
 		"rehype-external-links": "^3.0.0",
-		"satori": "0.10.11",
+		"satori": "0.10.13",
 		"satori-html": "^0.3.2",
 		"sharp": "^0.33.2"
 	},
