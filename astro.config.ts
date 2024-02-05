@@ -10,17 +10,16 @@ import icon from "astro-icon";
 //
 import cloudflare from "@astrojs/cloudflare";
 //
-const owner : string = import.meta.env.VITE_GITHUB_REPOSITORY_OWNER;
-const repoName: string  = import.meta.env.VITE_GITHUB_REPOSITORY ;
-const baseUrl = typeof repoName.substring(owner.length) === "string" ? repoName.substring(owner.length) : "";
+const owner= import.meta.env.VITE_GITHUB_REPOSITORY_OWNER;
+const repoName  = import.meta.env.VITE_GITHUB_REPOSITORY ;
 
-console.log("%d\n",typeof baseUrl);
+
 
 
 // https://astro.build/config
 export default defineConfig({
 	site: "https://n-isoge.github.io",
-	base: baseUrl,
+	base: getBaseUrl(),
 	markdown: {
 		remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
 		rehypePlugins: [
@@ -79,4 +78,11 @@ function rawFonts(ext: Array<string>) {
 			}
 		},
 	};
+}
+
+function getBaseUrl(){
+	if(typeof owner == "string" && typeof repoName == "string"){
+		return repoName.substring(owner.length);
+	}
+	return "";
 }
