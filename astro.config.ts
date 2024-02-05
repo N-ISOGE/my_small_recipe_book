@@ -10,11 +10,12 @@ import icon from "astro-icon";
 //
 import cloudflare from "@astrojs/cloudflare";
 //
-const owner = import.meta.env.VITE_GITHUB_REPOSITORY_OWNER;
-const repoName = import.meta.env.VITE_GITHUB_REPOSITORY ;
-const baseUrl = typeof repoName === "string" ? repoName.substring(owner.length) : "";
+const owner : string = import.meta.env.VITE_GITHUB_REPOSITORY_OWNER;
+const repoName: string  = import.meta.env.VITE_GITHUB_REPOSITORY ;
+const baseUrl = typeof repoName.substring(owner.length) === "string" ? repoName.substring(owner.length) : "";
 
-console.log("%s \n %s \n d%s\n %d\n",owner,repoName,baseUrl, typeof baseUrl);
+console.log("%d\n",typeof baseUrl);
+
 
 // https://astro.build/config
 export default defineConfig({
