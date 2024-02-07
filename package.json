@@ -1,6 +1,6 @@
 {
 	"name": "my-small-recipe-book",
-	"version": "0.5.0",
+	"version": "0.8.0",
 	"description": "my small recipe book",
 	"author": "N-ISOGE",
 	"scripts": {
@@ -33,8 +33,8 @@
 		"@tailwindcss/aspect-ratio": "^0.4.2",
 		"@tailwindcss/typography": "^0.5.10",
 		"@types/eslint": "^8.56.2",
-		"@typescript-eslint/eslint-plugin": "^6.20.0",
-		"@typescript-eslint/parser": "^6.20.0",
+		"@typescript-eslint/eslint-plugin": "^6.21.0",
+		"@typescript-eslint/parser": "^6.21.0",
 		"astro-eslint-parser": "^0.16.3",
 		"autoprefixer": "^10.4.17",
 		"eslint": "^8.56.0",
@@ -46,7 +46,7 @@
 		"eslint-plugin-prettier": "^5.1.3",
 		"mdast-util-to-string": "^4.0.0",
 		"pagefind": "^1.0.4",
-		"postcss": "^8.4.33",
+		"postcss": "^8.4.34",
 		"postcss-html": "^1.6.0",
 		"postcss-import": "^16.0.0",
 		"prettier": "^3.2.5",
