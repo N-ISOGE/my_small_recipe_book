@@ -8,7 +8,7 @@ import rehypeExternalLinks from "rehype-external-links";
 import { remarkReadingTime } from "./src/utils/remark-reading-time";
 import icon from "astro-icon";
 //
-import cloudflare from "@astrojs/cloudflare";
+// import cloudflare from "@astrojs/cloudflare";
 
 // env vars for github pages
 const owner = import.meta.env.VITE_GITHUB_REPOSITORY_OWNER;
