@@ -59,7 +59,7 @@ export default defineConfig({
             exclude: ["@resvg/resvg-js"],
         },
     },
-    output: "hybrid",
+    output: "server",
     adapter: cloudflare(),
 });
 
