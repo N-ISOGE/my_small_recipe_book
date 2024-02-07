@@ -13,11 +13,12 @@ import cloudflare from "@astrojs/cloudflare";
 // env vars for github pages
 const owner = import.meta.env.VITE_GITHUB_REPOSITORY_OWNER;
 const repoName = import.meta.env.VITE_GITHUB_REPOSITORY;
+const baseUrl = getBaseUrl();
 
 // https://astro.build/config
 export default defineConfig({
     site: "https://n-isoge.github.io",
-    base: getBaseUrl(),
+    base: baseUrl,
     markdown: {
         remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
         rehypePlugins: [
