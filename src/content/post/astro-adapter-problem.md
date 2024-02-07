@@ -13,7 +13,7 @@ tags:
 - 한 저장소에서 cloudflare, github pages 동시에 배포하기
 
 # 과정
-### cloudflare adapter을 제거
+## cloudflare adapter을 제거
 - 2024-02-07
 
 - 제거를 해도 cloudflare에서 배포가 된다.
