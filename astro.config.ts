@@ -6,6 +6,8 @@ import sitemap from "@astrojs/sitemap";
 import remarkUnwrapImages from "remark-unwrap-images";
 import rehypeExternalLinks from "rehype-external-links";
 import { remarkReadingTime } from "./src/utils/remark-reading-time";
+import expressiveCode from "astro-expressive-code";
+import { expressiveCodeOptions } from "./src/site.config";
 import icon from "astro-icon";
 //
 // import cloudflare from "@astrojs/cloudflare";
@@ -35,18 +37,15 @@ export default defineConfig({
                 className: [""],
             },
         },
-        shikiConfig: {
-            theme: "dracula",
-            wrap: true,
-        },
     },
     integrations: [
-        mdx({}),
+        mdx(),
         tailwind({
             applyBaseStyles: false,
         }),
         sitemap(),
         icon(),
+        expressiveCode(expressiveCodeOptions),
     ],
     image: {
         domains: ["webmention.io"],
