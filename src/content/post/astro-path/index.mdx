@@ -71,6 +71,10 @@ const repoName  = import.meta.env.VITE_GITHUB_REPOSITORY ;
 [관련 문서](https://docs.astro.build/ko/reference/configuration-reference/#base)  
 github에서 빌드할 때만 하위 경로가 추가되게 하는 함수를 추가한다.  
 ```typescript
+// astro.config.ts
+import { defineConfig } from "astro/config";
+//...
+
 // env vars for github pages
 const owner = import.meta.env.VITE_GITHUB_REPOSITORY_OWNER;
 const repoName = import.meta.env.VITE_GITHUB_REPOSITORY;
