@@ -16,72 +16,72 @@ const repoName = import.meta.env.VITE_GITHUB_REPOSITORY;
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://n-isoge.github.io",
-  base: getBaseUrl(),
-  markdown: {
-    remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
-    rehypePlugins: [
-      [
-        rehypeExternalLinks,
-        {
-          target: "_blank",
-          rel: ["nofollow, noopener, noreferrer"],
+    site: "https://n-isoge.github.io",
+    base: getBaseUrl(),
+    markdown: {
+        remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
+        rehypePlugins: [
+            [
+                rehypeExternalLinks,
+                {
+                    target: "_blank",
+                    rel: ["nofollow, noopener, noreferrer"],
+                },
+            ],
+        ],
+        remarkRehype: {
+            footnoteLabelProperties: {
+                className: [""],
+            },
         },
-      ],
+        shikiConfig: {
+            theme: "dracula",
+            wrap: true,
+        },
+    },
+    integrations: [
+        mdx({}),
+        tailwind({
+            applyBaseStyles: false,
+        }),
+        sitemap(),
+        icon(),
     ],
-    remarkRehype: {
-      footnoteLabelProperties: {
-        className: [""],
-      },
+    image: {
+        domains: ["webmention.io"],
     },
-    shikiConfig: {
-      theme: "dracula",
-      wrap: true,
+    // https://docs.astro.build/en/guides/prefetch/
+    prefetch: true,
+    vite: {
+        plugins: [rawFonts([".ttf"])],
+        optimizeDeps: {
+            exclude: ["@resvg/resvg-js"],
+        },
     },
-  },
-  integrations: [
-    mdx({}),
-    tailwind({
-      applyBaseStyles: false,
-    }),
-    sitemap(),
-    icon(),
-  ],
-  image: {
-    domains: ["webmention.io"],
-  },
-  // https://docs.astro.build/en/guides/prefetch/
-  prefetch: true,
-  vite: {
-    plugins: [rawFonts([".ttf"])],
-    optimizeDeps: {
-      exclude: ["@resvg/resvg-js"],
-    },
-  },
-  output: "hybrid",
-  adapter: cloudflare(),
+    output: "hybrid",
+    adapter: cloudflare(),
 });
 
 function rawFonts(ext: Array<string>) {
-  return {
-    name: "vite-plugin-raw-fonts",
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore:next-line
-    transform(_, id) {
-      if (ext.some((e) => id.endsWith(e))) {
-        const buffer = fs.readFileSync(id);
-        return {
-          code: `export default ${JSON.stringify(buffer)}`,
-          map: null,
-        };
-      }
-    },
-  };
+    return {
+        name: "vite-plugin-raw-fonts",
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore:next-line
+        transform(_, id) {
+            if (ext.some((e) => id.endsWith(e))) {
+                const buffer = fs.readFileSync(id);
+                return {
+                    code: `export default ${JSON.stringify(buffer)}`,
+                    map: null,
+                };
+            }
+        },
+    };
 }
 
 function getBaseUrl() {
-  if (typeof owner === "string" && typeof repoName === "string") {
-    return repoName.substring(owner.length);
-  }
-  return ".";
+    if (typeof owner === "string" && typeof repoName === "string") {
+        return repoName.substring(owner.length);
+    }
+    return ".";
 }
