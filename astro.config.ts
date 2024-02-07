@@ -39,13 +39,13 @@ export default defineConfig({
         },
     },
     integrations: [
-        mdx(),
+        expressiveCode(expressiveCodeOptions),
+        icon(),
         tailwind({
             applyBaseStyles: false,
         }),
         sitemap(),
-        icon(),
-        expressiveCode(expressiveCodeOptions),
+        mdx(),
     ],
     image: {
         domains: ["webmention.io"],
