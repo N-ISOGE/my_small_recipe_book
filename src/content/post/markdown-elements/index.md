@@ -134,3 +134,15 @@ Image in the aliased assets folder: `src/assets/about-astro.png`
 ## Links
 
 [Content from markdown-it](https://markdown-it.github.io/)
+
+
+## Highlighting code lines
+
+```js title="line-markers.js" del={2} ins={3-4} {6}
+function demo() {
+	console.log("this line is marked as deleted");
+	// This line and the next one are marked as inserted
+	console.log("this is the second inserted line");
+	return "this line uses the neutral default marker type";
+}
+``` 

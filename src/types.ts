@@ -1,5 +1,4 @@
 export type SiteConfig = {
-    referance: string;
     author: string;
     title: string;
     description: string;

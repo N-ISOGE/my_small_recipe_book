@@ -6,6 +6,8 @@ import sitemap from "@astrojs/sitemap";
 import remarkUnwrapImages from "remark-unwrap-images";
 import rehypeExternalLinks from "rehype-external-links";
 import { remarkReadingTime } from "./src/utils/remark-reading-time";
+import expressiveCode from "astro-expressive-code";
+import { expressiveCodeOptions } from "./src/site.config";
 import icon from "astro-icon";
 //
 // import cloudflare from "@astrojs/cloudflare";
@@ -35,18 +37,15 @@ export default defineConfig({
                 className: [""],
             },
         },
-        shikiConfig: {
-            theme: "dracula",
-            wrap: true,
-        },
     },
     integrations: [
-        mdx({}),
+        expressiveCode(expressiveCodeOptions),
+        icon(),
         tailwind({
             applyBaseStyles: false,
         }),
         sitemap(),
-        icon(),
+        mdx(),
     ],
     image: {
         domains: ["webmention.io"],
@@ -54,7 +53,7 @@ export default defineConfig({
     // https://docs.astro.build/en/guides/prefetch/
     prefetch: true,
     vite: {
-        plugins: [rawFonts([".ttf"])],
+        plugins: [rawFonts([".ttf", ".woff"])],
         optimizeDeps: {
             exclude: ["@resvg/resvg-js"],
         },
