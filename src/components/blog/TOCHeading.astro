@@ -4,7 +4,7 @@ import type { TocItem } from "@/utils";
 interface Props {
     heading: TocItem;
 }
-const url = new URL(Astro.request.url);
+const pathname = Astro.url.pathname;
 const {
     heading: { slug, text, depth, subheadings },
 } = Astro.props;
@@ -13,7 +13,7 @@ const {
 <li class={`${depth > 2 ? "ms-2" : ""}`}>
     <a
         class={`block line-clamp-2 hover:text-accent ${depth <= 2 ? "mt-3" : "mt-2 text-[0.6875rem]"}`}
-        href={`${url}#${slug}`}
+        href={`${pathname}#${slug}`}
         aria-label={`Scroll to section: ${text}`}><span class="me-0.5">#</span>{text}</a
     >
     {
