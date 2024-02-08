@@ -25,9 +25,11 @@ jobs:
         run: |
           echo "VITE_GITHUB_REPOSITORY_OWNER=$GITHUB_REPOSITORY_OWNER" >> .env
           echo "VITE_GITHUB_REPOSITORY=$GITHUB_REPOSITORY" >> .env
+          echo "WEBMENTION_API_KEY=$WEBMENTION_API_KEY" >> .env
         env: 
           GITHUB_REPOSITORY: ${{github.repository}}
           GITHUB_REPOSITORY_OWNER: ${{github.repository_owner}}
+          WEBMENTION_API_KEY: ${{secrets.WEBMENTION_API_KEY}}
 
       - name: Install, build, and upload your site
         uses: withastro/action@v1
