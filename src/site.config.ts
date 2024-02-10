@@ -23,7 +23,7 @@ export const siteConfig: SiteConfig = {
         },
     },
     webmentions: {
-        link: "https://webmention.io/api/mentions.html?token=I9T4nhzEMsz7np_HISCKsA",
+        link: "https://webmention.io/n-isoge.github.io_my_small_recipe_book_/webmention",
     },
 };
 
