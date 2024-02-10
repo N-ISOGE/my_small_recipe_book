@@ -2,17 +2,13 @@
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "baseUrl": ".",
-    "lib": [
-      "es2022",
-      "dom",
-      "dom.iterable"
-    ],
+    "lib": ["es2022", "dom", "dom.iterable"],
     "paths": {
       "@/assets/*": [
         "src/assets/*"
       ],
       "@/components/*": [
-        "src/components/*.astro"
+        "src/components/*"
       ],
       "@/layouts/*": [
         "src/layouts/*.astro"
@@ -33,7 +29,7 @@
   },
   "include": [
     "src",
-    "*.ts"
+    "*.ts",
   ],
   "exclude": [
     "node_modules",
