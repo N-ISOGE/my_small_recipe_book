@@ -1,25 +1,27 @@
 ---
-title: "Adding Webmentions to Astro Cactus"
-description: "This post describes the process of adding webmentions to your own site"
-publishDate: "11 Oct 2023"
+title: "Astro Cactus 사용하는 블로그에 webmention 기능 활성화하기"
+description: "webmentions 기능을 켜는 동안 했던 일을 기록함"
+publishDate: 2024-02-10
 tags: ["webmentions", "astro", "social"]
+draft:true
 ---
 
-## tldr
+## 요약
 
-1. Ensure your social media links are added in `src/components/SocialList.astro`, most importantly the email address
-2. Create an account @ [Webmention.io](https://webmention.io/).
-3. Add the link feed to `siteConfig.webmentions`, found in `src/site.config.ts`.
-4. Create a `.env` file, or rename the included `.example.env`, and add the key `WEBMENTION_API_KEY` and set the api key as the value.
-5. Go to [brid.gy](https://brid.gy/) and sign-in to each social account[s] you wish to link.
-6. Publish and build your website, remember to add the api key, and it should now be ready to receive webmentions!
-7. That's it, maybe give this post a like!
+1. `src/components/SocialList.astro`에 SNS 정보가 작성되어 있는지 확인하기, email 주소가 적혀 있는지 확인하기  
+2. [Webmention.io](https://webmention.io/) 계정 만들기.  
+3. `src/site.config.ts` 파일에 있는 `siteConfig.webmentions`에 피드를 보기위한 링크 추가하기
+    - 마지막에 `/webmention`이 달려있는 링크
+4. `.env` 파일을 만들거나 동봉된 `.example.env`를 이름을 `.env`로 바꾸고, `WEBMENTION_API_KEY` 키를 추가하고 API 키값을 값으로 넣기
+    - 아니면 빌드할 때, 환경변수를 추가하기
+5. Go to [brid.gy](https://brid.gy/)에서 연결하기를 원하는 SNS 계정을 통하여 회원가입 및 로그인하기
+6. 웹사이트를 빌드하고 배포하기
 
 ## What are webmentions
 
-Put simply, it's a way to show users who like, comment, repost and more, on various pages on your website via social media.
+웹사이트에서 페이지와 관련된 좋아요, 댓글, 공유 등 SNS 활동을 보여주는 방법이다.
 
-This theme displays the number of likes, mentions and replies each blog post receives. There are a couple of more webmentions that I haven't included, like reposts, which are currently filtered out, but shouldn't be too difficult to include.
+This theme displays the number of likes, mentions and replies each blog post receives. There are a couple of more webmentions that I haven't included, like reposts, which are currently filtered out, but shouldn't be too difficult to include.  
 
 ## Steps to add it to your own site
 
