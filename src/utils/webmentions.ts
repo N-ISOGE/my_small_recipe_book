@@ -1,7 +1,7 @@
 import * as fs from "node:fs";
 import type { WebmentionsFeed, WebmentionsCache, WebmentionsChildren } from "@/types";
 
-const DOMAIN = import.meta.env.SITE;
+const DOMAIN = import.meta.env.SITE + import.meta.env.BASE_URL;
 const API_TOKEN = import.meta.env.WEBMENTION_API_KEY;
 const CACHE_DIR = ".data";
 const filePath = `${CACHE_DIR}/webmentions.json`;
