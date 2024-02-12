@@ -17,8 +17,6 @@
 10. [Deploy](#deploy)
 11. [Acknowledgment](#acknowledgment)
 
-
-
 ## Pagefind search
 
 This integration brings a static search feature for searching blog posts. In its current form, pagefind only works once the site has been built. This theme adds a postbuild script that should be run after Astro has built the site. You can preview locally by running both build && postbuild.
