@@ -7,6 +7,7 @@ tags:
     - cloudflare
     - github
     - astro
+    - building blog 
 ---
 
 # 문제
