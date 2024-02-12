@@ -2,6 +2,7 @@
 title: "Astro Cactus 사용하는 블로그에 webmention 기능 활성화하기"
 description: "webmentions 기능을 켜는 동안 했던 일을 기록함                   "
 publishDate: 2024-02-10
+updatedDate: 2024-02-12
 tags: ["webmentions", "astro", "social"]
 ---
 
