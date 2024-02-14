@@ -1,21 +1,21 @@
 {
-	"name": "my small recipe book",
-	"short_name": "n1soge_repo",
-	"description": "blog? cargo?",
-	"icons": [
-		{
-			"src": "/192x192.png",
-			"sizes": "192x192",
-			"type": "image/png"
-		},
-		{
-			"src": "/512x512.png",
-			"sizes": "512x512",
-			"type": "image/png"
-		}
-	],
-	"start_url": "/",
-	"background_color": "#5b9bb3",
-	"theme_color": "#1c1410",
-	"display": "standalone"
+    "name": "my small recipe book",
+    "short_name": "n1soge_repo",
+    "description": "blog? cargo?",
+    "icons": [
+        {
+            "src": "/192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/",
+    "background_color": "#5b9bb3",
+    "theme_color": "#1c1410",
+    "display": "standalone"
 }
