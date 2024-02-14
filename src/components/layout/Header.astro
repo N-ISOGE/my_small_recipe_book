@@ -1,0 +1,183 @@
+---
+import ThemeToggle from "../ThemeToggle.astro";
+import Search from "../Search.astro";
+import { menuLinks } from "@/site-config";
+
+const url = new URL(Astro.request.url);
+---
+
+<header id="main-header" class="group relative mb-28 flex items-center sm:ps-[4.5rem]">
+    <div class="flex sm:flex-col">
+        <a
+            href=" "
+            class="inline-flex items-center grayscale hover:filter-none sm:relative sm:inline-block"
+            aria-current={url.pathname === "/" ? "page" : false}
+        >
+            <svg
+                class="me-3 h-10 w-6 sm:absolute sm:start-[-4.5rem] sm:me-0 sm:h-20 sm:w-12"
+                version="1.1"
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="512px"
+                height="512px"
+                viewBox="0 0 512 512"
+                enable-background="new 0 0 512 512"
+                xml:space="preserve"
+            >
+                <image
+                    id="image0"
+                    width="512"
+                    height="512"
+                    x="0"
+                    y="0"
+                    href="data:image/png;base64,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"
+                />
+            </svg>
+            <span class="text-xl font-bold sm:text-2xl">my_small_recipe_book</span>
+        </a>
+        <nav
+            id="navigation-menu"
+            class="absolute -inset-x-4 top-14 hidden flex-col items-end gap-y-4 rounded-md bg-bgColor/[.85] py-4 text-accent shadow backdrop-blur group-[.menu-open]:z-50 group-[.menu-open]:flex sm:static sm:z-auto sm:-ms-4 sm:mt-1 sm:flex sm:flex-row sm:items-center sm:divide-x sm:divide-dashed sm:divide-accent sm:rounded-none sm:bg-transparent sm:py-0 sm:shadow-none sm:backdrop-blur-none"
+            aria-label="Main menu"
+        >
+            {
+                menuLinks.map((link) => (
+                    <a
+                        href={link.path}
+                        class="px-4 py-4 sm:py-0 sm:hover:underline"
+                        aria-current={url.pathname === link.path ? "page" : false}
+                        data-astro-prefetch
+                    >
+                        {link.title}
+                    </a>
+                ))
+            }
+        </nav>
+    </div>
+    <Search />
+    <ThemeToggle />
+    <mobile-button>
+        <button
+            id="toggle-navigation-menu"
+            class="group relative ms-4 h-7 w-7 sm:invisible sm:hidden"
+            type="button"
+            aria-label="Open main menu"
+            aria-expanded="false"
+            aria-haspopup="menu"
+        >
+            <svg
+                id="line-svg"
+                class="absolute start-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 transition-all group-aria-expanded:scale-0 group-aria-expanded:opacity-0"
+                aria-hidden="true"
+                focusable="false"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 9h16.5m-16.5 6.75h16.5"></path>
+            </svg>
+            <svg
+                id="cross-svg"
+                class="absolute start-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 scale-0 text-accent opacity-0 transition-all group-aria-expanded:scale-100 group-aria-expanded:opacity-100"
+                class="text-accent"
+                aria-hidden="true"
+                focusable="false"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+            >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"
+                ></path>
+            </svg>
+        </button>
+    </mobile-button>
+</header>
+
+<script>
+    import { toggleClass } from "@/utils";
+
+    class MobileNavBtn extends HTMLElement {
+        private headerEl: HTMLElement;
+        private mobileButtonEl: HTMLButtonElement;
+        private menuOpen: boolean;
+
+        constructor() {
+            super();
+            this.headerEl = document.getElementById("main-header")!;
+            this.mobileButtonEl = this.querySelector("button") as HTMLButtonElement;
+            this.menuOpen = false;
+
+            this.mobileButtonEl.addEventListener("click", this.toggleMobileMenu);
+        }
+
+        toggleMobileMenu = () => {
+            toggleClass(this.headerEl, "menu-open");
+            this.menuOpen = !this.menuOpen;
+            this.mobileButtonEl.setAttribute("aria-expanded", this.menuOpen.toString());
+        };
+    }
+
+    customElements.define("mobile-button", MobileNavBtn);
+</script>
