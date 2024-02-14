@@ -2,9 +2,9 @@
 import type { CollectionEntry } from "astro:content";
 
 import BaseLayout from "./Base.astro";
-import BlogHero from "src/components/blog/Hero.astro";
-import TOC from "src/components/blog/TOC.astro";
-import WebMentions from "src/components/blog/webmentions/index.astro";
+import BlogHero from "@/components/blog/Hero.astro";
+import TOC from "@/components/blog/TOC.astro";
+import WebMentions from "@/components/blog/webmentions/index.astro";
 
 interface Props {
     post: CollectionEntry<"post">;
