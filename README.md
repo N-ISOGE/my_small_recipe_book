@@ -6,16 +6,17 @@
 </h1>
 
 ## 목록
-- [x] 상대 경로 수정
+
+-   [x] 상대 경로 수정
 
 ## Table Of Contents
 
 1. [Key Features](#key-features)
-7. [Adding Posts](#adding-posts)
-8. [Pagefind search](#pagefind-search)
-9. [Analytics](#analytics)
-10. [Deploy](#deploy)
-11. [Acknowledgment](#acknowledgment)
+2. [Adding Posts](#adding-posts)
+3. [Pagefind search](#pagefind-search)
+4. [Analytics](#analytics)
+5. [Deploy](#deploy)
+6. [Acknowledgment](#acknowledgment)
 
 ## Pagefind search
 
