@@ -10,6 +10,7 @@ module.exports = {
         "plugin:perfectionist/recommended-natural",
         "plugin:astro/recommended",
         "plugin:astro/jsx-a11y-recommended",
+        "plugin:regexp/recommended",
     ],
     ignorePatterns: ["node_modules", "dist"],
     overrides: [

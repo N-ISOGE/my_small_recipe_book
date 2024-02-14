@@ -56,13 +56,13 @@ If you check out this example in `src/content/post/markdown-elements/index.md`, 
 
 Unordered
 
-- Create a list by starting a line with `+`, `-`, or `*`
-- Sub-lists are made by indenting 2 spaces:
-  - Marker character change forces new list start:
-    - Ac tristique libero volutpat at
-    - Facilisis in pretium nisl aliquet
-    - Nulla volutpat aliquam velit
-- Very easy!
+-   Create a list by starting a line with `+`, `-`, or `*`
+-   Sub-lists are made by indenting 2 spaces:
+    -   Marker character change forces new list start:
+        -   Ac tristique libero volutpat at
+        -   Facilisis in pretium nisl aliquet
+        -   Nulla volutpat aliquam velit
+-   Very easy!
 
 Ordered
 
@@ -99,7 +99,7 @@ Syntax highlighting
 
 ```js
 var foo = function (bar) {
-	return bar++;
+    return bar++;
 };
 
 console.log(foo(5));
@@ -135,14 +135,13 @@ Image in the aliased assets folder: `src/assets/about-astro.png`
 
 [Content from markdown-it](https://markdown-it.github.io/)
 
-
 ## Highlighting code lines
 
 ```js title="line-markers.js" del={2} ins={3-4} {6}
 function demo() {
-	console.log("this line is marked as deleted");
-	// This line and the next one are marked as inserted
-	console.log("this is the second inserted line");
-	return "this line uses the neutral default marker type";
+    console.log("this line is marked as deleted");
+    // This line and the next one are marked as inserted
+    console.log("this is the second inserted line");
+    return "this line uses the neutral default marker type";
 }
-``` 
+```
