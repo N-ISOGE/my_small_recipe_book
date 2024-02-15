@@ -7,6 +7,9 @@
   packages = [
     pkgs.nodejs_21
     pkgs.corepack_21
+    pkgs.gnupg
+    pkgs.pinentry-curses
+    pkgs.coreutils-full
   ];
 
   # Sets environment variables in the workspace
