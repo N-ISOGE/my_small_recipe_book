@@ -22,3 +22,55 @@ git 보안 설정 중에 서명된 commit이 아니면 merge가 안 되게 하�
 그래서 서명해서 commit을 push하는 법을 찾아보았다.
 
 ## 뭘 했나
+
+- 필요한 패키지 설치
+    - idx 설정, nix
+- gnupg 설정
+    - gpg.conf,gpg-agent.conf
+- 키 만들기
+- 깃허브에 등록하기
+- 깃 설정하기
+
+### 패키지 설치
+```nix 
+// shell.nix
+
+{ pkgs ? import <nixpkgs> {}
+}: pkgs.mkShell {
+  nativeBuildInputs = with pkgs.buildPackages; [
+    gnupg
+    pinentry-curses
+    git
+  ];
+}
+
+// dev.nix
+
+
+```
+
+`nix-shell`
+
+### gnupg 설정
+
+```
+// ~/.gnupg/gpg.conf
+
+// ~/.gnupg/gpg-agent.conf
+
+
+```
+`gpg-connect-agent reloadagent /bye`  
+
+### 키 만들기
+
+`gpg --full-generate-key`
+
+`gpg --armor --export {key fingerprint}`
+
+### 깃허브에 등록하기
+
+### 깃 설정하기
+`git config --global user.signingkey {key}`  
+`git config --global commit.gpgsign true`  
+`git config --global tag.gpgsign true`  
