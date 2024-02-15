@@ -12,13 +12,22 @@ tags:
 draft: true
 ---
 
+[출처](https://github.com/chrismwilliams/astro-theme-cactus/blob/e42b55f5976c5bb431acc1ba8331883a64f3b840/README.md#adding-posts)
+
 ## Adding posts
 
-This theme utilises [Content Collections](https://docs.astro.build/en/guides/content-collections/) to organise Markdown and/or MDX files, as well as type-checking frontmatter with a schema -> `src/content/config.ts`.
+아스트로의 [콘텐츠 컬렉션](https://docs.astro.build/ko/guides/content-collections/)을 이용해서 마크다운이나 MDX 파일을 정리합니다.  
+이 파일들의 frontmatter은 `src/content/config.ts`에 따라 체크합니다.  
 
-Adding a post is as simple as adding your .md(x) files to the `src/content/post` folder, the filename of which will be used as the slug/url. The posts included with this template are there as an example of how to structure your frontmatter. Additionally, the [Astro docs](https://docs.astro.build/en/guides/markdown-content/) has a detailed section on markdown pages.
+`src/content/post`에 .md(x) 파일을 추가하는 것으로 쉽게 게시글을 추가할 수 있습니다.  
+이렇게 추가한 게시글은 파일 이름에 따라 slug, url이 결정됩니다.  
+
+게시글들에 적용된 아래의 프론트매터 예시는 프론트매터를 구성하는 방법 중에 하나입니다.  
+
+아스트로에서 마크다운을 다루는 것에 대해선 [이 곳](https://docs.astro.build/ko/guides/markdown-content/)을 참조하면 됩니다.  
 
 ### Frontmatter
+
 
 | Property (\* required) | Description                                                                                                                                                                                                                                                                                                  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
