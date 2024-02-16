@@ -3,6 +3,5 @@
   nativeBuildInputs = with pkgs.buildPackages; [
     gnupg
     pinentry-curses
-    git
   ];
 }
