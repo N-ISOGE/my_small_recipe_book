@@ -28,12 +28,17 @@ git 보안 설정 중에 서명된 commit이 아니면 merge가 안 되게 하�
 
 ## 뭘 했나
 
-
+먼저 필요한 도구를 찾아서 설치하려고 했다.
 
 ### 패키지 설치
+
+google idx를 사용하는 중이라 nix로 패키지를 불러오는 법을 찾아서 적용했다.  
+
+
 ```nix 
 // shell.nix
 
+# nix-shell로 실행할 때 필요한 설정
 { pkgs ? import <nixpkgs> {}
 }: pkgs.mkShell {
   nativeBuildInputs = with pkgs.buildPackages; [
@@ -45,18 +50,41 @@ git 보안 설정 중에 서명된 commit이 아니면 merge가 안 되게 하�
 
 // dev.nix
 
+# 작업 공간에 설치할 패키지 정의
+{ pkgs, ... }: {
 
+# ...
+
+  packages = [
+    # ...
+    pkgs.gnupg
+    pkgs.pinentry-curses
+  ];
+
+# ...
+
+}
 ```
-
-`nix-shell`
+- dev.nix 파일을 수정해서 필요한 도구를 작업공간 빌드할 때 추가하거나
+- shell.nix 파일을 작성해서 nix-shell을 실행할 때 필요한 도구를 설치합니다.
+  - 이 경우는 터미널에서 `nix-shell`을 실행해서 다음 작업을 진행해야 합니다.
 
 ### gnupg 설정
 
-```
+필요한 도구를 설치했으니 보안 키를 생성, 관리하는 gnupg를 설정합니다.  
+
+
+```text
 // ~/.gnupg/gpg.conf
+use-agent
+pinentry-mode loopback
 
 // ~/.gnupg/gpg-agent.conf
+default-cache-ttl 60
+max-cache-ttl 120
 
+pinentry-program /usr/bin/pinentry-curses
+```
 
 ```
 `gpg-connect-agent reloadagent /bye`  
