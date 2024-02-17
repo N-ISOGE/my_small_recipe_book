@@ -57,8 +57,7 @@ github workflow파일을 읽고 빌드환경에서 일을 하는데
 이렇게 설정된 환경변수를 불러올 때 작성하기 편하게 명시할 수 있다.  
 [관련 문서](https://docs.astro.build/en/guides/environment-variables/#intellisense-for-typescript)
 
-```typescript 
-// src/env.d.ts
+```typescript "src/env.d.ts"
 interface ImportMetaEnv {
     // 위에서 설정한 환경변수를 선언해 둠.
     readonly VITE_GITHUB_REPOSITORY_OWNER: string;
