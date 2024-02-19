@@ -20,5 +20,9 @@
     "[astro]": {
         "editor.defaultFormatter": "astro-build.astro-vscode"
     },
-    "git.enableCommitSigning": true
+    "git.enableCommitSigning": true,
+    "IDX.aI.enableCodebaseIndexing": true,
+    "IDX.aI.enableInlineCompletion": true,
+    "IDX.corgiMode": true,
+    "IDX.webDevTools": true
 }
