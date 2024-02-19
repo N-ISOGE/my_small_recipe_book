@@ -34,7 +34,7 @@ export default defineConfig({
         ],
         remarkRehype: {
             footnoteLabelProperties: {
-                className: ["sr-only"],
+                className: [""],
             },
         },
     },
