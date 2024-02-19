@@ -1,0 +1,33 @@
+---
+title: Astro Cactus theme에서 pagefind 모듈
+description: '지금 사용하는 cactus 테마에서 사용하는 글 검색 기능이 뭔지 찾아보자.                            '
+publishDate: 2024-02-19
+updatedDate: 2024-02-19
+tags: 
+    - building blog
+    - astro
+    - astro cactus theme
+draft: true
+---
+
+
+## Pagefind search
+
+This integration brings a static search feature for searching blog posts.  
+In its current form, pagefind only works once the site has been built.  
+This theme adds a postbuild script that should be run after Astro has built the site.  
+You can preview locally by running both build && postbuild.  
+
+Search results only includes blog posts. 
+If you would like to include other/all your pages,  
+remove/re-locate the attribute `data-pagefind-body`  
+to the article tag found in `src/layouts/BlogPost.astro`.  
+
+It also allows you to filter posts by tags added in the frontmatter of blog posts.  
+If you would rather remove this, remove the data attribute `data-pagefind-filter="tag"` from the link in `src/components/blog/Hero.astro`.  
+
+If you would rather not include this integration, simply remove the component `src/components/Search.astro`, and uninstall both `@pagefind/default-ui` & `pagefind` from package.json.  
+You will also need to remove the postbuild script from here as well.  
+
+You can reduce the initial css payload of your css, as demonstrated [here](https://github.com/chrismwilliams/astro-theme-cactus/pull/145#issue-1943779868),  
+by lazy loading the web components styles.
