@@ -47,6 +47,8 @@ An example containing a clickable reference[^1] with a link to the source.
 
 Second example containing a reference[^2] with a link to the source.
 
+이건 ^[다른 방식]으로 각주를 다는 법
+
 [^1]: Reference first footnote with a return to content link.
 [^2]: Second reference with a link.
 
