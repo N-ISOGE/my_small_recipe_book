@@ -10,24 +10,28 @@ tags:
 draft: true
 ---
 
+[참조](https://github.com/chrismwilliams/astro-theme-cactus?tab=readme-ov-file#pagefind-search)  
 
 ## Pagefind search
 
-This integration brings a static search feature for searching blog posts.  
-In its current form, pagefind only works once the site has been built.  
-This theme adds a postbuild script that should be run after Astro has built the site.  
-You can preview locally by running both build && postbuild.  
+블로그 글 검색을 위한 정적 검색 기능 추가되었습니다.  
+지금 구성에서 pagefind는 사이트가 빌드할 때만 작동합니다.  
+이 테마에는 Astro가 빌드 마친 뒤에 해야 할 작업을 위해 postbuild 스크립트가 추가되었습니다.  
+로컬에서 미리보기를 원한다면 build && postbuild를 실행하세요.  
 
-Search results only includes blog posts. 
-If you would like to include other/all your pages,  
-remove/re-locate the attribute `data-pagefind-body`  
-to the article tag found in `src/layouts/BlogPost.astro`.  
+블로그 글만 검색 결과에 추가됩니다.  
+다른/모든 페이지를 포함시키고 싶다면, `src/layouts/BlogPost.astro`에 있던  
+article 태그에 `data-pagefind-body` 속성을 제거/이동하세요.  
 
-It also allows you to filter posts by tags added in the frontmatter of blog posts.  
-If you would rather remove this, remove the data attribute `data-pagefind-filter="tag"` from the link in `src/components/blog/Hero.astro`.  
+태그별로 블로그 글을 필터링할 수 있습니다.  
+만약 제거하고 싶다면,  
+`src/components/blog/Hero.astro`에 있는 링크에  
+`data-pagefind-filter="tag"` 속성을 제거하세요.  
 
-If you would rather not include this integration, simply remove the component `src/components/Search.astro`, and uninstall both `@pagefind/default-ui` & `pagefind` from package.json.  
-You will also need to remove the postbuild script from here as well.  
+이 기능을 포함시키고 싶지 않다면,  
+`src/components/Search.astro` 컴포넌트를 제거하고,  
+package.json에서 `@pagefind/default-ui` & `pagefind`를 제거하세요.  
+그리고 postbuild 스크립트를 지워야 합니다.  
 
-You can reduce the initial css payload of your css, as demonstrated [here](https://github.com/chrismwilliams/astro-theme-cactus/pull/145#issue-1943779868),  
-by lazy loading the web components styles.
+지연된 로딩을 사용하여 웹 컴포넌트 스타일들을 불러오는 것으로 css의 초기 페이로드를 줄일 수 있습니다.  
+[예시](https://github.com/chrismwilliams/astro-theme-cactus/pull/145#issue-1943779868)  
