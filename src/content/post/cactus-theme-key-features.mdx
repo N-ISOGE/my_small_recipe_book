@@ -2,7 +2,7 @@
 title: Astro Cactus 테마 핵심요소들
 description: "테마 쓰는데 여기에 뭐가 있는지 훑어보기                                                 "
 publishDate: 2024-02-12
-updatedDate: 2024-02-19
+updatedDate: 2024-02-20
 tags:
     - building blog
     - astro
@@ -16,34 +16,42 @@ tags:
 ### 핵심 요소들
 
 -   [ ] Astro v4 Fast 🚀
-    - 아스트로, 웹 프레임워크
+    -   아스트로, 웹 프레임워크
 -   [ ] TailwindCSS Utility classes
-    - 사이트 꾸밀 때 쓰는 것
+    -   사이트 꾸밀 때 쓰는 것
 -   [ ] Accessible, semantic HTML markup
-    - 접근성, 의미에 따라 잘 정리된 HTML 마크업
+    -   접근성, 의미에 따라 잘 정리된 HTML 마크업
 -   [ ] Responsive & SEO-friendly
-    - SEO, Search Engine Optimization, 검색 엔진 최적화 고려함
-    - Responsive, 반응형
+    -   SEO, Search Engine Optimization, 검색 엔진 최적화 고려함
+    -   Responsive, 반응형 웹
 -   [ ] Dark / Light mode, using Tailwind and CSS variables
-    - TailwindCSS 사용해서 다크모드 구현됨.
--   [ ] [Astro Assets Integration](https://docs.astro.build/en/guides/assets/) for optimised images
-    - 
--   [ ] MD & [MDX](https://docs.astro.build/en/guides/markdown-content/#mdx-only-features) posts
-    - 마크다운
--   [ ] [Satori](https://github.com/vercel/satori) for creating open graph png images
+    -   TailwindCSS 사용해서 다크모드 구현됨.
+-   [ ] [Astro Assets Integration][link_image] for optimised images
+    -   이미지 최적화를 지원하는 Astro 내장 Image 컴포넌트
+    -   근데 이거 링크가 이미지를 다루는 부분에 대한 문서로 리다이렉트됨.
+-   [ ] MD & [MDX][link_mdx] posts
+    -   마크다운 및 MDX 지원
+-   [ ] [Satori][link_satori] for creating open graph png images
+    -   open graph 이미지를 생성해주는 vercel/Satori
 -   [ ] Pagination
-    - 페이지로 나눠서 보여주는 것
+    -   글 목록을 나눠서 보여주는 것, 페이지 단위로 보여줌.
 -   [ ] [Automatic RSS feed](https://docs.astro.build/en/guides/rss)
+    -   자동 RSS 피드 생성
 -   [ ] [Webmentions](https://webmention.io/)
-    - 글에 대한 반응을 모아서 보여주는 것  
--   [Expressive Code](https://expressive-code.com/) source code and syntax highlighter
-    - 코드 이쁘게 보여주는 것
--   [ ] Auto-generated [sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/)
+    -   글에 대한 반응을 모아서 보여주는 것
+-   [ ] [Expressive Code](https://expressive-code.com/) source code and syntax highlighter
+    -   코드 이쁘게 보여주는 것
+-   [ ] Auto-generated [sitemap][link_sitemap]
 -   [ ] [Pagefind](https://pagefind.app/) static search library integration
+    -   [블로그 내 관련된 글](posts/cactus-theme-pagefind)
 -   [ ] [Astro Icon](https://github.com/natemoo-re/astro-icon) svg icon component
+    -   아이콘 불러올 수 있는 컴포넌트
+
+[link_satori]: https://github.com/vercel/satori
+[link_image]: https://docs.astro.build/en/guides/assets/
+[link_mdx]: https://docs.astro.build/en/guides/markdown-content/#mdx-only-features
+[link_sitemap]: https://docs.astro.build/en/guides/integrations-guide/sitemap/
 
 ## 바꾼 것
+
 -   [x] 상대 경로 수정
-
-
-
