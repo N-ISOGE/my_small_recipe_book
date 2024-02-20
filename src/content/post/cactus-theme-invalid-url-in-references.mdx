@@ -1,0 +1,67 @@
+---
+title: Astro Cactus theme 각주에 붙는 주소가 이상한 문제
+description: "각주를 쓸려고 보니깐 주소가 생각하던 대로 생성되지 않아서 원인을 찾아봄.                   "
+publishDate: 2024-02-19
+updatedDate: 2024-02-19
+tags:
+    - building blog
+    - astro
+    - astro cactus theme
+---
+
+## 해결책 요약
+
+1. 탐색 중
+
+## 배경
+
+테마에 따라온 markdown 사용 예시글을 보는데 각주를 클릭했더니 잘못된 주소가 생성되어 있었습니다.  
+경로 생성 문제가 아직 남아 있는 것으로 보고 해결 방법을 찾아보게 되었습니다.
+
+## 문제점 요약
+
+-   블로그 글을 생성할 때, 각주 링크의 주소가 이상함.
+    -   주소에 slug가 없이 `홈 주소` + `각주 이름`으로 주소가 생성됨.
+-   각주 링크는 글 주소, slug를 기반한 주소가 생성되어야 하는데 이것들이 없이 생성됨.
+
+## 건들여 본 것
+
+### rehype-plugin? remarkRehype?
+
+-   md, mdx파일을 html로 변환해 주는 node 패키지
+-   이 과정에서 경로에 대한 작업을 할 때 게시글의 주소에 대한 정보가 포함되지 않았다?
+
+### GfM
+
+-   github에서 문법을 추가한 Markdown
+-   remark-gfm에서 해석해서 [mdast][mdast][^mdast]으로 변환해 줍니다.
+
+```markdown
+링크는 기본 마크다운 문법,
+GfM을 쓰면 이렇게 각주를 사용할 수 있다.
+
+[mdast][mdast][^mdast]
+
+[^mdast]: MarkDown Abstract Syntax Tree
+
+[mdast]: https://github.com/syntax-tree/mdast
+```
+
+-   근데 이걸 사용하는데 주소를 잘못 설정됐습니다.
+-   rehype에서 주소를 처리할 때 반영이 안 됐습니다.
+
+[^mdast]: MarkDown Abstract Syntax Tree
+
+[mdast]: https://github.com/syntax-tree/mdast
+
+### mdast를 remark-rehype에서 처리할 때 옵션이 있나?
+
+-   `footnoteBackContent`?
+-   Astro에서 어떻게 처리하길래 이렇게 주소를 생성하나?
+    -   아무것도 처리를 안 해서 이렇게 작동하나?
+
+## 해결책
+
+## 여담
+
+-   정리만 잘하면 다루기 쉽게 정의하는 것이 되네.
