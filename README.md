@@ -7,7 +7,7 @@
 
 ## 목록
 
-- [Astro Cactus theme](https://github.com/chrismwilliams/astro-theme-cactus/) 적용중
+-   [Astro Cactus theme](https://github.com/chrismwilliams/astro-theme-cactus/) 적용중
 
 ## License
 
