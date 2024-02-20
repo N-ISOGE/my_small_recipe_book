@@ -1,0 +1,41 @@
+---
+title: Cactus theme에서 analytics, deploy 기능
+description: "README에 있는 것들 중 analytics, deploy에 대한 것이 남아서 같이 정리함          "
+publishDate: 2024-02-19
+updatedDate: 2024-02-20
+tags:
+    - building blog
+    - astro
+    - astro cactus theme
+draft: true
+---
+
+[출처](https://github.com/chrismwilliams/astro-theme-cactus?tab=readme-ov-file#analytics)
+
+## Analytics
+
+블로그 방문자 수를 추적하여 내가 작성한 인기 게시물 트렌드와 인기도를 파악할 수 있습니다.
+
+이런 서비스를 제공하는 업체들의 예시로 아래의 회사들이 있습니다.
+
+-   [vercel](https://vercel.com/analytics),
+-   [netlify](https://www.netlify.com/products/analytics/)
+-   and [cloudflare](https://www.cloudflare.com/web-analytics/).
+
+다양한 상황이 존재하므로 이 테마/템플릿은 특정 솔루션을 포함하지 않습니다.
+
+설정할 때 웹사이트의 HEAD 태그 안에 스니펫을 포함해야 하는 경우, `src/layouts/Base.astro` 또는 `src/components/BaseHead.astro`에 스니펫을 추가할 수도 있습니다.
+
+또 다른 방법으로 Google 애널리틱스이 있습니다.
+
+-   [astro-google-analytics](https://www.npmjs.com/package/astro-google-analytics)
+
+## Deploy
+
+[Astro docs][link_astro_deploy_docs] has a great section and breakdown of how to deploy your own Astro site on various platforms and their idiosyncrasies.
+
+[Astro 문서][link_astro_deploy_docs]에서 배포에 대해 잘 설명해 놓았다.
+
+기본적으로 사이트는 `/dist` 디렉토리로 빌드됩니다.
+
+[link_astro_deploy_docs]: https://docs.astro.build/en/guides/deploy/
