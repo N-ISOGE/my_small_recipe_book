@@ -2,7 +2,7 @@
 title: Astro Cactus theme 각주에 붙는 주소가 이상한 문제
 description: "각주를 쓸려고 보니깐 주소가 생각하던 대로 생성되지 않아서 원인을 찾아봄.                   "
 publishDate: 2024-02-19
-updatedDate: 2024-02-19
+updatedDate: 2024-02-21
 tags:
     - building blog
     - astro
@@ -11,18 +11,18 @@ tags:
 
 ## 해결책 요약
 
-1. 탐색 중
+1. 상대 경로의 기준이 되는 base 태그를 잘못 설정했다. 
 
 ## 배경
 
-테마에 따라온 markdown 사용 예시글을 보는데 각주를 클릭했더니 잘못된 주소가 생성되어 있었습니다.  
-경로 생성 문제가 아직 남아 있는 것으로 보고 해결 방법을 찾아보게 되었습니다.
+테마에 따라온 markdown 작성 예시글을 보는데 각주를 클릭했더니 잘못된 주소가 생성되어 있었다.  
+경로 생성 문제가 아직 남아 있는 것으로 보고 해결 방법을 찾아보게 되었다.  
 
-## 문제점 요약
+## 문제점
 
--   블로그 글을 생성할 때, 각주 링크의 주소가 이상함.
-    -   주소에 slug가 없이 `홈 주소` + `각주 이름`으로 주소가 생성됨.
--   각주 링크는 글 주소, slug를 기반한 주소가 생성되어야 하는데 이것들이 없이 생성됨.
+-   블로그 글을 생성할 때, 각주 링크의 주소가 이상하다.
+    -   주소에 slug가 없이 `홈 주소` + `각주 이름`으로 주소가 생성된다.
+-   각주 링크는 현재 글 경로를 기반한 주소가 생성되어야 하는데 이것들이 없이 생성된다.
 
 ## 건들여 본 것
 
@@ -34,7 +34,7 @@ tags:
 ### GfM
 
 -   github에서 문법을 추가한 Markdown
--   remark-gfm에서 해석해서 [mdast][mdast][^mdast]으로 변환해 줍니다.
+-   remark-gfm에서 해석해서 [mdast][mdast][^mdast]으로 변환해 준다.
 
 ```markdown
 링크는 기본 마크다운 문법,
@@ -61,14 +61,48 @@ GfM을 쓰면 이렇게 각주를 사용할 수 있다.
     -   아무것도 처리를 안 해서 이렇게 작동하나?
 
 ### base 태그?
+
 -   기존에 baseUrl 설정을 반영하려고 추가한 base 태그의 href값을 pathname으로 변경
     -   문제 해결됨.
 -   근데 아예 base 태그를 지우면 되나? 
-    -   
+    -   그러면 baseUrl도 적용 안된 상태로 주소가 생성됨.
 
 ### 사이트 내 상대경로 처리
 
+돌고 돌아 문제는 경로문제로 돌아옴.
+-   변경점들
+```astro
+// src/components/layout/Header.astro
+---
+// ...
+const baseUrl = import.meta.env.BASE_URL;
+// ...
+---
+
+// ...
+<a
+    href= `${baseUrl}/`
+// ...
+    aria-current={url.pathname === `${baseUrl}/` ? "page" : false}
+// ...
+```
+```astro
+// src/components/BaseHead.astro
+---
+// ...
+const baseUrl = import.meta.env.BASE_URL;
+const pathName = Astro.url.pathname;
+// ...
+---
+// ...
+<base href={pathName} />
+// ... 다른 경로들에 baseUrl값 삽입
+```
+아직은 경로를 추가해야할 곳을 찾으면 추가하는 걸 반복하여 해결함.
+
 ## 해결책
+
+하위 경로를 사용하는 사이트에서는 경로 다루는 걸 주의하자.
 
 ## 여담
 
@@ -76,4 +110,3 @@ GfM을 쓰면 이렇게 각주를 사용할 수 있다.
 -   경로 찾을 때, 기준을 어디에서 따르고 있는지 확인하자
 -   github pages는 하위 경로를 챙겨야하는데 배포마다 확인해야 하니 까다롭다.
 -   cloudflare는 preview 빌드를 따로 보여주니깐 따로 브랜치를 만들어서 문제 확인하는 것이 편하다.
-
