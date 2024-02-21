@@ -17,6 +17,7 @@
         "markdown"
     ],
     "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.inlayHints.parameterNames.enabled": "all",
     "[astro]": {
         "editor.defaultFormatter": "astro-build.astro-vscode"
     },
