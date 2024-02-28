@@ -29,6 +29,8 @@
     "esbenp.prettier-vscode"
     "Tyriar.sort-lines"
     "redhat.vscode-yaml"
+    # tailwind
+    "bradlc.vscode-tailwindcss"
   ];
 
   # Enable previews and customize configuration
