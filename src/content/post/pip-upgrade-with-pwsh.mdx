@@ -1,0 +1,29 @@
+---
+title: Pip upgrade with pwsh
+description: 'pip에서 패키지를 최신화하는데 모든 패키지를 업그레이드하는 명령어가 없어서 파워쉘 스크립트로 해결함.'
+publishDate: 2024-02-28
+updatedDate: 2024-02-28
+tags: 
+    - python
+    - pip
+    - powershell
+    - pwsh
+    - package manager
+draft: true
+---
+
+## 해결
+```powershell
+# pip 업데이트
+pip install --upgrade pip
+# 패키지 목록을 출력하고 각각 업그레이드 함.
+pip freeze | ForEach-Object { pip install --upgrade $_ }
+```
+## 여담
+- 근데 이 게시글 작성하려니깐 AI가 다른 스크립트를 추천해줌. 작동함.
+- 쓰는 거
+    - [Select-String][link_Select-String]
+    - [ForEach-Object][link_ForEach-Object]
+
+[link_ForEach-Object]: https://learn.microsoft.com/ko-kr/powershell/module/microsoft.powershell.core/foreach-object
+[link_Select-String]: https://learn.microsoft.com/ko-kr/powershell/module/microsoft.powershell.utility/select-string

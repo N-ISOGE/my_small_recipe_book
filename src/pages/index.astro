@@ -59,8 +59,7 @@ const cactusTech: Array<{ title: string; desc: string; href: string }> = [
 
 <PageLayout meta={{ title: "Home" }}>
     <section>
-        <h1 class="title mb-6">안녕 🂠!</h1>
-        <p class="mb-4">공사중 ...</p>
+        <h3 class="title mb-6">커맨드센터처럼 뜰 수 있는 메모장</h3>
         <SocialList />
     </section>
     <section aria-label="Blog post list" class="mt-16">
@@ -76,28 +75,30 @@ const cactusTech: Array<{ title: string; desc: string; href: string }> = [
         </ul>
     </section>
     <section class="mt-16">
-        <h2 class="title mb-4 text-xl">Technologies</h2>
-        <ul class="space-y-4">
-            {
-                cactusTech.map(({ href, title, desc }) => (
-                    <div class="flex flex-col gap-2 md:flex-row">
-                        <dt>
-                            <span class="flex">
-                                <a
-                                    href={href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="cactus-link"
-                                >
-                                    {title}
-                                </a>
-                                :
-                            </span>
-                        </dt>
-                        <dd>{desc}</dd>
-                    </div>
-                ))
-            }
-        </ul>
+        <details>
+            <summary class="title mb-4 text-xl">Technologies</summary>
+            <ul class="space-y-4">
+                {
+                    cactusTech.map(({ href, title, desc }) => (
+                        <div class="flex flex-col gap-2 md:flex-row">
+                            <dt>
+                                <span class="flex">
+                                    <a
+                                        href={href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="cactus-link"
+                                    >
+                                        {title}
+                                    </a>
+                                    :
+                                </span>
+                            </dt>
+                            <dd>{desc}</dd>
+                        </div>
+                    ))
+                }
+            </ul>
+        </details>
     </section>
 </PageLayout>

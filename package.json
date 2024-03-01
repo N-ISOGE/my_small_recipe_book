@@ -1,6 +1,6 @@
 {
     "name": "my-small-recipe-book",
-    "version": "0.9.10",
+    "version": "1.0.0",
     "description": "my small recipe book",
     "author": "N-ISOGE",
     "scripts": {
@@ -13,7 +13,7 @@
         "check": "astro check"
     },
     "dependencies": {
-        "@astrojs/cloudflare": "^9.0.1",
+        "@astrojs/cloudflare": "^9.0.2",
         "@astrojs/mdx": "2.1.1",
         "@astrojs/rss": "4.0.5",
         "@astrojs/sitemap": "3.0.5",
@@ -27,21 +27,20 @@
         "sharp": "^0.33.2"
     },
     "devDependencies": {
-        "@astrojs/check": "^0.5.5",
+        "@astrojs/check": "^0.5.6",
         "@iconify-json/mdi": "^1.1.64",
         "@pagefind/default-ui": "^1.0.4",
         "@resvg/resvg-js": "^2.6.0",
         "@tailwindcss/aspect-ratio": "^0.4.2",
         "@tailwindcss/typography": "^0.5.10",
-        "@types/eslint": "^8.56.2",
-        "@typescript-eslint/eslint-plugin": "^7.0.2",
-        "@typescript-eslint/parser": "^7.0.2",
+        "@types/eslint": "^8.56.5",
+        "@typescript-eslint/eslint-plugin": "^7.1.0",
+        "@typescript-eslint/parser": "^7.1.0",
         "astro-eslint-parser": "^0.16.3",
         "autoprefixer": "^10.4.17",
-        "eslint": "^8.56.0",
+        "eslint": "^8.57.0",
         "eslint-config-prettier": "^9.1.0",
         "eslint-import-resolver-typescript": "^3.6.1",
-        "eslint-plugin-typescript-sort-keys": "^3.1.0",
         "eslint-plugin-astro": "^0.31.4",
         "eslint-plugin-deprecation": "^2.0.0",
         "eslint-plugin-import": "^2.29.1",
@@ -49,6 +48,7 @@
         "eslint-plugin-markdown": "^3.0.1",
         "eslint-plugin-perfectionist": "^2.5.0",
         "eslint-plugin-regexp": "^2.2.0",
+        "eslint-plugin-typescript-sort-keys": "^3.2.0",
         "mdast-util-to-string": "^4.0.0",
         "pagefind": "^1.0.4",
         "postcss": "^8.4.35",
