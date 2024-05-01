@@ -1,0 +1,98 @@
+---
+title: Yaml 언어 개요
+description: "yaml 명세에서 2장으로 나온 부분, 미리 전체적으로 훑어보면서 쓰임을 파악하기       "
+publishDate: 2024-03-07
+updatedDate: 2024-03-07
+tags:
+    - yaml
+    - markup
+    - specification
+draft: true
+---
+
+**[개요](./what-is-yaml)**
+
+## Collection, 콜렉션
+
+> Block 스타일, Flow 스타일
+
+-   Block
+    -   들여쓰기로 스코프를 구분, Collection
+    -   sequence는 `- `로 스코프를 시작
+    -   mapping는 `: `로 키, 값 쌍을 만듬
+    -   `#`로 주석을 시작함
+
+```yaml
+- 이걸로 시작
+- 이름: 나무젓가락
+  길이: 15cm
+  색깔: 연한 갈색
+- 여러가지:
+      - 커피
+      - 초콜릿
+      - 껌
+```
+
+-   Flow
+    -   들여쓰기 대신 명시적인 구분자를 사용됨
+    -   sequence는 `[, ]`, 대괄호로 감싸고 `,`, 쉼표로 구분함
+
+```yaml
+- [포스트잇, 노랑색, 정사각형]
+샤프심: {
+    길이: 0.5,
+    색깔: 녹색,
+}
+```
+
+## Structures
+
+> `---`, 노드 재활용, complex(복합?) mapping
+
+-   Document 시작, 끝 구분자
+    -   `---`, Document 콘텐츠를 구분하는 지시자
+        -   다른 지시자가 없으면 Document의 시작을 알림
+    -   `...`, Document의 끝을 표시 함
+        -   `---`을 쓰는 경우, 새로운 Document의 시작을 알리지 않고도 Document의 끝을 알림
+
+```yaml
+# 아직 시작 아님
+---
+- 시작
+- 중간
+- 끝
+# 다음 `---` 올 때까지 더 읽거나 혹은 ...으로 Document의 끝을 알림
+... # 끝
+
+- 하나
+---
+- 둘
+```
+
+-   노드 재활용
+    -   `&`을 앞에 붙인 식별자를 anchor
+    -   `*`을 앞에 붙인 식별자를 alias, 별칭
+    -   node를 anchor로 수식하면 anchor와 대응하는 alias로 해당 노드를 재사용할 수 있다.
+
+```yaml
+- &그거 이렇게 여러가지 절들을 이어 붙인 긴 문장도
+- *그거 #, anchor와 alias를 쓰면 짧게 쓸 수 있다.
+```
+
+-   complex mapping
+    -   `? `, complex mapping key, 복합 키를 메핑할 때 쓰는 지시자
+
+```yaml
+# seqeunce: sequence로 구성된 complex mapping
+? - 물
+  - water
+: - 식수
+  - 공업용수
+  - 농업용수
+```
+
+## Scalars
+
+## tags
+
+## 전체 예시
