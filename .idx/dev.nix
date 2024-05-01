@@ -31,6 +31,11 @@
     "redhat.vscode-yaml"
     # tailwind
     "bradlc.vscode-tailwindcss"
+    # astro
+    "astro-build.astro-vscode"
+    "donjayamanne.githistory"
+    "MS-CEINTL.vscode-language-pack-ko"
+    "unifiedjs.vscode-mdx"
   ];
 
   # Enable previews and customize configuration
