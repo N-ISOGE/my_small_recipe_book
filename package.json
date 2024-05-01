@@ -62,5 +62,5 @@
         "tailwindcss": "^3.4.3",
         "typescript": "^5.4.5"
     },
-    "packageManager": "^pnpm@9.0.0"
+    "packageManager": "npm@9.0.1+sha256.f21d3c2dbbcd0193ba61a1643e77a9542650e3b1b9b8e99a85a9c4a94ea7e4d1"
 }
