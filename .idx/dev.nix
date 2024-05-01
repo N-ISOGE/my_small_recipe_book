@@ -10,6 +10,7 @@
     pkgs.gnupg
     pkgs.pinentry-curses
     pkgs.coreutils-full
+    pkgs.delta
   ];
 
   # Sets environment variables in the workspace
