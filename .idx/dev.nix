@@ -1,12 +1,11 @@
 { pkgs, ... }: {
 
   # Which nixpkgs channel to use.
-  channel = "unstable"; # or "stable-23.05"
-
+  channel = "stable-24.05";# or "unstable" 
   # Use https://search.nixos.org/packages to find packages
   packages = [
-    pkgs.nodejs_21
-    pkgs.corepack_21
+    pkgs.nodejs_22
+    pkgs.corepack_22
     pkgs.gnupg
     pkgs.pinentry-curses
     pkgs.coreutils-full
@@ -41,6 +40,6 @@
 
   # Enable previews and customize configuration
   idx.previews = {
-    enable = true;
+    enable = false;
    };
 }
