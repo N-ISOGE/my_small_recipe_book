@@ -14,15 +14,16 @@
     },
     "dependencies": {
         "@astrojs/cloudflare": "^10.4.2",
-        "@astrojs/mdx": "^3.1.1",
-        "@astrojs/rss": "4.0.5",
-        "@astrojs/sitemap": "3.1.4",
-        "@astrojs/tailwind": "5.1.0",
-        "astro": "^4.11.0",
+        "@astrojs/mdx": "^3.1.2",
+        "@astrojs/rss": "^4.0.7",
+        "@astrojs/sitemap": "^3.1.6",
+        "@astrojs/tailwind": "^5.1.0",
+        "@rollup/plugin-inject": "^5.0.5",
+        "astro": "^4.11.3",
         "astro-expressive-code": "^0.35.3",
         "astro-icon": "^1.1.0",
         "rehype-external-links": "^3.0.0",
-        "satori": "0.10.13",
+        "satori": "^0.10.13",
         "satori-html": "^0.3.2",
         "sharp": "^0.33.4"
     },
@@ -34,12 +35,12 @@
         "@tailwindcss/aspect-ratio": "^0.4.2",
         "@tailwindcss/typography": "^0.5.13",
         "@types/eslint": "^8.56.10",
-        "@typescript-eslint/eslint-plugin": "^7.13.1",
-        "@typescript-eslint/parser": "^7.13.1",
+        "@typescript-eslint/eslint-plugin": "^7.15.0",
+        "@typescript-eslint/parser": "^7.15.0",
         "astro-eslint-parser": "^1.0.2",
         "autoprefixer": "^10.4.19",
-        "eslint": "^9.5.0",
-        "eslint-config-prettier": "^9.1.0",
+        "eslint": "^8.57.0",
+        "eslint-config-prettier": "^8.10.0",
         "eslint-import-resolver-typescript": "^3.6.1",
         "eslint-plugin-astro": "^1.2.2",
         "eslint-plugin-deprecation": "^2.0.0",
@@ -51,7 +52,7 @@
         "eslint-plugin-typescript-sort-keys": "^3.2.0",
         "mdast-util-to-string": "^4.0.0",
         "pagefind": "^1.1.0",
-        "postcss": "^8.4.38",
+        "postcss": "^8.4.39",
         "postcss-html": "^1.7.0",
         "postcss-import": "^16.1.0",
         "prettier": "^3.3.2",
@@ -60,7 +61,7 @@
         "reading-time": "^1.5.0",
         "remark-unwrap-images": "^4.0.0",
         "tailwindcss": "^3.4.4",
-        "typescript": "^5.5.2"
+        "typescript": "^5.5.3"
     },
-    "packageManager": "pnpm@9.3.0+sha512.ee7b93e0c2bd11409c6424f92b866f31d3ea1bef5fbe47d3c7500cdc3c9668833d2e55681ad66df5b640c61fa9dc25d546efa54d76d7f8bf54b13614ac293631"
+    "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a"
 }
