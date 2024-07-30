@@ -3,20 +3,40 @@ import { fontFamily } from "tailwindcss/defaultTheme";
 import plugin from "tailwindcss/plugin";
 
 export default {
-    content: ["./src/**/*.{astro,html,js,jsx,md,svelte,ts,tsx,vue}"],
-    darkMode: ["class", '[data-theme="dark"]'],
+    content: [
+        "./src/**/*.{astro,html,js,jsx,md,svelte,ts,tsx,vue}",
+        "!./src/pages/og-image/[slug].png.ts",
+    ],
     corePlugins: {
         // disable aspect ratio as per docs -> @tailwindcss/aspect-ratio
-        aspectRatio: false,
-        // disable some core plugins as they are included in the css, even when unused
-        touchAction: false,
-        ringOffsetWidth: false,
-        ringOffsetColor: false,
-        scrollSnapType: false,
-        borderOpacity: false,
-        textOpacity: false,
-        fontVariantNumeric: false,
+		aspectRatio: false,
+		borderOpacity: false,
+		fontVariantNumeric: false,
+		ringOffsetColor: false,
+		ringOffsetWidth: false,
+		scrollSnapType: false,
+		textOpacity: false,
+		// disable some core plugins as they are included in the css, even when unused
+		touchAction: false,
     },
+    darkMode: ["class", '[data-theme="dark"]'],
+    plugins: [
+		require("@tailwindcss/typography"),
+		require("@tailwindcss/aspect-ratio"),
+		plugin(function ({ addComponents }) {
+			addComponents({
+				".cactus-link": {
+					"&:hover": {
+						"@apply decoration-link decoration-2": {},
+					},
+					"@apply underline underline-offset-2": {},
+				},
+				".title": {
+					"@apply text-2xl font-semibold text-accent-2": {},
+				},
+			});
+		}),
+	],
     theme: {
         extend: {
             colors: {
@@ -111,24 +131,4 @@ export default {
             }),
         },
     },
-    plugins: [
-        require("@tailwindcss/typography"),
-        require("@tailwindcss/aspect-ratio"),
-        plugin(function ({ addComponents }) {
-            addComponents({
-                ".cactus-link": {
-                    "@apply bg-[size:100%_6px] bg-bottom bg-repeat-x": {},
-                    backgroundImage:
-                        "linear-gradient(transparent,transparent 5px,hsl(var(--theme-text)) 5px,hsl(var(--theme-text)))",
-                    "&:hover": {
-                        backgroundImage:
-                            "linear-gradient(transparent,transparent 4px,hsl(var(--theme-link)) 4px,hsl(var(--theme-link)))",
-                    },
-                },
-                ".title": {
-                    "@apply text-2xl font-semibold text-accent-2": {},
-                },
-            });
-        }),
-    ],
 } satisfies Config;

@@ -24,7 +24,7 @@
             "description: 'Please enter a description of your post here, between 50-160 chars!'",
             "publishDate: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
             "updatedDate: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
-            "tags: ",
+            "tags: []",
             "draft: false",
             "---",
             "$2",

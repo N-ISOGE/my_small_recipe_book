@@ -1,19 +1,24 @@
 ---
 import type { Page, GetStaticPaths } from "astro";
 import type { CollectionEntry } from "astro:content";
+
 import PageLayout from "@/layouts/Base.astro";
 import PostPreview from "@/components/blog/PostPreview.astro";
 import Pagination from "@/components/Paginator.astro";
-import { getAllPosts, getUniqueTags, sortMDByDate } from "@/utils";
+import { getAllPosts, getUniqueTags, groupPostsByYear, sortMDByDate } from "@/data/post";
 const baseUrl = import.meta.env.BASE_URL;
 //
 export const prerender = true;
 
+const groupedByYear = groupPostsByYear(page.data);
+const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
+
 export const getStaticPaths = (async ({ paginate }) => {
+	const MAX_POSTS_PER_PAGE = 10;
     const allPosts = await getAllPosts();
     const allPostsByDate = sortMDByDate(allPosts);
     const uniqueTags = getUniqueTags(allPosts);
-    return paginate(allPostsByDate, { props: { uniqueTags }, pageSize: 10 });
+    return paginate(allPostsByDate, { props: { uniqueTags }, pageSize: MAX_POSTS_PER_PAGE });
 }) satisfies GetStaticPaths;
 
 interface Props {
@@ -47,18 +52,23 @@ const paginationProps = {
 <PageLayout meta={meta}>
     <h1 class="title mb-6">Posts</h1>
     <div class="grid gap-y-16 sm:grid-cols-[3fr_1fr] sm:gap-x-8">
-        <section aria-label="Blog post list">
-            <ul class="space-y-8 text-start">
-                {
-                    page.data.map((p) => (
-                        <li class="flex flex-col flex-wrap gap-2 sm:flex-row [&_q]:basis-full">
-                            <PostPreview post={p} as="h2" withDesc />
-                        </li>
-                    ))
-                }
-            </ul>
-            <Pagination {...paginationProps} />
-        </section>
+		<section aria-label="Blog post list">
+			{
+				descYearKeys.map((yearKey) => (
+					<>
+						<h2 class="title text-lg">{yearKey}</h2>
+						<ul class="mb-8 mt-6 space-y-8 text-start">
+							{groupedByYear[yearKey]?.map((p) => (
+								<li class="grid gap-2 sm:grid-cols-[auto_1fr] sm:[&_q]:col-start-2">
+									<PostPreview post={p} />
+								</li>
+							))}
+						</ul>
+					</>
+				))
+			}
+			<Pagination {...paginationProps} />
+		</section>
         {
             !!uniqueTags.length && (
                 <aside>

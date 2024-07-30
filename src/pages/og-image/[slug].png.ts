@@ -11,8 +11,6 @@ import RobotoMonoBold from "@/assets/roboto-mono-700.ttf";
 export const prerender = true;
 
 const ogOptions: SatoriOptions = {
-    width: 1200,
-    height: 630,
     // debug: true,
     fonts: [
         {
@@ -28,6 +26,8 @@ const ogOptions: SatoriOptions = {
             style: "normal",
         },
     ],
+    width: 1200,
+    height: 630,
 };
 
 const markup = (title: string, pubDate: string) =>
