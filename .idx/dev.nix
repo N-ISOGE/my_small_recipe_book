@@ -19,6 +19,7 @@
   idx.extensions = [
     "aaron-bond.better-comments"
     "formulahendry.code-runner"
+    "MS-CEINTL.vscode-language-pack-ko"
     "mikestead.dotenv"
     "dbaeumer.vscode-eslint"
     "manuth.eslint-language-service"
@@ -34,7 +35,6 @@
     # astro
     "astro-build.astro-vscode"
     "donjayamanne.githistory"
-    "MS-CEINTL.vscode-language-pack-ko"
     "unifiedjs.vscode-mdx"
   ];
 
