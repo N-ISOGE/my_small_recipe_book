@@ -17,25 +17,33 @@
 
   # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
   idx.extensions = [
+    # git
+    "donjayamanne.githistory"
+    "mhutchie.git-graph"
+    "codezombiech.gitignore"
+    "eamodio.gitlens"
+    "arturock.gitstash"
+    "waderyan.gitblame"
+    # md, mdx
+    "unifiedjs.vscode-mdx"    
+    "jebbs.markdown-extended"
+    "foam.foam-vscode"
+    # tailwind
+    "bradlc.vscode-tailwindcss"
+    # astro
+    "astro-build.astro-vscode"
+    # etc
     "aaron-bond.better-comments"
     "formulahendry.code-runner"
     "MS-CEINTL.vscode-language-pack-ko"
     "mikestead.dotenv"
     "dbaeumer.vscode-eslint"
     "manuth.eslint-language-service"
-    "mhutchie.git-graph"
-    "codezombiech.gitignore"
-    "eamodio.gitlens"
     "ms-vscode.vscode-typescript-next"
-    "esbenp.prettier-vscode"
     "Tyriar.sort-lines"
     "redhat.vscode-yaml"
-    # tailwind
-    "bradlc.vscode-tailwindcss"
-    # astro
-    "astro-build.astro-vscode"
-    "donjayamanne.githistory"
-    "unifiedjs.vscode-mdx"
+    "esbenp.prettier-vscode"
+    "YoavBls.pretty-ts-errors"
   ];
 
   # Enable previews and customize configuration

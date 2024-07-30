@@ -1,0 +1,39 @@
+---
+title: vscode에서 md, mdx 사용시 링크 경로 문제
+description: "vscode 설정에서 mdx 형식을 md 취급하게 만들면 확장자 없는 링크를 적절하게 인식하게 할 수는 있다"
+publishDate: 2024-07-30
+updatedDate: 2024-07-30
+tags:
+    - vscode
+    - mdx
+    - unifiedjs.vscode-mdx
+    - extension
+draft: false
+---
+
+## vscode에서 md, mdx 사용시 링크 경로 문제
+
+**상황**을 나열해보면
+
+-   astro로 만든 블로그를 사용중.
+    -   여기서는 포스트를 표현하는 형식으로 mdx, md 형식 둘 다 사용 가능.
+-   vscode 환경에서 md는 기본 기능과 jebbs.markdown-extended, mdx는 unifiedjs.vscode-mdx 사용함.
+
+mdx 형식은 vscode mdx 플러그인에서 지원해주는데 문제가 생김.  
+확장자가 없는 이름을 파일 전체 이름으로 인식하고 관련된 파일을 연결해 주지 않음.  
+md 형식은 vscode 기본 기능에서 확장자 없이 링크를 만들어도 파일을 찾아서 연결해 줌.
+
+**임시 방편**으로 볼 수 있는 것들을 나열해보면
+
+vscode에서 특정 확장자를 가진 파일을 다른 형식과 연관되어 있다고 알려주는 설정이 존재함.
+
+> 예시 : `"files.associations": { "*.mdx": "markdown" }`
+
+이걸로 md쪽으로 연관시키면 vscode 기본 기능으로 확장자 빠진 링크를 사용 가능해짐.
+
+> 참고 : [md용 vscode 확장 기능 이슈](https://github.com/yzhang-gh/vscode-markdown/issues/758)
+
+**문제**는 mdx쪽 기능이 켜져있어서 잘못된 경로로 열리는 것도 동시에 실행됨.  
+mdx쪽 플러그인도 사용하면서 링크 문제도 해결하는 방법이 있나?
+
+> mdx 플러그인에서 링크 여는 기능을 빼기?

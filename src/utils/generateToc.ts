@@ -1,41 +1,37 @@
+// Heavy inspiration from starlight: https://github.com/withastro/starlight/blob/main/packages/starlight/utils/generateToC.ts
 import type { MarkdownHeading } from "astro";
 
 export interface TocItem extends MarkdownHeading {
-    subheadings: Array<TocItem>;
+	children: TocItem[];
 }
 
-function diveChildren(item: TocItem, depth: number): Array<TocItem> {
-    if (depth === 1 || !item.subheadings.length) {
-        return item.subheadings;
-    } else {
-        // e.g., 2
-        return diveChildren(item.subheadings[item.subheadings.length - 1] as TocItem, depth - 1);
-    }
+interface TocOpts {
+	maxHeadingLevel?: number | undefined;
+	minHeadingLevel?: number | undefined;
 }
 
-export function generateToc(headings: ReadonlyArray<MarkdownHeading>) {
-    // this ignores/filters out h1 element(s)
-    const bodyHeadings = [...headings.filter(({ depth }) => depth > 1)];
-    const toc: Array<TocItem> = [];
+/** Inject a ToC entry as deep in the tree as its `depth` property requires. */
+function injectChild(items: TocItem[], item: TocItem): void {
+	const lastItem = items.at(-1);
+	if (!lastItem || lastItem.depth >= item.depth) {
+		items.push(item);
+	} else {
+		injectChild(lastItem.children, item);
+		return;
+	}
+}
 
-    bodyHeadings.forEach((h) => {
-        const heading: TocItem = { ...h, subheadings: [] };
+export function generateToc(
+	headings: ReadonlyArray<MarkdownHeading>,
+	{ maxHeadingLevel = 4, minHeadingLevel = 2 }: TocOpts = {},
+) {
+	// by default this ignores/filters out h1 and h5 heading(s)
+	const bodyHeadings = headings.filter(
+		({ depth }) => depth >= minHeadingLevel && depth <= maxHeadingLevel,
+	);
+	const toc: Array<TocItem> = [];
 
-        // add h2 elements into the top level
-        if (heading.depth === 2) {
-            toc.push(heading);
-        } else {
-            const lastItemInToc = toc[toc.length - 1]!;
-            if (heading.depth < lastItemInToc.depth) {
-                throw new Error(`Orphan heading found: ${heading.text}.`);
-            }
+	for (const heading of bodyHeadings) injectChild(toc, { ...heading, children: [] });
 
-            // higher depth
-            // push into children, or children's children
-            const gap = heading.depth - lastItemInToc.depth;
-            const target = diveChildren(lastItemInToc, gap);
-            target.push(heading);
-        }
-    });
-    return toc;
+	return toc;
 }

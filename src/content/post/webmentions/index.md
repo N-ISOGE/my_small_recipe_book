@@ -36,23 +36,32 @@ webmention 기능 중 몇몇이 빠졌지만, 이걸 추가하는 것이 어렵�
 
 -   블로그를 언급한 글에 좋아요를 주는 기능
 
-## Steps to add it to your own site
 
-Your going to have to create a couple of accounts to get things up-and-running. But, the first thing you need to ensure is that your social links are correct.
+### Add link(s) to your profile(s)
 
--   Head over to `src/components/SocialList.astro` and enter your details into the `socialLinks` array. By default, the most important is your email address as this has the `isWebmention` property. This just adds the `rel="me authn"` value to the social link. You don't have to include an email, you can just delete it and any others, just make sure that at least one social link has the `isWebmention` property, or set the `rel` property yourself. See [IndieLogin.com](https://indielogin.com/setup) for more information on how to authenticate your domain via links.
+Firstly, you need to add a link on your site to prove ownership. If you have a look at [IndieLogin's](https://indielogin.com/setup) instructions, it gives you 2 options, either an email address and/or GitHub account. I've created the component `src/components/SocialList.astro` where you can add your details into the `socialLinks` array, just include the `isWebmention` property to the relevant link which will add the `rel="me authn"` attribute. Whichever way you do it, make sure you have a link in your markup as per IndieLogin's [instructions](https://indielogin.com/setup)
 
--   Next up, head over to [Webmention.io](https://webmention.io/) and setup an account by Signing in with your domain name, e.g. `https://astro-cactus.chriswilliams.dev/`. Please note that .app TLD's don't function correctly. Once in, it will give you a couple of links for your domain to accept webmentions. Make a note of these and head over to `src/site.config.ts` and add them to `siteConfig.webmentions`.
+```html
+<a href="https://github.com/your-username" rel="me">GitHub</a>
+```
+
+### Sign up to Webmention.io
+
+Next, head over to [Webmention.io](https://webmention.io/) and create an account by signing in with your domain name, e.g. `https://astro-cactus.chriswilliams.dev/`. Please note that .app TLDs don't function correctly. Once in, it will give you a couple of links for your domain to accept webmentions. Make a note of these and head over to `src/site.config.ts` and add them to `siteConfig.webmentions`.
 
 Quick note: You don't have to include the pingback link. Maybe coincidentally, but after adding it I started to receive a higher frequency of spam in my mailbox, informing me that my website could be better. Tbh they're not wrong. I've now removed it, but it's up to you.
 
--   Next is to add your api key, also from [Webmention.io](https://webmention.io/), to a `.env` file. Rename the `.example.env`, or create your own, with `WEBMENTION_API_KEY=` and then your personal key. Please try not to publish this to a repository.
+### Adding your api key
 
--   You're now going to have to sign-up to [brid.gy](https://brid.gy/). As the name suggests, it links your website to your social media accounts (you need to add your website to these social accounts if you don't already), so sign-up/connect each account you intend brid.gy to search. Just a thing to note again, brid.gy currently has an issue with .app TLD domains.
+Next is to add your api key, also from [Webmention.io](https://webmention.io/), to a `.env` file. Rename the `.example.env`, or create your own, with `WEBMENTION_API_KEY=` and then your personal key. Please try not to publish this to a repository!
 
-With everything set, it's now time to build and publish your website. _REMEMBER_ to set the `WEBMENTION_API_KEY` key with your host, I also forgot this part.
+### Sign up to Brid.gy
+
+You're now going to have to sign-up to [brid.gy](https://brid.gy/). As the name suggests, it links your website to your social media accounts (you need to add your website to these social accounts if you don't already), so sign-up/connect each account you intend brid.gy to search. Just a thing to note again, brid.gy currently has an issue with .app TLD domains.
 
 ## Testing everything works
+
+With everything set, it's now time to build and publish your website. **REMEMBER** to set your environment variable `WEBMENTION_API_KEY` with your host, I also forgot this part.
 
 With everything setup and live, you can check to see if everything is working by sending a test webmention via [webmentions.rocks](https://webmention.rocks/receive/1). Log in with your domain, enter the auth code, and then the url of the page you want to test. For example, to test this page I would add `https://astro-cactus.chriswilliams.dev/posts/webmentions/`. To view it on your website, rebuild or [re]start dev mode locally, and you should see the result at the bottom of your page.
 

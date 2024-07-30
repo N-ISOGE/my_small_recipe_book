@@ -1,13 +1,14 @@
 export type SiteConfig = {
     author: string;
-    title: string;
-    description: string;
-    lang: string;
-    ogLocale: string;
     date: {
         locale: string | string[] | undefined;
         options: Intl.DateTimeFormatOptions;
     };
+    description: string;
+    lang: string;
+    ogLocale: string;
+    sortPostsByUpdatedDate: boolean;
+    title: string;
     webmentions?: {
         link: string;
         pingback?: string;
@@ -40,24 +41,24 @@ export type WebmentionsCache = {
 };
 
 export type WebmentionsChildren = {
-    type: string;
     author: Author | null;
-    url: string;
-    published?: string | null;
-    "wm-received": string;
-    "wm-id": number;
-    "wm-source": string;
-    "wm-target": string;
-    "wm-protocol": string;
-    syndication?: string[] | null;
     content?: Content | null;
     "mention-of": string;
-    "wm-property": string;
-    "wm-private": boolean;
-    rels?: Rels | null;
     name?: string | null;
     photo?: string[] | null;
+    published?: string | null;
+    rels?: Rels | null;
     summary?: Summary | null;
+    syndication?: string[] | null;
+    type: string;
+    url: string;
+    "wm-id": number;
+    "wm-private": boolean;
+    "wm-property": string;
+    "wm-protocol": string;
+    "wm-received": string;
+    "wm-source": string;
+    "wm-target": string;
 };
 
 export type Author = {
