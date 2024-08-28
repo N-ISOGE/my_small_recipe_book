@@ -1,26 +1,41 @@
 {
+    "[javascript]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[astro]": {
+        "editor.defaultFormatter": "astro-build.astro-vscode"
+    },
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": "explicit"
+        "source.organizeImports": "never",
+        "source.organizeImports.biome": "explicit",
+        "source.fixAll": "never",
+        "quickfix.biome": "explicit"
     },
     "[markdown]": {
         "editor.wordWrap": "on"
     },
-    "prettier.documentSelectors": ["**/*.astro"],
     "eslint.probe": [
-        "javascript",
-        "javascriptreact",
-        "astro",
-        "typescript",
-        "typescriptreact",
         "markdown"
     ],
     "typescript.tsdk": "node_modules/typescript/lib",
     "typescript.inlayHints.parameterNames.enabled": "all",
-    "[astro]": {
-        "editor.defaultFormatter": "astro-build.astro-vscode"
-    },
+    "astro.content-intellisense": true,
     "git.enableCommitSigning": true,
     "IDX.aI.enableCodebaseIndexing": true,
     "IDX.aI.enableInlineCompletion": true,

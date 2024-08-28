@@ -1,4 +1,4 @@
-export type SiteConfig = {
+export interface SiteConfig {
     author: string;
     date: {
         locale: string | string[] | undefined;
@@ -13,43 +13,43 @@ export type SiteConfig = {
         link: string;
         pingback?: string;
     };
-};
+}
 
-export type PaginationLink = {
-    url: string;
-    text?: string;
+export interface PaginationLink {
     srLabel?: string;
-};
+    text?: string;
+    url: string;
+}
 
-export type SiteMeta = {
-    title: string;
+export interface SiteMeta {
+    articleDate?: string | undefined;
     description?: string;
     ogImage?: string | undefined;
-    articleDate?: string | undefined;
-};
+    title: string;
+}
 
 /** Webmentions */
-export type WebmentionsFeed = {
-    type: string;
+export interface WebmentionsFeed {
+    children: WebmentionsChildren[];
     name: string;
-    children: WebmentionsChildren[];
-};
+    type: string;
+}
 
-export type WebmentionsCache = {
-    lastFetched: string | null;
+export interface WebmentionsCache {
     children: WebmentionsChildren[];
-};
+    lastFetched: null | string;
+}
 
-export type WebmentionsChildren = {
+export interface WebmentionsChildren {
     author: Author | null;
     content?: Content | null;
     "mention-of": string;
-    name?: string | null;
-    photo?: string[] | null;
-    published?: string | null;
+    name?: null | string;
+    photo?: null | string[];
+    published?: null | string;
     rels?: Rels | null;
     summary?: Summary | null;
-    syndication?: string[] | null;
+    syndication?: null | string[];
     type: string;
     url: string;
     "wm-id": number;
@@ -59,27 +59,29 @@ export type WebmentionsChildren = {
     "wm-received": string;
     "wm-source": string;
     "wm-target": string;
-};
+}
 
-export type Author = {
-    type: string;
+export interface Author {
     name: string;
     photo: string;
+    type: string;
     url: string;
-};
+}
 
-export type Content = {
+export interface Content {
     "content-type": string;
-    value: string;
     html: string;
     text: string;
-};
+    value: string;
+}
 
-export type Rels = {
+export interface Rels {
     canonical: string;
-};
+}
 
-export type Summary = {
+export interface Summary {
     "content-type": string;
     value: string;
-};
+}
+
+export type AdmonitionType = "tip" | "note" | "important" | "caution" | "warning";

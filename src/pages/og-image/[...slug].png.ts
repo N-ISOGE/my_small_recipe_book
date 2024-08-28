@@ -1,46 +1,42 @@
-import type { APIContext, InferGetStaticPropsType } from "astro";
-
-import RobotoMono from "@/assets/roboto-mono-regular.ttf";
 import RobotoMonoBold from "@/assets/roboto-mono-700.ttf";
-
-import { getAllPosts } from "@/data/post";
-import { siteConfig } from "@/site-config";
-import { getFormattedDate } from "@/utils";
-import { Resvg } from "@resvg/resvg-js";
-import satori, { type SatoriOptions } from "satori";
-import { html } from "satori-html";
-//
-export const prerender = true;
+import RobotoMono from "@/assets/roboto-mono-regular.ttf";
+import {getAllPosts} from "@/data/post";
+import {siteConfig} from "@/site-config";
+import {getFormattedDate} from "@/utils/date";
+import {Resvg} from "@resvg/resvg-js";
+import type {APIContext, InferGetStaticPropsType} from "astro";
+import satori, {type SatoriOptions} from "satori";
+import {html} from "satori-html";
 
 const ogOptions: SatoriOptions = {
     // debug: true,
     fonts: [
         {
-            name: "Roboto Mono",
             data: Buffer.from(RobotoMono),
-            weight: 400,
+            name: "Roboto Mono",
             style: "normal",
+            weight: 400,
         },
         {
-            name: "Roboto Mono",
             data: Buffer.from(RobotoMonoBold),
-            weight: 700,
+            name: "Roboto Mono",
             style: "normal",
+            weight: 700,
         },
     ],
-    width: 1200,
     height: 630,
+    width: 1200,
 };
 
 const markup = (title: string, pubDate: string) =>
     html`<div tw="flex flex-col w-full h-full bg-[#1d1f21] text-[#c9cacc]">
-        <div tw="flex flex-col flex-1 w-full p-10 justify-center">
-            <p tw="text-2xl mb-6">${pubDate}</p>
-            <h1 tw="text-6xl font-bold leading-snug text-white">${title}</h1>
-        </div>
-        <div tw="flex items-center justify-between w-full p-10 border-t border-[#2bbc89] text-xl">
-            <div tw="flex items-center">
-                <svg
+		<div tw="flex flex-col flex-1 w-full p-10 justify-center">
+			<p tw="text-2xl mb-6">${pubDate}</p>
+			<h1 tw="text-6xl font-bold leading-snug text-white">${title}</h1>
+		</div>
+		<div tw="flex items-center justify-between w-full p-10 border-t border-[#2bbc89] text-xl">
+			<div tw="flex items-center">
+				<svg
                     height="60"
                     viewBox="0 0 512 512"
                     version="1.1"
@@ -78,26 +74,27 @@ const markup = (title: string, pubDate: string) =>
                         />
                     </g>
                 </svg>
-                <p tw="ml-3 font-semibold">${siteConfig.title}</p>
-            </div>
-            <p>by ${siteConfig.author}</p>
-        </div>
-    </div>`;
+				<p tw="ml-3 font-semibold">${siteConfig.title}</p>
+			</div>
+			<p>by ${siteConfig.author}</p>
+		</div>
+	</div>`;
+
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 export async function GET(context: APIContext) {
-    const { title, pubDate } = context.props as Props;
+    const {pubDate, title} = context.props as Props;
 
     const postDate = getFormattedDate(pubDate, {
-        weekday: "long",
         month: "long",
+        weekday: "long",
     });
     const svg = await satori(markup(title, postDate), ogOptions);
     const png = new Resvg(svg).render().asPng();
     return new Response(png, {
         headers: {
-            "Content-Type": "image/png",
             "Cache-Control": "public, max-age=31536000, immutable",
+            "Content-Type": "image/png",
         },
     });
 }
@@ -105,12 +102,12 @@ export async function GET(context: APIContext) {
 export async function getStaticPaths() {
     const posts = await getAllPosts();
     return posts
-        .filter(({ data }) => !data.ogImage)
+        .filter(({data}) => !data.ogImage)
         .map((post) => ({
-            params: { slug: post.slug },
+            params: {slug: post.slug},
             props: {
-                title: post.data.title,
                 pubDate: post.data.updatedDate ?? post.data.publishDate,
+                title: post.data.title,
             },
         }));
 }
