@@ -1,45 +1,43 @@
 {
-    "[javascript]": {
-        "editor.defaultFormatter": "biomejs.biome"
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "biomejs.biome"
-    },
-    "[javascriptreact]": {
-        "editor.defaultFormatter": "biomejs.biome"
-    },
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "biomejs.biome"
-    },
-    "[json]": {
-        "editor.defaultFormatter": "biomejs.biome"
-    },
-    "[jsonc]": {
-        "editor.defaultFormatter": "biomejs.biome"
-    },
-    "[astro]": {
-        "editor.defaultFormatter": "astro-build.astro-vscode"
-    },
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-        "source.organizeImports": "never",
-        "source.organizeImports.biome": "explicit",
-        "source.fixAll": "never",
-        "quickfix.biome": "explicit"
-    },
-    "[markdown]": {
-        "editor.wordWrap": "on"
-    },
-    "eslint.probe": [
-        "markdown"
-    ],
-    "typescript.tsdk": "node_modules/typescript/lib",
-    "typescript.inlayHints.parameterNames.enabled": "all",
-    "astro.content-intellisense": true,
-    "git.enableCommitSigning": true,
-    "IDX.aI.enableCodebaseIndexing": true,
-    "IDX.aI.enableInlineCompletion": true,
-    "IDX.corgiMode": true,
-    "IDX.webDevTools": true,
-    "search.useIgnoreFiles": false
+	"[javascript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[javascriptreact]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[astro]": {
+		"editor.defaultFormatter": "astro-build.astro-vscode"
+	},
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.organizeImports": "never",
+		"source.organizeImports.biome": "explicit",
+		"source.fixAll": "never",
+		"quickfix.biome": "explicit"
+	},
+	"[markdown]": {
+		"editor.wordWrap": "on"
+	},
+	"eslint.probe": ["markdown"],
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"typescript.inlayHints.parameterNames.enabled": "all",
+	"astro.content-intellisense": true,
+	"git.enableCommitSigning": true,
+	"IDX.aI.enableCodebaseIndexing": true,
+	"IDX.aI.enableInlineCompletion": true,
+	"IDX.corgiMode": true,
+	"IDX.webDevTools": true,
+	"search.useIgnoreFiles": false
 }

@@ -38,6 +38,7 @@
     "MS-CEINTL.vscode-language-pack-ko"
     "mikestead.dotenv"
     "dbaeumer.vscode-eslint"
+    "biomejs.biome"
     "manuth.eslint-language-service"
     "ms-vscode.vscode-typescript-next"
     "Tyriar.sort-lines"
