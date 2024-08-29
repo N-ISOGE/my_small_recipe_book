@@ -4,6 +4,7 @@ description: "This post is for testing and listing a number of different markdow
 publishDate: "22 Feb 2023"
 updatedDate: 2024-02-19
 tags: ["tests", "markdown", "building blog"]
+draft: true
 ---
 
 ## This is a H2 Heading
@@ -51,6 +52,7 @@ Second example containing a reference[^2] with a link to the source.
 이건 ^[인라인]으로 각주를 다는 법이라는 데 적용이 안됨.
 
 [^1]: Reference first footnote with a return to content link.
+
 [^2]: Second reference with a link.
 
 If you check out this example in `src/content/post/markdown-elements/index.md`, you'll notice that the references and the heading "Footnotes" are added to the bottom of the page via the [remark-rehype][remark_rehype] plugin.
