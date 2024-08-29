@@ -6,7 +6,6 @@ import { getAllPosts, getUniqueTags, groupPostsByYear, sortMDByDate } from "@/da
 import PageLayout from "@/layouts/Base.astro";
 import type { GetStaticPaths, Page } from "astro";
 const baseUrl = import.meta.env.BASE_URL;
-export const prerender = true;
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const MAX_POSTS_PER_PAGE = 10;
