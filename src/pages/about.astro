@@ -1,24 +1,24 @@
 ---
-import PageLayout from "@/layouts/Base.astro";
-import aboutImg from "@/assets/about-duck.png";
 import { Image } from "astro:assets";
+import aboutImg from "@/assets/about-duck.png";
+import PageLayout from "@/layouts/Base.astro";
 
 const meta = {
-    description: "I'm a beginner for this theme",
-    title: "About",
+	description: "I'm a beginner for this theme",
+	title: "About",
 };
 
 const owner = import.meta.env.VITE_GITHUB_REPOSITORY_OWNER;
 ---
 
 <PageLayout meta={meta}>
-    <div class="space-y-6">
-        <h1 class="title">About</h1>
-        <!-- 직접 그린 이미지 -->
-        <div class="flex justify-center">
-            <Image src={aboutImg} alt="ducking duck" loading="eager" fetchpriority="high" />
-        </div>
+	<div class="space-y-6">
+		<h1 class="title">About</h1>
+		<!-- 직접 그린 이미지 -->
+		<div class="flex justify-center">
+			<Image src={aboutImg} alt="ducking duck" loading="eager" fetchpriority="high" />
+		</div>
 
-        <p>Hi, I’m a beginner for Astro. {owner}</p>
-    </div>
+		<p>Hi, I’m a beginner for Astro. {owner}</p>
+	</div>
 </PageLayout>

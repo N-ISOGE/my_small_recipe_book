@@ -3,58 +3,58 @@ name: ci
 on: [push, pull_request]
 
 permissions:
-    contents: read
+  contents: read
 
 jobs:
-    lint:
-        name: Check for build and type issues
-        runs-on: ubuntu-latest
+  lint:
+    name: Check for build and type issues
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: checkout
-              uses: actions/checkout@v4
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
 
-            - name: install node
-              uses: actions/setup-node@v3
-              with:
-                  node-version: 18
+      - name: install node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-            - name: install pnpm
-              uses: pnpm/action-setup@v2
-              with:
-                  version: latest
-                  run_install: false
+      - name: install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+          run_install: false
 
-            - name: Get pnpm store directory
-              shell: bash
-              run: |
-                  echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-            - name: Setup pnpm cache
-              uses: actions/cache@v3
-              with:
-                  path: ${{ env.STORE_PATH }}
-                  key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-                  restore-keys: |
-                      ${{ runner.os }}-pnpm-store-
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
-            - name: Install dependencies
-              run: pnpm install
+      - name: Install dependencies
+        run: pnpm install
 
-            - name: Use environment variables
-              run: |
-                  echo "VITE_GITHUB_REPOSITORY_OWNER=$GITHUB_REPOSITORY_OWNER" >> .env
-                  echo "VITE_GITHUB_REPOSITORY=$GITHUB_REPOSITORY" >> .env
-                  echo "WEBMENTION_API_KEY=$WEBMENTION_API_KEY" >> .env
-              env:
-                  GITHUB_REPOSITORY: ${{github.repository}}
-                  GITHUB_REPOSITORY_OWNER: ${{github.repository_owner}}
-                  WEBMENTION_API_KEY: ${{secrets.WEBMENTION_API_KEY}}
+      - name: Use environment variables
+        run: |
+          echo "VITE_GITHUB_REPOSITORY_OWNER=$GITHUB_REPOSITORY_OWNER" >> .env
+          echo "VITE_GITHUB_REPOSITORY=$GITHUB_REPOSITORY" >> .env
+          echo "WEBMENTION_API_KEY=$WEBMENTION_API_KEY" >> .env
+        env:
+          GITHUB_REPOSITORY: ${{github.repository}}
+          GITHUB_REPOSITORY_OWNER: ${{github.repository_owner}}
+          WEBMENTION_API_KEY: ${{secrets.WEBMENTION_API_KEY}}
 
-              # use astro check for issues
-            - name: Run check
-              run: pnpm astro check
+        # use astro check for issues
+      - name: Run check
+        run: pnpm astro check
 
-              # ensure build works
-            - name: Run build
-              run: pnpm build
+        # ensure build works
+      - name: Run build
+        run: pnpm build
