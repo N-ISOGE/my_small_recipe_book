@@ -15,6 +15,7 @@ import { remarkReadingTime } from "./src/plugins/remark-reading-time";
 
 // Rehype plugins
 import rehypeExternalLinks from "rehype-external-links";
+import rehypeAstroRelativeMarkdownLinks from "astro-rehype-relative-markdown-links";
 
 const owner = import.meta.env.VITE_GITHUB_REPOSITORY_OWNER;
 const repoName = import.meta.env.VITE_GITHUB_REPOSITORY;
@@ -42,6 +43,12 @@ export default defineConfig({
 				{
 					rel: ["nofollow, noopener, noreferrer"],
 					target: "_blank",
+				},
+			],
+			[
+				rehypeAstroRelativeMarkdownLinks,
+				{
+					base: baseUrl,
 				},
 			],
 		],

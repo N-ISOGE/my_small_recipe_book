@@ -32,6 +32,9 @@ importers:
       astro-icon:
         specifier: ^1.1.1
         version: 1.1.1
+      astro-rehype-relative-markdown-links:
+        specifier: ^0.15.0
+        version: 0.15.0(astro@4.14.6(@types/node@22.5.1)(rollup@4.21.1)(typescript@5.5.4))
       cssnano:
         specifier: ^7.0.5
         version: 7.0.5(postcss@8.4.41)
@@ -1426,6 +1429,11 @@ packages:
     peerDependencies:
       astro: ^4.12.0
 
+  astro-rehype-relative-markdown-links@0.15.0:
+    resolution: {integrity: sha512-+f4fg1Kc/7qeBoLQFKu0HAwsTiD8Ua7alLbMD57K/VH6b5i5Sd5FTVFZ4cO/43/S+E9bTmYmIq2LF6Hhkrnlhw==}
+    peerDependencies:
+      astro: '>=2.x <5'
+
   astro@4.14.6:
     resolution: {integrity: sha512-MIDyNhtu3L4uakHvlTprh21eQPehYOtZSuSLtd+r6xZcl3lB+mlBz/hs1W3iHEQAORyJnKArWSY/aVOBKUyflA==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
@@ -1512,6 +1520,9 @@ packages:
 
   capnp-ts@0.7.0:
     resolution: {integrity: sha512-XKxXAC3HVPv7r674zP0VC3RTXz+/JKhfyw94ljvF80yynK6VkTnqE3jMuN8b3dUVmmc43TjyxjW4KTsmB3c86g==}
+
+  catch-unknown@2.0.0:
+    resolution: {integrity: sha512-4ELowf+Fp6Qwv77ZvRDto9oJMsOalEk8IYvS5KsmIhRZQWbfArlIhIOONJtmCzOeeqpip6JzYqAYaNR9sIyLVQ==}
 
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -4975,6 +4986,20 @@ snapshots:
       pathe: 1.1.2
       recast: 0.23.9
 
+  astro-rehype-relative-markdown-links@0.15.0(astro@4.14.6(@types/node@22.5.1)(rollup@4.21.1)(typescript@5.5.4)):
+    dependencies:
+      astro: 4.14.6(@types/node@22.5.1)(rollup@4.21.1)(typescript@5.5.4)
+      catch-unknown: 2.0.0
+      debug: 4.3.6
+      github-slugger: 2.0.0
+      gray-matter: 4.0.3
+      is-absolute-url: 4.0.1
+      unified: 11.0.5
+      unist-util-visit: 5.0.0
+      zod: 3.23.8
+    transitivePeerDependencies:
+      - supports-color
+
   astro@4.14.6(@types/node@22.5.1)(rollup@4.21.1)(typescript@5.5.4):
     dependencies:
       '@astrojs/compiler': 2.10.3
@@ -5146,6 +5171,8 @@ snapshots:
       tslib: 2.7.0
     transitivePeerDependencies:
       - supports-color
+
+  catch-unknown@2.0.0: {}
 
   ccount@2.0.1: {}
 
