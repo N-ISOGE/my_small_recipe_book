@@ -1,6 +1,7 @@
 ---
 title: "주소에서 접미사가 중복됨"
 publishDate: "2024-01-18"
+updatedDate: 2024-08-29
 description: "gatsby를 github pages에서 배포할 때 문제, 주소에서 접미사가 중복됨, 해결책은 못 찾고 대신 차선책으로 astro로 옮기게 됨"
 tags:
     - gatsby
@@ -8,7 +9,7 @@ tags:
     - building blog
 ---
 
-# 문제
+## 문제
 
 -   url, 주소가 문제가 생김
     -   저장소 이름으로 서브도메인이 붙는데 사이트 설정에서 pathPrefix 중복되서 붙음
@@ -21,7 +22,7 @@ tags:
 -   원하는 결과
     -   페이지 주소는 건드리지 않고 링크가 가리키는 주소에 `/{저장소 주소}`만 추가하고 싶다
 
-# 해볼 것
+## 해볼 것
 
 -   gatsbyConfig
     -   pathPrefix 지우기
