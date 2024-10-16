@@ -2,6 +2,7 @@ import fs from "node:fs";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
+
 import expressiveCode from "astro-expressive-code";
 import icon from "astro-icon";
 import robotsTxt from "astro-robots-txt";
@@ -70,7 +71,7 @@ export default defineConfig({
 					type: "image/png",
 				},
 			],
-			start_url: "/",
+			start_url: `/${baseUrl}/`,
 			background_color: "#1d1f21",
 			theme_color: "#2bbc8a",
 			display: "standalone",
