@@ -9,13 +9,13 @@ import { expressiveCodeOptions } from "./src/site.config";
 
 // Remark plugins
 import remarkDirective from "remark-directive"; /* Handle ::: directives as nodes */
-import remarkUnwrapImages from "remark-unwrap-images";
 import { remarkAdmonitions } from "./src/plugins/remark-admonitions"; /* Add admonitions */
 import { remarkReadingTime } from "./src/plugins/remark-reading-time";
 
 // Rehype plugins
 import rehypeExternalLinks from "rehype-external-links";
 import rehypeAstroRelativeMarkdownLinks from "astro-rehype-relative-markdown-links";
+import rehypeUnwrapImages from "rehype-unwrap-images";
 
 const owner = import.meta.env.VITE_GITHUB_REPOSITORY_OWNER;
 const repoName = import.meta.env.VITE_GITHUB_REPOSITORY;
@@ -51,8 +51,9 @@ export default defineConfig({
 					base: baseUrl,
 				},
 			],
+			rehypeUnwrapImages,
 		],
-		remarkPlugins: [remarkUnwrapImages, remarkReadingTime, remarkDirective, remarkAdmonitions],
+		remarkPlugins: [remarkReadingTime, remarkDirective, remarkAdmonitions],
 		remarkRehype: {
 			footnoteLabelProperties: {
 				className: [""],
