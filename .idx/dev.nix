@@ -28,6 +28,7 @@
     "unifiedjs.vscode-mdx"    
     "jebbs.markdown-extended"
     "foam.foam-vscode"
+    "houkanshan.vscode-markdown-footnote"
     # tailwind
     "bradlc.vscode-tailwindcss"
     # astro
