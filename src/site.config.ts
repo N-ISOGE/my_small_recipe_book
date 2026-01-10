@@ -1,5 +1,6 @@
-import type { SiteConfig } from "@/types";
 import type { AstroExpressiveCodeOptions } from "astro-expressive-code";
+import type { SiteConfig } from "@/types";
+
 const baseUrl = import.meta.env.BASE_URL;
 
 export const siteConfig: SiteConfig = {
@@ -14,50 +15,55 @@ export const siteConfig: SiteConfig = {
 			year: "numeric",
 		},
 	},
-	// Meta property used as the default description meta property
+	// Meta property used as the default description meta property and webmanifest description
 	description: "작은 창고?",
-	// HTML lang property, found in src/layouts/Base.astro L:18
+	// HTML lang property, found in src/layouts/Base.astro L:18  & astro.config.ts L:48
 	lang: "ko-KR",
 	// Meta property, found in src/components/BaseHead.astro L:42
 	ogLocale: "ko_KR",
-	// Option to sort posts by updatedDate if set to true (if property exists). Default (false) will sort by publishDate
-	sortPostsByUpdatedDate: false,
-	// Meta property used to construct the meta title property, found in src/components/BaseHead.astro L:11
+	/* 
+		- Used to construct the meta title property found in src/components/BaseHead.astro L:11 
+		- The webmanifest name found in astro.config.ts L:42
+		- The link value found in src/components/layout/Header.astro L:35
+		- In the footer found in src/components/layout/Footer.astro L:12
+	*/
 	title: "my small recipe book",
-	webmentions: {
-		link: "https://webmention.io/n-isoge.github.io_my_small_recipe_book_/webmention",
-	},
+	url: "https://github.com/N-ISOGE/my_small_recipe_book/",
 };
 
 // Used to generate links in both the Header & Footer.
 export const menuLinks: { title: string; path: string }[] = [
 	{
-		title: "Home",
 		path: `${baseUrl}/`,
+		title: "Home",
 	},
 	{
-		title: "About",
 		path: `${baseUrl}/about/`,
+		title: "About",
 	},
 	{
-		title: "Blog",
 		path: `${baseUrl}/post/`,
+		title: "Blog",
+	},
+	{
+		path: "/notes/",
+		title: "Notes",
 	},
 ];
 
 // https://expressive-code.com/reference/configuration/
 export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
 	styleOverrides: {
+		borderRadius: "4px",
+		codeFontFamily:
+			'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+		codeFontSize: "0.875rem",
+		codeLineHeight: "1.7142857rem",
+		codePaddingInline: "1rem",
 		frames: {
 			frameBoxShadowCssValue: "none",
 		},
 		uiLineHeight: "inherit",
-		codeFontSize: "0.875rem",
-		codeLineHeight: "1.7142857rem",
-		borderRadius: "4px",
-		codePaddingInline: "1rem",
-		codeFontFamily:
-			'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;',
 	},
 	themeCssSelector(theme, { styleVariants }) {
 		// If one dark and one light theme are available
