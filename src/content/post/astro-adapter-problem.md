@@ -1,8 +1,8 @@
 ---
 title: astro adapter 설정 문제
 description: "cloudflare, github pages에서 배포할 때 설정                          "
-publishDate: 2024-02-07
-updatedDate: 2024-02-07
+publishDate: 2024. 02. 07.
+updatedDate: 2024. 02. 07.
 tags:
     - cloudflare
     - github
