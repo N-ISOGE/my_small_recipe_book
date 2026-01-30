@@ -128,7 +128,7 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 							<li>
 								<a
 									class="cactus-link flex items-center justify-center"
-									href={`${baseUrl}/tags/${tag}/`}
+									href={`${baseUrl}tags/${tag}/`}
 								>
 									<span aria-hidden="true">#</span>
 									<span class="sr-only">View all posts with the tag</span>
@@ -138,7 +138,7 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 						))}
 					</ul>
 					<span class="mt-4 block sm:text-end">
-						<a class="hover:text-link" href={`${baseUrl}/tags/`}>
+						<a class="hover:text-link" href={`${baseUrl}tags/`}>
 							View all <span aria-hidden="true">→</span>
 							<span class="sr-only">blog tags</span>
 						</a>
