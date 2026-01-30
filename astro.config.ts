@@ -27,93 +27,93 @@ const baseUrl = getBaseUrl();
 
 // https://astro.build/config
 export default defineConfig({
-    site: siteConfig.url,
-    base: baseUrl,
-    image: {
-        domains: ["webmention.io"],
-    },
-    integrations: [
-        expressiveCode(expressiveCodeOptions),
-        icon(),
-        sitemap(),
-        mdx(),
-        robotsTxt(),
-        webmanifest({
-            // See: https://github.com/alextim/astro-lib/blob/main/packages/astro-webmanifest/README.md
-            name: siteConfig.title,
-            short_name: "MLRB", // optional
-            description: siteConfig.description,
-            lang: siteConfig.lang,
-            icon: "public/icon.svg", // the source for generating favicon & icons
-            icons: [
-                {
-                    src: "icons/apple-touch-icon.png", // used in src/components/BaseHead.astro L:26
-                    sizes: "180x180",
-                    type: "image/png",
-                },
-                {
-                    src: "icons/icon-192.png",
-                    sizes: "192x192",
-                    type: "image/png",
-                },
-                {
-                    src: "icons/icon-512.png",
-                    sizes: "512x512",
-                    type: "image/png",
-                },
-            ],
-            start_url: `/${baseUrl}/`,
-            background_color: "#1d1f21",
-            theme_color: "#2bbc8a",
-            display: "standalone",
-            config: {
-                insertFaviconLinks: false,
-                insertThemeColorMeta: false,
-                insertManifestLink: false,
-            },
-        }),
-    ],
-    markdown: {
-        rehypePlugins: [
-            rehypeHeadingIds,
-            [rehypeAutolinkHeadings, { behavior: "wrap", properties: { className: ["not-prose"] } }],
-            [
-                rehypeExternalLinks,
-                {
-                    rel: ["noreferrer", "noopener"],
-                    target: "_blank",
-                },
-            ],
-            [
-                rehypeAstroRelativeMarkdownLinks,
-                {
-                    base: baseUrl,
-                },
-            ],
-            rehypeUnwrapImages,
-        ],
-        remarkPlugins: [remarkReadingTime, remarkDirective, remarkGithubCard, remarkAdmonitions],
-        remarkRehype: {
-            footnoteLabelProperties: {
-                className: [""],
-            },
-        },
-    },
-    // https://docs.astro.build/en/guides/prefetch/
-    prefetch: true,
-    vite: {
-        optimizeDeps: {
-            exclude: ["@resvg/resvg-js"],
-        },
-        plugins: [tailwind(), rawFonts([".ttf", ".woff"])],
-    },
-    env: {
-        schema: {
-            WEBMENTION_API_KEY: envField.string({ context: "server", access: "secret", optional: true }),
-            WEBMENTION_URL: envField.string({ context: "client", access: "public", optional: true }),
-            WEBMENTION_PINGBACK: envField.string({ context: "client", access: "public", optional: true }),
-        },
-    },
+	site: siteConfig.url,
+	base: baseUrl,
+	image: {
+		domains: ["webmention.io"],
+	},
+	integrations: [
+		expressiveCode(expressiveCodeOptions),
+		icon(),
+		sitemap(),
+		mdx(),
+		robotsTxt(),
+		webmanifest({
+			// See: https://github.com/alextim/astro-lib/blob/main/packages/astro-webmanifest/README.md
+			name: siteConfig.title,
+			short_name: "MLRB", // optional
+			description: siteConfig.description,
+			lang: siteConfig.lang,
+			icon: "public/icon.svg", // the source for generating favicon & icons
+			icons: [
+				{
+					src: "icons/apple-touch-icon.png", // used in src/components/BaseHead.astro L:26
+					sizes: "180x180",
+					type: "image/png",
+				},
+				{
+					src: "icons/icon-192.png",
+					sizes: "192x192",
+					type: "image/png",
+				},
+				{
+					src: "icons/icon-512.png",
+					sizes: "512x512",
+					type: "image/png",
+				},
+			],
+			start_url: `/${baseUrl}/`,
+			background_color: "#1d1f21",
+			theme_color: "#2bbc8a",
+			display: "standalone",
+			config: {
+				insertFaviconLinks: false,
+				insertThemeColorMeta: false,
+				insertManifestLink: false,
+			},
+		}),
+	],
+	markdown: {
+		rehypePlugins: [
+			rehypeHeadingIds,
+			[rehypeAutolinkHeadings, { behavior: "wrap", properties: { className: ["not-prose"] } }],
+			[
+				rehypeExternalLinks,
+				{
+					rel: ["noreferrer", "noopener"],
+					target: "_blank",
+				},
+			],
+			[
+				rehypeAstroRelativeMarkdownLinks,
+				{
+					base: baseUrl,
+				},
+			],
+			rehypeUnwrapImages,
+		],
+		remarkPlugins: [remarkReadingTime, remarkDirective, remarkGithubCard, remarkAdmonitions],
+		remarkRehype: {
+			footnoteLabelProperties: {
+				className: [""],
+			},
+		},
+	},
+	// https://docs.astro.build/en/guides/prefetch/
+	prefetch: true,
+	vite: {
+		optimizeDeps: {
+			exclude: ["@resvg/resvg-js"],
+		},
+		plugins: [tailwind(), rawFonts([".ttf", ".woff"])],
+	},
+	env: {
+		schema: {
+			WEBMENTION_API_KEY: envField.string({ context: "server", access: "secret", optional: true }),
+			WEBMENTION_URL: envField.string({ context: "client", access: "public", optional: true }),
+			WEBMENTION_PINGBACK: envField.string({ context: "client", access: "public", optional: true }),
+		},
+	},
 });
 
 function rawFonts(ext: string[]) {
