@@ -13,6 +13,7 @@ updates:
       actions-deps:
         patterns:
           - "*"
+    target-branch: "dev"
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
@@ -20,3 +21,4 @@ updates:
     groups:
       patch-minor:
         update-types: ["patch", "minor"]
+    target-branch: "dev"
