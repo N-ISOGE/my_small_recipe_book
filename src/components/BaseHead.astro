@@ -1,12 +1,13 @@
 ---
-import { siteConfig } from "@/site-config";
+import { WEBMENTION_PINGBACK, WEBMENTION_URL } from "astro:env/client";
+import { siteConfig } from "@/site.config";
 import type { SiteMeta } from "@/types";
-import "../styles/global.css";
+import "@/styles/global.css";
 
 type Props = SiteMeta;
 
 const { articleDate, description, ogImage, title } = Astro.props;
-const baseUrl = import.meta.env.BASE_URL;
+//const baseUrl = import.meta.env.BASE_URL;
 const titleSeparator = "•";
 const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -31,12 +32,14 @@ const socialImageURL = new URL(ogImage ? ogImage : "/social-card.png", Astro.url
 	)
 }
 
-{/* Icons / Favicon 
+{
+	/* Icons / Favicon 
 <link href=`${baseUrl}/favicon.ico` rel="icon" sizes="any" />
 <link href=`${baseUrl}/icon.svg` rel="icon" type="image/svg+xml" />
 <link href=`${baseUrl}/apple-touch-icon.png` rel="apple-touch-icon" />
 <link href=`${baseUrl}/manifest.webmanifest` rel="manifest" />
-*/}
+*/
+}
 
 {/* Canonical URL */}
 <link href={canonicalURL} rel="canonical" />
@@ -45,9 +48,6 @@ const socialImageURL = new URL(ogImage ? ogImage : "/social-card.png", Astro.url
 <meta content={siteTitle} name="title" />
 <meta content={description} name="description" />
 <meta content={siteConfig.author} name="author" />
-
-{/* Theme Colour */}
-<meta content="" name="theme-color" />
 
 {/* Open Graph / Facebook */}
 <meta content={articleDate ? "article" : "website"} property="og:type" />
@@ -79,21 +79,16 @@ const socialImageURL = new URL(ogImage ? ogImage : "/social-card.png", Astro.url
 <link href="/sitemap-index.xml" rel="sitemap" />
 
 {/* RSS auto-discovery */}
-<link
-	href=`${baseUrl}/rss.xml`
-	rel="alternate"
-	title={siteConfig.title}
-	type="application/rss+xml"
-/>
+<link href="/rss.xml" title="Blog" rel="alternate" type="application/rss+xml" />
+<link href="/notes/rss.xml" title="Notes" rel="alternate" type="application/rss+xml" />
+{/* href `${baseUrl}/rss.xml` */}
 
 {/* Webmentions */}
 {
-	siteConfig.webmentions && (
+	WEBMENTION_URL && (
 		<>
-			<link href={siteConfig.webmentions.link} rel={`${baseUrl}/webmention`} />
-			{siteConfig.webmentions.pingback && (
-				<link href={siteConfig.webmentions.pingback} rel={`${baseUrl}/pingback`} />
-			)}
+			<link href={WEBMENTION_URL} rel="webmention" />
+			{WEBMENTION_PINGBACK && <link href={WEBMENTION_PINGBACK} rel="pingback" />}
 		</>
 	)
 }

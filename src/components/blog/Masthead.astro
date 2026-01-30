@@ -1,18 +1,18 @@
 ---
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
-import FormattedDate from "../FormattedDate.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
 
 interface Props {
 	content: CollectionEntry<"post">;
+	readingTime: string;
 }
 
 const baseUrl = import.meta.env.BASE_URL;
 const {
-	content: { data, render },
+	content: { data },
+	readingTime,
 } = Astro.props;
-
-const { remarkPluginFrontmatter } = await render();
 
 const dateTimeOptions: Intl.DateTimeFormatOptions = {
 	month: "long",
@@ -21,12 +21,13 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 
 {
 	data.coverImage && (
-		<div class="aspect-[16/9] mb-6">
+		<div class="mb-6 aspect-video">
 			<Image
 				alt={data.coverImage.alt}
-				class="object-cover"
-				fetchpriority="high"
-				loading="eager"
+				layout="constrained"
+				width={748}
+				height={420}
+				priority
 				src={data.coverImage.src}
 			/>
 		</div>
@@ -38,13 +39,12 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 </h1>
 <div class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
 	<p class="font-semibold">
-		<FormattedDate date={data.publishDate} dateTimeOptions={dateTimeOptions} />
-		/{" "}
-		{remarkPluginFrontmatter.minutesRead}
+		<FormattedDate date={data.publishDate} dateTimeOptions={dateTimeOptions} /> /{" "}
+		{readingTime}
 	</p>
 	{
 		data.updatedDate && (
-			<span class="rounded-lg bg-quote/10 px-2 py-1 text-quote">
+			<span class="bg-quote/5 text-quote rounded-lg px-2 py-1">
 				Updated:
 				<FormattedDate class="ms-1" date={data.updatedDate} dateTimeOptions={dateTimeOptions} />
 			</span>
@@ -53,7 +53,7 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 </div>
 {
 	!!data.tags?.length && (
-		<div class="mt-3">
+		<div class="mt-2">
 			<svg
 				aria-hidden="true"
 				focusable="false"
@@ -73,15 +73,13 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 			</svg>
 			{data.tags.map((tag, i) => (
 				<>
-					<a
-						class="cactus-link inline-block before:content-['#']"
-						aria-label={`View more blogs with the tag ${tag}`}
-						href={`${baseUrl}/tags/${tag}/`}
-						data-pagefind-filter="tag"
-					>
-						{tag}
-					</a>
-					{i < data.tags.length - 1 && ", "}
+					{/* prettier-ignore */}
+					<span class="contents">
+						<a class="cactus-link inline-block before:content-['#']" data-pagefind-filter={`tag:${tag}`} href={`${baseUrl}/tags/${tag}/`}>
+						<span class="sr-only">View more blogs with the tag&nbsp;</span>
+							{tag}
+						</a>{i < data.tags.length - 1 && ", "}
+					</span>
 				</>
 			))}
 		</div>
