@@ -13,7 +13,7 @@ export const prerender = true;
 export const getStaticPaths = (async ({ paginate }) => {
 	const allPosts = await getAllPosts();
 	const sortedPosts = allPosts.sort(collectionDateSort);
-	const uniqueTags = getUniqueTags(sortedPosts);
+	const uniqueTags = getUniqueTags(sortedPosts).filter((tag) => !!tag);
 
 	return uniqueTags.flatMap((tag) => {
 		const postsWithTag = sortedPosts.filter((post) => post.data.tags.includes(tag));
