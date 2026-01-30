@@ -7,21 +7,19 @@ interface Props {
 }
 
 const { prevUrl, nextUrl } = Astro.props;
-const baseUrl = import.meta.env.BASE_URL;
-/// `${baseUrl}${nextUrl.url}`
 ---
 
 {
 	(prevUrl || nextUrl) && (
 		<nav class="mt-8 flex items-center gap-x-4">
 			{prevUrl && (
-				<a class="hover:text-accent me-auto py-2" href={`${baseUrl}${prevUrl.url}`}>
+				<a class="hover:text-accent me-auto py-2" href={prevUrl.url}>
 					{prevUrl.srLabel && <span class="sr-only">{prevUrl.srLabel}</span>}
 					{prevUrl.text ? prevUrl.text : "Previous"}
 				</a>
 			)}
 			{nextUrl && (
-				<a class="hover:text-accent ms-auto py-2" href={`${baseUrl}${nextUrl.url}`}>
+				<a class="hover:text-accent ms-auto py-2" href={nextUrl.url}>
 					{nextUrl.srLabel && <span class="sr-only">{nextUrl.srLabel}</span>}
 					{nextUrl.text ? nextUrl.text : "Next"}
 				</a>
