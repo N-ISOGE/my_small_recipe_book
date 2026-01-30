@@ -13,10 +13,12 @@ updates:
       actions-deps:
         patterns:
           - "*"
-  - package-ecosystem: "pnpm" # See documentation for possible values
+    target-branch: "dev"
+  - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
       interval: "monthly"
     groups:
       patch-minor:
         update-types: ["patch", "minor"]
+    target-branch: "dev"
