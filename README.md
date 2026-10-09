@@ -26,6 +26,11 @@ Cloudflare Pages와 GitHub Pages 두 곳에 배포하고, 빌드되는 환경에
 -   직접 지정하고 싶을 때는 `SITE_URL`, `BASE_PATH` 환경변수가 항상 우선합니다.
 -   GitHub Pages 배포는 `.github/workflows/deploy.yml`(main), 미리보기는 `preview.yml`(dev)입니다.
 
+## 문서
+
+-   [원본(Astro Cactus) 업데이트 따라가기](docs/upstream-update.md)
+-   [Obsidian 노트를 블로그 글로 옮겨 적을 때](docs/obsidian.md)
+
 ## License
 
 MIT
