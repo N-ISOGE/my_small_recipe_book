@@ -34,6 +34,17 @@ export function normalizeSite(site: string): string {
 	return site.trim().replace(/\/+$/, "");
 }
 
+/**
+ * Cloudflare Pages gives every deployment its own URL (`https://<hash>.<project>.pages.dev`).
+ * That hash changes on each build, so it is useless as a canonical URL. Drop it to get the stable
+ * project domain (`https://<project>.pages.dev`). Anything that does not look like that (custom
+ * domains, a different format) is returned unchanged.
+ */
+export function stableCloudflareUrl(deploymentUrl: string): string {
+	const url = normalizeSite(deploymentUrl);
+	return url.replace(/^(https?:\/\/)[0-9a-f]{8}\.([^./]+\.pages\.dev)$/i, "$1$2");
+}
+
 export function resolveDeployTarget(env: Env, fallbackSite: string): DeployTarget {
 	const siteOverride = env.SITE_URL?.trim();
 	const baseOverride = env.BASE_PATH;
@@ -51,10 +62,10 @@ export function resolveDeployTarget(env: Env, fallbackSite: string): DeployTarge
 			platform: "github-pages",
 		};
 	} else if (env.CF_PAGES === "1") {
-		// CF_PAGES_URL is the URL of this particular deployment. Set SITE_URL in the Cloudflare
-		// project to get a stable canonical URL for production builds.
+		// CF_PAGES_URL is the URL of this particular deployment (it contains a per-build hash).
+		// Use the stable project domain, or set SITE_URL to use a custom domain.
 		target = {
-			site: normalizeSite(env.CF_PAGES_URL ?? fallbackSite),
+			site: stableCloudflareUrl(env.CF_PAGES_URL ?? fallbackSite),
 			base: "/",
 			platform: "cloudflare-pages",
 		};

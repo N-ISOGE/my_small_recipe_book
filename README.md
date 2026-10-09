@@ -21,8 +21,8 @@ Cloudflare Pages와 GitHub Pages 두 곳에 배포하고, 빌드되는 환경에
 | 로컬             | `http://localhost:4321`                        | `/`                  | 그 외                                  |
 
 -   Cloudflare Pages: 빌드 명령 `pnpm build`, 출력 디렉터리 `dist`.
-    canonical, sitemap, RSS에 쓰이는 대표 주소는 환경변수 `SITE_URL`(예: `https://example.pages.dev`)로 지정하세요.
-    지정하지 않으면 배포마다 달라지는 `CF_PAGES_URL`을 사용합니다.
+    별도 설정 없이 `https://<project>.pages.dev`가 canonical, sitemap, RSS의 대표 주소로 쓰입니다
+    (배포마다 바뀌는 `CF_PAGES_URL`의 해시 부분을 제거). 커스텀 도메인을 쓰려면 환경변수 `SITE_URL`로 지정하세요.
 -   직접 지정하고 싶을 때는 `SITE_URL`, `BASE_PATH` 환경변수가 항상 우선합니다.
 -   GitHub Pages 배포는 `.github/workflows/deploy.yml`(main), 미리보기는 `preview.yml`(dev)입니다.
 
