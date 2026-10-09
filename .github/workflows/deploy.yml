@@ -31,8 +31,8 @@ jobs:
         uses: withastro/action@v5
         with:
           # path: . # The root location of your Astro project inside the repository. (optional)
-          # Keep this on the same major as ci.yml / preview.yml. `pnpm@latest` is pnpm 12 now, which ignores the
-          # "pnpm" field of package.json (overrides, onlyBuiltDependencies) and fails `--frozen-lockfile`.
+          # Keep this on the same major as ci.yml / preview.yml (and the Cloudflare Pages v3 image, pnpm 10).
+          # `pnpm@latest` is pnpm 12 now, which also refuses packages younger than 24h by default.
           package-manager: pnpm@10
           node-version: 22 # Astro 7 requires Node >=22.12 (optional)
 

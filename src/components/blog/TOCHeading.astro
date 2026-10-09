@@ -8,8 +8,6 @@ interface Props {
 const {
 	heading: { children, depth, slug, text },
 } = Astro.props;
-
-// const pathname = Astro.url.pathname;
 ---
 
 <li class={`${depth > 2 ? "ms-2" : ""}`}>

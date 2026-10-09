@@ -53,13 +53,5 @@
 		"prettier-plugin-tailwindcss": "^0.8.1",
 		"reading-time": "^1.5.0",
 		"typescript": "^6.0.3"
-	},
-	"pnpm": {
-		"onlyBuiltDependencies": ["@biomejs/biome", "@tailwindcss/oxide", "esbuild", "sharp"],
-		"overrides": {
-			"sharp": "^0.35.4",
-			"fflate": "^0.8.2",
-			"postcss-selector-parser": "^7.1.6"
-		}
 	}
 }

@@ -2,13 +2,12 @@
 import { Image } from "astro:assets";
 import aboutImg from "@/assets/about-duck.png";
 import PageLayout from "@/layouts/Base.astro";
+import { siteConfig } from "@/site.config";
 
 const meta = {
 	description: "I'm a beginner for this theme",
 	title: "About",
 };
-
-const owner = import.meta.env.VITE_GITHUB_REPOSITORY_OWNER;
 ---
 
 <PageLayout meta={meta}>
@@ -19,6 +18,6 @@ const owner = import.meta.env.VITE_GITHUB_REPOSITORY_OWNER;
 			<Image src={aboutImg} alt="ducking duck" loading="eager" fetchpriority="high" />
 		</div>
 
-		<p>Hi, I’m a beginner for Astro. {owner}</p>
+		<p>Hi, I’m a beginner for Astro. {siteConfig.author}</p>
 	</div>
 </PageLayout>
