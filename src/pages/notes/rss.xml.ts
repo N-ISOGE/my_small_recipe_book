@@ -8,7 +8,8 @@ export const GET = async () => {
 	return rss({
 		title: siteConfig.title,
 		description: siteConfig.description,
-		site: import.meta.env.SITE,
+		// include `base` so the channel link and the relative item links stay under the GitHub Pages sub path
+		site: new URL(`${import.meta.env.BASE_URL}/`, import.meta.env.SITE),
 		items: notes.map((note) => ({
 			title: note.data.title,
 			pubDate: note.data.publishDate,

@@ -7,6 +7,8 @@ import Pagination from "@/components/Paginator.astro";
 import PageLayout from "@/layouts/Base.astro";
 import { collectionDateSort } from "@/utils/date";
 
+const baseUrl = import.meta.env.BASE_URL;
+
 export const getStaticPaths = (async ({ paginate }) => {
 	const MAX_NOTES_PER_PAGE = 10;
 	const allNotes = await getCollection("note");
@@ -44,7 +46,7 @@ const paginationProps = {
 <PageLayout meta={meta}>
 	<section>
 		<h1 class="title mb-12 flex items-center gap-3">
-			Notes <a class="text-accent" href="/notes/rss.xml" target="_blank">
+			Notes <a class="text-accent" href={`${baseUrl}/notes/rss.xml`} target="_blank">
 				<span class="sr-only">RSS feed</span>
 				<Icon aria-hidden="true" class="h-6 w-6" focusable="false" name="mdi:rss" />
 			</a>

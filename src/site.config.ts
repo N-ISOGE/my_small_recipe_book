@@ -28,7 +28,8 @@ export const siteConfig: SiteConfig = {
 		- In the footer found in src/components/layout/Footer.astro L:12
 	*/
 	title: "my small recipe book",
-	url: "https://github.com/N-ISOGE/my_small_recipe_book/",
+	// GitHub Pages: origin only. The /my_small_recipe_book sub path is handled by `base` in astro.config.ts
+	url: "https://n-isoge.github.io",
 };
 
 // Used to generate links in both the Header & Footer.
@@ -46,7 +47,7 @@ export const menuLinks: { title: string; path: string }[] = [
 		title: "Blog",
 	},
 	{
-		path: "/notes/",
+		path: `${baseUrl}/notes/`,
 		title: "Notes",
 	},
 ];

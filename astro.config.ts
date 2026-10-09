@@ -62,7 +62,7 @@ export default defineConfig({
 					type: "image/png",
 				},
 			],
-			start_url: `/${baseUrl}/`,
+			start_url: `${baseUrl}/`,
 			background_color: "#1d1f21",
 			theme_color: "#2bbc8a",
 			display: "standalone",
