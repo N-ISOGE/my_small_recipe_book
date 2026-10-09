@@ -2,16 +2,22 @@
 import { WEBMENTION_PINGBACK, WEBMENTION_URL } from "astro:env/client";
 import { siteConfig } from "@/site.config";
 import type { SiteMeta } from "@/types";
+import { withBase } from "@/utils/url";
 import "@/styles/global.css";
 
 type Props = SiteMeta;
 
 const { articleDate, description, ogImage, title } = Astro.props;
-//const baseUrl = import.meta.env.BASE_URL;
+
 const titleSeparator = "•";
 const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const socialImageURL = new URL(ogImage ? ogImage : "/social-card.png", Astro.url).href;
+const socialImagePath = ogImage ?? "/social-card.png";
+// Root-relative paths need `base`, otherwise they resolve outside a sub path deployment (GitHub Pages)
+const socialImageURL = new URL(
+	socialImagePath.startsWith("/") ? withBase(socialImagePath) : socialImagePath,
+	Astro.url,
+).href;
 ---
 
 <meta charset="utf-8" />
@@ -19,26 +25,17 @@ const socialImageURL = new URL(ogImage ? ogImage : "/social-card.png", Astro.url
 <title>{siteTitle}</title>
 
 {/* Icons */}
-<link href="/icon.svg" rel="icon" type="image/svg+xml" />
+<link href={withBase("/icon.svg")} rel="icon" type="image/svg+xml" />
 {
 	import.meta.env.PROD && (
 		<>
-			{/* Favicon & Apple Icon */}
-			<link rel="icon" href="/favicon-32x32.png" type="image/png" />
-			<link href="icons/apple-touch-icon.png" rel="apple-touch-icon" />
+			{/* Favicon & Apple Icon, Generated at build */}
+			<link rel="icon" href={withBase("/favicon-32x32.png")} type="image/png" />
+			<link href={withBase("/icons/apple-touch-icon.png")} rel="apple-touch-icon" />
 			{/* Manifest */}
-			<link href="/manifest.webmanifest" rel="manifest" />
+			<link href={withBase("/manifest.webmanifest")} rel="manifest" />
 		</>
 	)
-}
-
-{
-	/* Icons / Favicon 
-<link href=`${baseUrl}/favicon.ico` rel="icon" sizes="any" />
-<link href=`${baseUrl}/icon.svg` rel="icon" type="image/svg+xml" />
-<link href=`${baseUrl}/apple-touch-icon.png` rel="apple-touch-icon" />
-<link href=`${baseUrl}/manifest.webmanifest` rel="manifest" />
-*/
 }
 
 {/* Canonical URL */}
@@ -76,12 +73,11 @@ const socialImageURL = new URL(ogImage ? ogImage : "/social-card.png", Astro.url
 <meta content={socialImageURL} property="twitter:image" />
 
 {/* Sitemap */}
-<link href="/sitemap-index.xml" rel="sitemap" />
+<link href={withBase("/sitemap-index.xml")} rel="sitemap" />
 
 {/* RSS auto-discovery */}
-<link href="/rss.xml" title="Blog" rel="alternate" type="application/rss+xml" />
-<link href="/notes/rss.xml" title="Notes" rel="alternate" type="application/rss+xml" />
-{/* href `${baseUrl}/rss.xml` */}
+<link href={withBase("/rss.xml")} title="Blog" rel="alternate" type="application/rss+xml" />
+<link href={withBase("/notes/rss.xml")} title="Notes" rel="alternate" type="application/rss+xml" />
 
 {/* Webmentions */}
 {
