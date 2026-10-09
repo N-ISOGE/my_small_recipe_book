@@ -29,7 +29,6 @@ Cloudflare Pages와 GitHub Pages 두 곳에 배포하고, 빌드되는 환경에
 ## 문서
 
 -   [원본(Astro Cactus) 업데이트 따라가기](docs/upstream-update.md)
--   [Obsidian 에서 쓴 글을 공개하기](docs/obsidian.md)
 
 ## License
 

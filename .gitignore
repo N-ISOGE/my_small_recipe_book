@@ -160,6 +160,3 @@ fabric.properties
 # https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij
 .idea/**/azureSettings.xml
 .aider*
-
-# Obsidian (when a content folder is opened as a vault)
-.obsidian/
