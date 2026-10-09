@@ -1,6 +1,7 @@
 import rss from "@astrojs/rss";
 import { getAllPosts } from "@/data/post";
 import { siteConfig } from "@/site.config";
+import { withBase } from "@/utils/url";
 
 export const GET = async () => {
 	const posts = await getAllPosts();
@@ -8,8 +9,8 @@ export const GET = async () => {
 	return rss({
 		title: siteConfig.title,
 		description: siteConfig.description,
-		// include `base` so the channel link and the relative item links stay under the GitHub Pages sub path
-		site: new URL(`${import.meta.env.BASE_URL}/`, import.meta.env.SITE),
+		// include `base` so the channel link and the relative item links stay under a sub path (GitHub Pages)
+		site: new URL(withBase("/"), import.meta.env.SITE),
 		items: posts.map((post) => ({
 			title: post.data.title,
 			description: post.data.description,

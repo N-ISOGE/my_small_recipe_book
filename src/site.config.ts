@@ -1,53 +1,53 @@
 import type { AstroExpressiveCodeOptions } from "astro-expressive-code";
 import type { SiteConfig } from "@/types";
 
-const baseUrl = import.meta.env.BASE_URL;
-
 export const siteConfig: SiteConfig = {
+	// Fallback only. astro.config.ts resolves the real `site`/`base` per deploy target
+	// (see src/utils/deploy-target.ts). Set `SITE_URL` to override it, e.g. on Cloudflare Pages.
+	url: "https://n-isoge.github.io",
+	/*
+		- Used to construct the meta title property found in src/components/BaseHead.astro L:11
+		- The webmanifest name found in astro.config.ts L:42
+		- The link value found in src/components/layout/Header.astro L:35
+		- In the footer found in src/components/layout/Footer.astro L:12
+	*/
+	title: "my small recipe book",
 	// Used as both a meta property (src/components/BaseHead.astro L:31 + L:49) & the generated satori png (src/pages/og-image/[slug].png.ts)
 	author: "N-ISOGE",
+	// Used as the default description meta property and webmanifest description
+	description: "작은 창고?",
+	// HTML lang property, found in src/layouts/Base.astro L:18 & astro.config.ts L:48
+	lang: "ko-KR",
+	// Meta property, found in src/components/BaseHead.astro L:42
+	ogLocale: "ko_KR",
+	// Determines whether to show the logo in the templates header
+	showLogo: true,
 	// Date.prototype.toLocaleDateString() parameters, found in src/utils/date.ts.
 	date: {
-		locale: "ko-KR",
 		options: {
 			day: "2-digit",
 			month: "2-digit",
 			year: "numeric",
 		},
 	},
-	// Meta property used as the default description meta property and webmanifest description
-	description: "작은 창고?",
-	// HTML lang property, found in src/layouts/Base.astro L:18  & astro.config.ts L:48
-	lang: "ko-KR",
-	// Meta property, found in src/components/BaseHead.astro L:42
-	ogLocale: "ko_KR",
-	/* 
-		- Used to construct the meta title property found in src/components/BaseHead.astro L:11 
-		- The webmanifest name found in astro.config.ts L:42
-		- The link value found in src/components/layout/Header.astro L:35
-		- In the footer found in src/components/layout/Footer.astro L:12
-	*/
-	title: "my small recipe book",
-	// GitHub Pages: origin only. The /my_small_recipe_book sub path is handled by `base` in astro.config.ts
-	url: "https://n-isoge.github.io",
 };
 
 // Used to generate links in both the Header & Footer.
-export const menuLinks: { title: string; path: string }[] = [
+export const menuLinks: { path: string; title: string }[] = [
 	{
-		path: `${baseUrl}/`,
+		path: "/",
 		title: "Home",
 	},
 	{
-		path: `${baseUrl}/about/`,
+		path: "/about/",
 		title: "About",
 	},
 	{
-		path: `${baseUrl}/post/`,
+		path: "/post/",
 		title: "Blog",
 	},
 	{
-		path: `${baseUrl}/notes/`,
+		path: "/notes/",
 		title: "Notes",
 	},
 ];

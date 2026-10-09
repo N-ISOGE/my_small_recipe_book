@@ -7,8 +7,7 @@ import Pagination from "@/components/Paginator.astro";
 import { getAllPosts, getUniqueTags, groupPostsByYear } from "@/data/post";
 import PageLayout from "@/layouts/Base.astro";
 import { collectionDateSort } from "@/utils/date";
-
-const baseUrl = import.meta.env.BASE_URL;
+import { withBase } from "@/utils/url";
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const MAX_POSTS_PER_PAGE = 10;
@@ -17,7 +16,11 @@ export const getStaticPaths = (async ({ paginate }) => {
 	const allPosts = await getAllPosts();
 	const allPostsByDate = allPosts.sort(collectionDateSort);
 	const uniqueTags = getUniqueTags(allPosts).slice(0, MAX_TAGS);
-	const pinnedPosts = allPostsByDate.filter((p) => p.data.pinned).slice(0, MAX_PINNED_POSTS);
+	const pinnedPosts = allPostsByDate
+		.values()
+		.filter((p) => p.data.pinned)
+		.take(MAX_PINNED_POSTS)
+		.toArray();
 	return paginate(allPostsByDate, {
 		pageSize: MAX_POSTS_PER_PAGE,
 		props: { uniqueTags, pinnedPosts },
@@ -59,7 +62,7 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 <PageLayout meta={meta}>
 	<div class="mb-12 flex items-center gap-3">
 		<h1 class="title">Posts</h1>
-		<a class="text-accent" href={`${baseUrl}/rss.xml`} target="_blank">
+		<a class="text-accent" href={withBase(`/rss.xml`)} target="_blank">
 			<span class="sr-only">RSS feed</span>
 			<Icon aria-hidden="true" class="h-6 w-6" focusable="false" name="mdi:rss" />
 		</a>
@@ -102,13 +105,12 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 		{
 			!!uniqueTags.length && (
 				<aside>
-					<h2 class="title mb-4 flex items-center gap-2 text-lg">
-						Tags
+					<h2 class="title mb-4 flex items-center gap-1 text-lg">
 						<svg
 							aria-hidden="true"
 							class="h-6 w-6"
 							fill="none"
-							stroke="currentColor"
+							stroke="var(--color-muted)"
 							stroke-linecap="round"
 							stroke-linejoin="round"
 							stroke-width="1.5"
@@ -120,13 +122,14 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 							<path d="M17.573 18.407l2.834 -2.834a2.025 2.025 0 0 0 0 -2.864l-7.117 -7.116" />
 							<path d="M6 9h-.01" />
 						</svg>
+						Tags
 					</h2>
 					<ul class="flex flex-wrap gap-2">
 						{uniqueTags.map((tag) => (
 							<li>
 								<a
 									class="cactus-link flex items-center justify-center"
-									href={`${baseUrl}/tags/${tag}/`}
+									href={withBase(`/tags/${tag}/`)}
 								>
 									<span aria-hidden="true">#</span>
 									<span class="sr-only">View all posts with the tag</span>
@@ -136,7 +139,7 @@ const descYearKeys = Object.keys(groupedByYear).sort((a, b) => +b - +a);
 						))}
 					</ul>
 					<span class="mt-4 block sm:text-end">
-						<a class="hover:text-link" href={`${baseUrl}/tags/`}>
+						<a class="hover:text-link" href={withBase(`/tags/`)}>
 							View all <span aria-hidden="true">→</span>
 							<span class="sr-only">blog tags</span>
 						</a>
