@@ -2,18 +2,23 @@
 import Search from "@/components/Search.astro";
 import ThemeToggle from "@/components/ThemeToggle.astro";
 import { menuLinks } from "@/site.config";
-
-// const baseUrl = import.meta.env.BASE_URL;
+import { isCurrentPath, withBase } from "@/utils/url";
+import { siteConfig } from "../../site.config";
 ---
 
-<header class="group relative mb-28 flex items-center sm:ps-18" id="main-header">
-	<div class="flex sm:flex-col">
+<header
+	class:list={["group relative mb-28 flex items-center", siteConfig.showLogo && "sm:ps-18"]}
+	id="main-header"
+>
+	<div class="flex sm:flex-col sm:items-start">
 		<a
-			aria-current={Astro.url.pathname === "/" ? "page" : false}
+			aria-current={isCurrentPath(Astro.url.pathname, "/") ? "page" : false}
 			class="inline-flex items-center sm:relative sm:inline-block sm:grayscale sm:hover:filter-none"
-			href="/"
+			href={withBase("/")}
 		>
-			<svg
+			{
+				siteConfig.showLogo && (
+					<svg
 				class="me-3 h-10 w-6 sm:absolute sm:start-[-4.5rem] sm:me-0 sm:h-20 sm:w-12"
 				version="1.1"
 				id="Layer_1"
@@ -88,19 +93,21 @@ import { menuLinks } from "@/site.config";
    ZGlmeQAyMDI0LTAxLTE5VDA5OjE2OjMyKzAxOjAwRvbcSwAAAABJRU5ErkJggg=="
 				/>
 			</svg>
-			<span class="text-xl font-bold sm:text-2xl">my_small_recipe_book</span>
+				)
+			}
+			<span class="text-accent-2 text-xl font-bold sm:text-2xl">my_small_recipe_book</span>
 		</a>
 		<nav
-			aria-label="Main menu"
+			aria-label="Main"
 			class="bg-global-bg absolute -inset-x-4 top-12 hidden flex-col divide-y px-2 py-4 group-[.menu-open]:z-50 group-[.menu-open]:flex sm:static sm:z-auto sm:-ms-4 sm:mt-1 sm:flex sm:flex-row sm:divide-x sm:divide-y-0 sm:bg-transparent sm:p-0"
 			id="navigation-menu"
 		>
 			{
 				menuLinks.map((link) => (
 					<a
-						aria-current={Astro.url.pathname === link.path ? "page" : false}
+						aria-current={isCurrentPath(Astro.url.pathname, link.path) ? "page" : false}
 						class="text-accent px-2 py-4 font-semibold sm:px-4 sm:py-0 sm:underline-offset-2 sm:hover:underline"
-						href={link.path}
+						href={withBase(link.path)}
 					>
 						{link.title}
 					</a>
@@ -136,7 +143,6 @@ import { menuLinks } from "@/site.config";
 			<svg
 				aria-hidden="true"
 				class="text-accent absolute start-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 scale-0 opacity-0 transition-all group-aria-expanded:scale-100 group-aria-expanded:opacity-100"
-				class="text-accent"
 				fill="none"
 				focusable="false"
 				id="cross-svg"

@@ -1,34 +1,35 @@
 import fs from "node:fs";
-// Rehype plugins
-import { rehypeHeadingIds } from "@astrojs/markdown-remark";
+import { satteri, satteriHeadingIdsPlugin } from "@astrojs/markdown-satteri";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@tailwindcss/vite";
 import { defineConfig, envField } from "astro/config";
 import expressiveCode from "astro-expressive-code";
 import icon from "astro-icon";
-import rehypeAstroRelativeMarkdownLinks from "astro-rehype-relative-markdown-links";
 import robotsTxt from "astro-robots-txt";
 import webmanifest from "astro-webmanifest";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypeExternalLinks from "rehype-external-links";
-import rehypeUnwrapImages from "rehype-unwrap-images";
-// Remark plugins
-import remarkDirective from "remark-directive"; /* Handle ::: directives as nodes */
-import { remarkAdmonitions } from "./src/plugins/remark-admonitions"; /* Add admonitions */
-import { remarkGithubCard } from "./src/plugins/remark-github-card";
-import { remarkReadingTime } from "./src/plugins/remark-reading-time";
+import { satteriAdmonitionsPlugin } from "./src/plugins/admonitions";
+import { satteriGithubCardPlugin } from "./src/plugins/github-cards";
+import {
+	satteriAutolinkHeadingsPlugin,
+	satteriExternalLinksPlugin,
+	satteriFootnoteLabelPlugin,
+	satteriReadingTimePlugin,
+	satteriUnwrapImagesPlugin,
+} from "./src/plugins/satteri";
 import { expressiveCodeOptions, siteConfig } from "./src/site.config";
+import { resolveDeployTarget } from "./src/utils/deploy-target";
 
-// Extract repo info for base URL calculation
-const owner = import.meta.env.VITE_GITHUB_REPOSITORY_OWNER;
-const repoName = import.meta.env.VITE_GITHUB_REPOSITORY;
-const baseUrl = getBaseUrl();
+// `site` and `base` depend on where the site is built: GitHub Pages is served from a sub path
+// (/<repo>), Cloudflare Pages from the domain root. See src/utils/deploy-target.ts.
+const { site, base } = resolveDeployTarget(process.env, siteConfig.url);
 
 // https://astro.build/config
 export default defineConfig({
-	site: siteConfig.url,
-	base: baseUrl,
+	site,
+	base,
+	// https://docs.astro.build/en/guides/prefetch/
+	prefetch: true,
 	image: {
 		domains: ["webmention.io"],
 	},
@@ -41,7 +42,7 @@ export default defineConfig({
 		webmanifest({
 			// See: https://github.com/alextim/astro-lib/blob/main/packages/astro-webmanifest/README.md
 			name: siteConfig.title,
-			short_name: "MLRB", // optional
+			short_name: "MLRB",
 			description: siteConfig.description,
 			lang: siteConfig.lang,
 			icon: "public/icon.svg", // the source for generating favicon & icons
@@ -62,7 +63,7 @@ export default defineConfig({
 					type: "image/png",
 				},
 			],
-			start_url: `/${baseUrl}/`,
+			start_url: base === "/" ? "/" : `${base}/`,
 			background_color: "#1d1f21",
 			theme_color: "#2bbc8a",
 			display: "standalone",
@@ -74,38 +75,24 @@ export default defineConfig({
 		}),
 	],
 	markdown: {
-		rehypePlugins: [
-			rehypeHeadingIds,
-			[rehypeAutolinkHeadings, { behavior: "wrap", properties: { className: ["not-prose"] } }],
-			[
-				rehypeExternalLinks,
-				{
-					rel: ["noreferrer", "noopener"],
-					target: "_blank",
-				},
+		processor: satteri({
+			features: { directive: true },
+			mdastPlugins: [
+				satteriUnwrapImagesPlugin(),
+				satteriReadingTimePlugin(),
+				satteriGithubCardPlugin(),
+				satteriAdmonitionsPlugin(),
 			],
-			[
-				rehypeAstroRelativeMarkdownLinks,
-				{
-					base: baseUrl,
-				},
+			hastPlugins: [
+				satteriHeadingIdsPlugin(),
+				satteriAutolinkHeadingsPlugin(),
+				satteriFootnoteLabelPlugin(),
+				satteriExternalLinksPlugin(),
 			],
-			rehypeUnwrapImages,
-		],
-		remarkPlugins: [remarkReadingTime, remarkDirective, remarkGithubCard, remarkAdmonitions],
-		remarkRehype: {
-			footnoteLabelProperties: {
-				className: [""],
-			},
-		},
+		}),
 	},
-	// https://docs.astro.build/en/guides/prefetch/
-	prefetch: true,
 	vite: {
-		optimizeDeps: {
-			exclude: ["@resvg/resvg-js"],
-		},
-		plugins: [tailwind(), rawFonts([".ttf", ".woff"])] as any,
+		plugins: [tailwind(), rawFonts([".ttf", ".woff"])],
 	},
 	env: {
 		schema: {
@@ -117,24 +104,18 @@ export default defineConfig({
 });
 
 function rawFonts(ext: string[]) {
-    return {
-        name: "vite-plugin-raw-fonts",
-        // @ts-expect-error:next-line
-        transform(_, id) {
-            if (ext.some((e) => id.endsWith(e))) {
-                const buffer = fs.readFileSync(id);
-                return {
-                    code: `export default ${JSON.stringify(buffer)}`,
-                    map: null,
-                };
-            }
-        },
-    };
-}
-
-function getBaseUrl() {
-    if (typeof owner === "string" && typeof repoName === "string") {
-        return repoName.substring(owner.length);
-    }
-    return ".";
+	return {
+		name: "vite-plugin-raw-fonts",
+		// @ts-expect-error:next-line
+		transform(_, id) {
+			if (ext.some((e) => id.endsWith(e))) {
+				const buffer = fs.readFileSync(id);
+				return {
+					code: `export default ${JSON.stringify(buffer)}`,
+					map: null,
+					moduleType: "js",
+				};
+			}
+		},
+	};
 }

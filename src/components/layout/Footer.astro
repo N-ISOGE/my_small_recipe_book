@@ -1,15 +1,18 @@
 ---
+import { Icon } from "astro-icon/components";
 import { menuLinks, siteConfig } from "@/site.config";
+import { withBase } from "@/utils/url";
 
 const year = new Date().getFullYear();
 ---
 
 <footer
-	class="mt-auto flex w-full flex-col items-center justify-center gap-y-2 pt-20 pb-4 text-center align-top font-semibold text-gray-600 sm:flex-row sm:justify-between sm:text-xs dark:text-gray-400"
+	class="text-muted mt-auto flex w-full flex-col items-center justify-center gap-y-2 pt-20 pb-4 text-center align-top font-semibold sm:flex-row sm:justify-between sm:text-xs"
 >
 	<div class="me-0 sm:me-4">
-		&copy; {siteConfig.author}
-		{year}.<span class="inline-block">&nbsp;🚀&nbsp;{siteConfig.title}</span>
+		&copy; {siteConfig.author}{" "}{year}.<span class="inline-flex items-center gap-1.5 align-middle">
+			<Icon aria-hidden="true" class="h-5 w-5" focusable="false" name="mdi:duck" />{siteConfig.title}
+		</span>
 	</div>
 
 	<div class="me-0 sm:me-4">
@@ -21,14 +24,10 @@ const year = new Date().getFullYear();
 		/>
 	</div>
 
-	<nav
-		aria-labelledby="footer_links"
-		class="flex gap-x-2 sm:gap-x-0 sm:divide-x sm:divide-gray-500"
-	>
-		<p id="footer_links" class="sr-only">More on this site</p>
+	<nav aria-label="Footer" class="sm:divide-muted flex gap-x-2 sm:gap-x-0 sm:divide-x">
 		{
 			menuLinks.map((link) => (
-				<a class="hover:text-global-text px-4 py-2 hover:underline sm:py-0" href={link.path}>
+				<a class="hover:text-global-text px-4 py-2 hover:underline sm:py-0" href={withBase(link.path)}>
 					{link.title}
 				</a>
 			))
