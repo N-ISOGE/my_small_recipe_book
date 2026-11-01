@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Use environment variables
         run: |
@@ -28,7 +28,7 @@ jobs:
           WEBMENTION_API_KEY: ${{secrets.WEBMENTION_API_KEY}}
 
       - name: Install, build, and upload your site
-        uses: withastro/action@v5
+        uses: withastro/action@v6
         with:
           # path: . # The root location of your Astro project inside the repository. (optional)
           # Keep this on the same major as ci.yml / preview.yml (and the Cloudflare Pages v3 image, pnpm 10).
@@ -45,4 +45,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
